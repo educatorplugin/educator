@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Educator 2
  * Plugin URI: http://educatorplugin.com/
- * Description: Sell courses online
+ * Description: Sell and teach online courses
  * Author: educatorteam
  * Author URI: http://educatorplugin.com/
  * Version: 2.0
