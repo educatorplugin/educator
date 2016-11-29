@@ -27,15 +27,21 @@
 }
 
 .edr-syllabus .group-title {
-	font-size: 1.2rem;
-	line-height: 1.25;
 	margin: 0;
+}
+
+.edr-lessons .lesson {
+    margin: 0 0 10px;
+}
+
+.edr-lessons .lesson-excerpt p {
+    margin: 0;
 }
 
 /* Breadcrumbs */
 .edr-breadcrumbs {
 	list-style: none;
-	margin: 0 0 10px;
+	margin: 0 0 2em;
 	padding: 0;
 }
 
@@ -61,8 +67,6 @@
 
 /* Form */
 .edr-form__legend {
-	font-size: 1.2rem;
-	line-height: 1.25;
 	margin: 0 0 10px;
 }
 
@@ -72,7 +76,7 @@
 }
 
 .edr-field {
-	margin: 0 0 10px;
+	margin: 0 0 20px;
 }
 
 .edr-radio input {
@@ -82,28 +86,16 @@
 /* Courses and memberships shortcodes */
 .edr-course,
 .edr-membership {
-	margin: 0 0 20px;
+	margin: 0 0 2em;
 }
 
 .edr-course__image {
 	margin: 0 0 10px;
 }
 
-.edr-course__header,
-.edr-membership__header {
-	margin: 0 0 10px;
-}
-
-.edr-course .edr-course__title,
-.edr-membership .edr-membership__title {
-	font-size: 1.4rem;
-	line-height: 1.25;
-	margin: 0 0 .5rem;
-}
-
 /* Lists */
 .edr-dl {
-	margin: 0 0 10px;
+	margin: 0 0 20px;
 }
 
 .edr-dl dd {
@@ -117,14 +109,18 @@
 
 /* Payment Information */
 .edr-payment-table {
-	margin: 0 0 10px;
+	margin: 0 0 20px;
 }
 
 /* Payment Methods */
 .edr-payment-methods {
 	list-style: none;
-	margin: 0 0 10px;
+	margin: 0 0 20px;
 	padding: 0;
+}
+
+.edr-payment-methods li {
+    margin: 0 0 5px;
 }
 
 /* My Courses Page */
@@ -159,12 +155,8 @@
 	margin: 0 0 20px;
 }
 
-.lessons-nav-links a {
-	display: inline-block;
-}
-
 .lessons-nav-links .hint {
-	display: block;
+    margin-right: 10px;
 }
 
 /* Quiz */
