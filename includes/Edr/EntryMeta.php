@@ -2,7 +2,6 @@
 
 class Edr_EntryMeta {
 	protected static $instance = null;
-	protected $tbl_entrymeta;
 
 	public static function get_instance() {
 		if ( is_null( self::$instance ) ) {
@@ -13,30 +12,28 @@ class Edr_EntryMeta {
 	}
 
 	public function __construct() {
-		$tables = edr_db_tables();
-		$this->tbl_entrymeta = $tables['entry_meta'];
-
 		add_action( 'plugins_loaded', array( $this, 'register_table' ) );
 	}
 
 	public function register_table() {
 		global $wpdb;
-		$wpdb->entrymeta = $this->tbl_entrymeta;
+		$tables = edr_db_tables();
+		$wpdb->edr_entrymeta = $tables['entry_meta'];
 	}
 
 	public function get_meta( $entry_id, $meta_key = '', $single = false ) {
-		return get_metadata( 'entry', $entry_id, $meta_key, $single );
+		return get_metadata( 'edr_entry', $entry_id, $meta_key, $single );
 	}
 
 	public function add_meta( $entry_id, $meta_key, $meta_value, $unique = false ) {
-		return add_metadata( 'entry', $entry_id, $meta_key, $meta_value, $unique );
+		return add_metadata( 'edr_entry', $entry_id, $meta_key, $meta_value, $unique );
 	}
 
 	public function update_meta( $entry_id, $meta_key, $meta_value, $prev_value = '' ) {
-		return update_metadata( 'entry', $entry_id, $meta_key, $meta_value, $prev_value );
+		return update_metadata( 'edr_entry', $entry_id, $meta_key, $meta_value, $prev_value );
 	}
 
 	public function delete_meta( $entry_id, $meta_key, $meta_value = null ) {
-		return delete_metadata( 'entry', $entry_id, $meta_key, $meta_value );
+		return delete_metadata( 'edr_entry', $entry_id, $meta_key, $meta_value );
 	}
 }

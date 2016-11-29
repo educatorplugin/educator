@@ -39,10 +39,10 @@ function edr_get_option( $section, $key = null ) {
  */
 function edr_db_tables() {
 	static $tables = null;
-	global $wpdb;
-	$prefix = $wpdb->prefix . 'edr_';
 
 	if ( is_null( $tables ) ) {
+		global $wpdb;
+		$prefix = $wpdb->prefix . 'edr_';
 		$tables = array(
 			'payments'      => $prefix . 'payments',
 			'entries'       => $prefix . 'entries',

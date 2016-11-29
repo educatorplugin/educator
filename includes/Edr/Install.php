@@ -269,11 +269,11 @@ CREATE TABLE $this->members (
 ) $charset_collate;
 CREATE TABLE $this->entry_meta (
   meta_id bigint(20) unsigned NOT NULL auto_increment,
-  entry_id bigint(20) unsigned NOT NULL,
+  edr_entry_id bigint(20) unsigned NOT NULL,
   meta_key varchar(255) NULL,
   meta_value longtext NULL,
   PRIMARY KEY  (meta_id),
-  KEY entry_id (entry_id),
+  KEY entry_id (edr_entry_id),
   KEY meta_key (meta_key)
 ) $charset_collate;";
 
