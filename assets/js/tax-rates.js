@@ -14,7 +14,7 @@
 		sync: function(method, model, options) {
 			options || (options = {});
 			options.url = ajaxurl;
-			
+
 			switch (method) {
 				case 'read':
 					break;

@@ -21,7 +21,7 @@
 }
 
 #edr-syllabus .remove-group {
-    float: right;
+	float: right;
 }
 
 #edr-syllabus .add-lesson-container > div {
@@ -29,7 +29,7 @@
 }
 
 #edr-syllabus .actions {
-    float: right;
+	float: right;
 }
 
 #edr-syllabus .handle {
@@ -56,6 +56,6 @@
 }
 
 #edr-syllabus .lesson h4 a {
-    display: inline-block;
+	display: inline-block;
 	text-decoration: none;
 }

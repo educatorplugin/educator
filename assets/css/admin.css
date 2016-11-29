@@ -12,53 +12,53 @@
 .edr-action-btn {
 	background: #f7f7f7;
 	border: 1px solid #ddd;
-    border-radius: 3px;
-    box-sizing: border-box;
+	border-radius: 3px;
+	box-sizing: border-box;
 	color: #999;
 	cursor: pointer;
 	display: inline-block;
 	height: 28px;
 	line-height: 26px;
 	padding: 0;
-    text-align: center;
-    text-decoration: none;
+	text-align: center;
+	text-decoration: none;
 	width: 28px;
 }
 
 .edr-action-btn:active,
 .edr-action-btn:focus,
 .edr-action-btn:hover {
-    background: #fafafa;
-    border-color: #999;
-    box-shadow: none;
-    color: #23282d;
+	background: #fafafa;
+	border-color: #999;
+	box-shadow: none;
+	color: #23282d;
 }
 
 .edr-action-btn span {
-    font-size: 17px;
-    vertical-align: middle;
+	font-size: 17px;
+	vertical-align: middle;
 }
 
 /* Spinner ---------------*/
 .edr-spinner {
-    animation: edr-spinner 1s infinite linear;
-    border: 4px solid #ddd;
-    border-top: 4px solid #999;
-    border-radius: 50%;
-    display: none;
-    height: 16px;
-    transform: translateZ(0);
-    will-change: transform;
-    width: 16px;
+	animation: edr-spinner 1s infinite linear;
+	border: 4px solid #ddd;
+	border-top: 4px solid #999;
+	border-radius: 50%;
+	display: none;
+	height: 16px;
+	transform: translateZ(0);
+	will-change: transform;
+	width: 16px;
 }
 
 .edr-spinner_visible {
-    display: inline-block;
+	display: inline-block;
 }
 
 @keyframes edr-spinner {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
 }
 
 /* Sortable handles ---------------*/
@@ -81,76 +81,76 @@
 
 /* EdrLib - Notice ---------------*/
 .edr-notice {
-    border: 1px solid transparent;
-    border-radius: 4px;
-    height: 38px;
-    line-height: 38px;
-    margin: -20px 0 0 10px;
-    opacity: 0;
-    position: absolute;
-    text-align: center;
-    width: 38px;
-    z-index: 9999;
-    transition: opacity .4s ease-out;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	height: 38px;
+	line-height: 38px;
+	margin: -20px 0 0 10px;
+	opacity: 0;
+	position: absolute;
+	text-align: center;
+	width: 38px;
+	z-index: 9999;
+	transition: opacity .4s ease-out;
 }
 
 .edr-notice span {
-    font-size: 26px;
-    height: auto;
-    vertical-align: middle;
-    width: auto;
+	font-size: 26px;
+	height: auto;
+	vertical-align: middle;
+	width: auto;
 }
 
 .edr-notice:before,
 .edr-notice:after {
-    border-style: solid;
-    border-width: 7px 7px 7px 0;
-    content: '';
-    display: block;
-    left: -7px;
-    margin: -7px 0 0;
-    position: absolute;
-    top: 50%;
-    height: 0;
-    width: 0;
+	border-style: solid;
+	border-width: 7px 7px 7px 0;
+	content: '';
+	display: block;
+	left: -7px;
+	margin: -7px 0 0;
+	position: absolute;
+	top: 50%;
+	height: 0;
+	width: 0;
 }
 
 .edr-notice:after {
-    border-width: 5px 5px 5px 0;
-    left: -5px;
-    margin-top: -5px;
+	border-width: 5px 5px 5px 0;
+	left: -5px;
+	margin-top: -5px;
 }
 
 .edr-notice_visible {
-    opacity: 1;
+	opacity: 1;
 }
 
 .edr-notice_success {
-    background: #C8FFB6;
-    border-color: #98D285;
-    color: #5C9A47;
+	background: #C8FFB6;
+	border-color: #98D285;
+	color: #5C9A47;
 }
 
 .edr-notice_success:before {
-    border-color: transparent #98D285 transparent transparent;
+	border-color: transparent #98D285 transparent transparent;
 }
 
 .edr-notice_success:after {
-    border-color: transparent #C8FFB6 transparent transparent;
+	border-color: transparent #C8FFB6 transparent transparent;
 }
 
 .edr-notice_error {
-    background: #FFB6B6;
-    border-color: #D28585;
-    color: #A94F4F;
+	background: #FFB6B6;
+	border-color: #D28585;
+	color: #A94F4F;
 }
 
 .edr-notice_error:before {
-    border-color: transparent #D28585 transparent transparent;
+	border-color: transparent #D28585 transparent transparent;
 }
 
 .edr-notice_error:after {
-    border-color: transparent #FFB6B6 transparent transparent;
+	border-color: transparent #FFB6B6 transparent transparent;
 }
 
 /* Edit payment page ---------------*/
@@ -325,87 +325,87 @@
 /* Edit quiz grade ---------------*/
 .edr-quiz-grade_closed .edr-field_quiz-answers,
 .edr-quiz-grade_closed .edr-quiz-grade-form {
-    display: none;
+	display: none;
 }
 
 .edr-quiz-grade__title {
-    color: #0073aa;
-    cursor: pointer;
-    font-size: 1.1em;
-    font-weight: bold;
+	color: #0073aa;
+	cursor: pointer;
+	font-size: 1.1em;
+	font-weight: bold;
 }
 
 .edr-quiz-grade__title span {
-    vertical-align: middle;
+	vertical-align: middle;
 }
 
 .edr-quiz-grade__title:before {
-    content: '\f140';
-    display: inline;
-    font-family: 'dashicons';
-    font-size: 18px;
-    vertical-align: middle;
+	content: '\f140';
+	display: inline;
+	font-family: 'dashicons';
+	font-size: 18px;
+	vertical-align: middle;
 }
 
 .edr-quiz-grade_closed .edr-quiz-grade__title:before {
-    content: '\f139';
+	content: '\f139';
 }
 
 .edr-quiz-grade__title:hover {
-    color: #00a0d2;
+	color: #00a0d2;
 }
 
 .edr-quiz-answers {
-    margin: 0;
+	margin: 0;
 }
 
 .edr-quiz-answers__answer {
-    margin: 0;
+	margin: 0;
 }
 
 .edr-quiz-answers__answer + .edr-quiz-answers__answer {
-    margin-top: 1em;
+	margin-top: 1em;
 }
 
 .edr-quiz-answers__answer__status {
-    background: #fff;
-    border: 1px solid #ddd;
-    float: left;
-    height: 58px;
-    line-height: 58px;
-    text-align: center;
-    width: 58px;
+	background: #fff;
+	border: 1px solid #ddd;
+	float: left;
+	height: 58px;
+	line-height: 58px;
+	text-align: center;
+	width: 58px;
 }
 
 .edr-quiz-answers__answer__status span {
-    vertical-align: middle;
+	vertical-align: middle;
 }
 
 .edr-quiz-answers__answer__question,
 .edr-quiz-answers__answer__result {
-    margin-left: 80px;
+	margin-left: 80px;
 }
 
 .edr-quiz-answers__answer__question {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .edr-quiz-answers__answer__result {
-    margin-top: .5em;
+	margin-top: .5em;
 }
 
 .edr-quiz-grade-form input,
 .edr-quiz-grade-form label,
 .edr-quiz-grade-form .percentage {
-    vertical-align: middle;
+	vertical-align: middle;
 }
 
 .edr-quiz-grade-form label {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .edr-quiz-grade-form .edr-info {
-    margin: 5px 0 0;
+	margin: 5px 0 0;
 }
 
 /* Tables */

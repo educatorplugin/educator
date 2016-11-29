@@ -16,20 +16,20 @@
 	color: #222;
 	cursor: move;
 	display: block;
-    min-height: 34px;
+	min-height: 34px;
 	outline: none;
 	position: relative;
 	text-decoration: none;
 }
 
 .edr-question__header:hover {
-    color: #222;
+	color: #222;
 }
 
 .edr-question__label {
 	display: block;
 	font-weight: bold;
-    line-height: 18px;
+	line-height: 18px;
 	padding: 8px 10px;
 }
 
