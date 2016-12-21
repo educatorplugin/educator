@@ -26,7 +26,7 @@ class Edr_Admin_PostTypes {
 			$new_columns[ $key ] = $value;
 
 			if ( 'title' == $key ) {
-				$new_columns['course'] = __( 'Course', 'edr' );
+				$new_columns['course'] = __( 'Course', 'educator' );
 			}
 		}
 
@@ -70,7 +70,7 @@ class Edr_Admin_PostTypes {
 			if ( $courses ) {
 				$selected_course = isset( $_GET['edr_course'] ) ? intval( $_GET['edr_course'] ) : 0;
 				echo '<select name="edr_course">';
-				echo '<option value="0">' . __( 'All courses', 'edr' ) . '</option>';
+				echo '<option value="0">' . __( 'All courses', 'educator' ) . '</option>';
 				foreach ( $courses as $course ) {
 					echo '<option value="' . absint( $course->ID ) . '"' . ( $course->ID == $selected_course ? ' selected="selected"' : '' )
 						 . '>' . esc_html( $course->post_title ) . '</option>';

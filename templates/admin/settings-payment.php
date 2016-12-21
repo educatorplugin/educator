@@ -22,15 +22,15 @@ $message = isset( $_GET['edr-message'] ) ? $_GET['edr-message'] : '';
 ?>
 
 <div class="wrap">
-	<h2><?php _e( 'Educator Settings', 'edr' ); ?></h2>
+	<h2><?php _e( 'Educator Settings', 'educator' ); ?></h2>
 
 	<?php if ( 'saved' == $message ) : ?>
 	<div id="message" class="updated below-h2">
-		<p><?php _e( 'Payment options updated.', 'edr' ); ?></p>
+		<p><?php _e( 'Payment options updated.', 'educator' ); ?></p>
 	</div>
 	<?php elseif ( 'not_saved' == $message ) : ?>
 	<div id="message" class="updated below-h2">
-		<p><?php _e( 'Update failed or options values have not changed.', 'edr' ); ?></p>
+		<p><?php _e( 'Update failed or options values have not changed.', 'educator' ); ?></p>
 	</div>
 	<?php endif; ?>
 
@@ -43,7 +43,7 @@ $message = isset( $_GET['edr-message'] ) ? $_GET['edr-message'] : '';
 	?>
 
 	<ul class="edr-tabs">
-		<li class="title"><span><?php _e( 'Payment Gateways:', 'edr' ); ?></span></li>
+		<li class="title"><span><?php _e( 'Payment Gateways:', 'educator' ); ?></span></li>
 		<?php foreach ( $gateways as $id => $obj ) : ?>
 			<?php
 				if ( ! $obj->is_editable() ) {

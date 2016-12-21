@@ -57,8 +57,8 @@ class Edr_Admin_QuizGradesTable extends WP_List_Table {
 	 */
 	public function display_quiz_grade_filters() {
 		$statuses = array(
-			'pending'  => __( 'Pending', 'edr' ),
-			'approved' => __( 'Approved', 'edr' ),
+			'pending'  => __( 'Pending', 'educator' ),
+			'approved' => __( 'Approved', 'educator' ),
 		);
 		$permission = $this->get_permission_to_edit();
 		$own_quiz_posts = $this->get_quiz_posts(
@@ -69,9 +69,9 @@ class Edr_Admin_QuizGradesTable extends WP_List_Table {
 			<form class="edr-admin-filters" action="<?php echo esc_url( admin_url( 'admin.php' ) ); ?>" method="get">
 				<input type="hidden" name="page" value="edr_admin_quiz_grades">
 				<div class="block">
-					<label for="search-quiz-grade-status"><?php _e( 'Status', 'edr' ); ?></label>
+					<label for="search-quiz-grade-status"><?php _e( 'Status', 'educator' ); ?></label>
 					<select id="search-quiz-grade-status" name="status">
-						<option value="all"><?php _e( 'All', 'edr' ); ?></option>
+						<option value="all"><?php _e( 'All', 'educator' ); ?></option>
 						<?php
 							foreach ( $statuses as $status_key => $status_label ) {
 								$selected = ( $this->filters_input['status'] == $status_key )
@@ -83,9 +83,9 @@ class Edr_Admin_QuizGradesTable extends WP_List_Table {
 					</select>
 				</div>
 				<div class="block">
-					<label for="search-quiz-grade-post"><?php _e( 'Post', 'edr' ); ?></label>
+					<label for="search-quiz-grade-post"><?php _e( 'Post', 'educator' ); ?></label>
 					<select id="search-quiz-grade-post" name="post">
-						<option value="all"><?php _e( 'All', 'edr' ); ?></option>
+						<option value="all"><?php _e( 'All', 'educator' ); ?></option>
 						<?php
 							foreach ( $own_quiz_posts as $post ) {
 								$selected = ( $this->filters_input['post'] == $post->ID )
@@ -97,7 +97,7 @@ class Edr_Admin_QuizGradesTable extends WP_List_Table {
 					</select>
 				</div>
 				<div class="block">
-					<input type="submit" class="button" value="<?php _e( 'Search', 'edr' ); ?>">
+					<input type="submit" class="button" value="<?php _e( 'Search', 'educator' ); ?>">
 				</div>
 			</form>
 		</div>
@@ -112,12 +112,12 @@ class Edr_Admin_QuizGradesTable extends WP_List_Table {
 	public function get_columns() {
 		$columns = array(
 			'cb'     => '<input type="checkbox">',
-			'ID'     => _x( 'ID', 'ID of an item', 'edr' ),
-			'user'   => __( 'User', 'edr' ),
-			'post'   => __( 'Post', 'edr' ),
-			'entry'  => __( 'Entry', 'edr' ),
-			'status' => __( 'Status', 'edr' ),
-			'grade'  => __( 'Grade', 'edr' ),
+			'ID'     => _x( 'ID', 'ID of an item', 'educator' ),
+			'user'   => __( 'User', 'educator' ),
+			'post'   => __( 'Post', 'educator' ),
+			'entry'  => __( 'Entry', 'educator' ),
+			'status' => __( 'Status', 'educator' ),
+			'grade'  => __( 'Grade', 'educator' ),
 		);
 
 		return $columns;
@@ -156,10 +156,10 @@ class Edr_Admin_QuizGradesTable extends WP_List_Table {
 		$delete_url = wp_nonce_url( $delete_url, 'edr_delete_quiz_grade_' . $item->ID );
 
 		$actions = array();
-		$actions['edit'] = '<a href="' . esc_url( $edit_url ) . '">' . __( 'Edit', 'edr' ) . '</a>';
+		$actions['edit'] = '<a href="' . esc_url( $edit_url ) . '">' . __( 'Edit', 'educator' ) . '</a>';
 
 		if ( current_user_can( 'manage_educator' ) ) {
-			$actions['delete'] = '<a href="' . esc_url( $delete_url ) . '" class="delete-quiz-grade">' . __( 'Delete', 'edr' ) . '</a>';
+			$actions['delete'] = '<a href="' . esc_url( $delete_url ) . '" class="delete-quiz-grade">' . __( 'Delete', 'educator' ) . '</a>';
 		}
 
 		return intval( $item->ID ) . $this->row_actions( $actions );
@@ -209,7 +209,7 @@ class Edr_Admin_QuizGradesTable extends WP_List_Table {
 			), admin_url( 'admin.php' ) );
 
 			$entry_link = sprintf( '<a href="%s" target="_blank" title="%s">%d</a>',
-				esc_url( $url_edit_entry ), __( 'Edit Entry', 'edr' ), $item->entry_id );
+				esc_url( $url_edit_entry ), __( 'Edit Entry', 'educator' ), $item->entry_id );
 		}
 
 		return $entry_link;
@@ -242,7 +242,7 @@ class Edr_Admin_QuizGradesTable extends WP_List_Table {
 	 */
 	public function get_bulk_actions() {
 		$actions = array(
-			'delete' => __( 'Delete', 'edr' ),
+			'delete' => __( 'Delete', 'educator' ),
 		);
 
 		return $actions;

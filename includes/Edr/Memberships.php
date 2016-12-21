@@ -44,10 +44,10 @@ class Edr_Memberships {
 	 */
 	public function get_periods() {
 		return array(
-			'onetime' => __( 'Onetime Fee', 'edr' ),
-			'days'    => __( 'Day(s)', 'edr' ),
-			'months'  => __( 'Month(s)', 'edr' ),
-			'years'   => __( 'Year(s)', 'edr' ),
+			'onetime' => __( 'Onetime Fee', 'educator' ),
+			'days'    => __( 'Day(s)', 'educator' ),
+			'months'  => __( 'Month(s)', 'educator' ),
+			'years'   => __( 'Year(s)', 'educator' ),
 		);
 	}
 
@@ -58,8 +58,8 @@ class Edr_Memberships {
 	 */
 	public function get_statuses() {
 		return array(
-			'expired' => __( 'Expired', 'edr' ),
-			'active'  => __( 'Active', 'edr' ),
+			'expired' => __( 'Expired', 'educator' ),
+			'active'  => __( 'Active', 'educator' ),
 		);
 	}
 

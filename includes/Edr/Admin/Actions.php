@@ -56,7 +56,7 @@ class Edr_Admin_Actions {
 				if ( ! empty( $_POST['student_id'] ) ) {
 					$entry->user_id = intval( $_POST['student_id'] );
 				} else {
-					$errors->add( 'no_student', __( 'Please select a student.', 'edr' ) );
+					$errors->add( 'no_student', __( 'Please select a student.', 'educator' ) );
 				}
 			}
 
@@ -65,7 +65,7 @@ class Edr_Admin_Actions {
 				if ( ! empty( $_POST['course_id'] ) ) {
 					$entry->course_id = intval( $_POST['course_id'] );
 				} else {
-					$errors->add( 'no_course', __( 'Please select a course.', 'edr' ) );
+					$errors->add( 'no_course', __( 'Please select a course.', 'educator' ) );
 				}
 			}		
 
@@ -110,7 +110,7 @@ class Edr_Admin_Actions {
 					}
 				}
 
-				$errors->add( 'prerequisites', sprintf( __( 'You have to complete the prerequisites for this course: %s', 'edr' ), $prerequisites_html ) );
+				$errors->add( 'prerequisites', sprintf( __( 'You have to complete the prerequisites for this course: %s', 'educator' ), $prerequisites_html ) );
 			}
 
 			if ( $errors->get_error_code() ) {
@@ -336,7 +336,7 @@ class Edr_Admin_Actions {
 							array(
 								'student_name' => $student->display_name,
 								'membership'   => $membership->post_title,
-								'expiration'   => ( $expiration ) ? date_i18n( get_option( 'date_format' ), $expiration ) : __( 'None', 'edr' ),
+								'expiration'   => ( $expiration ) ? date_i18n( get_option( 'date_format' ), $expiration ) : __( 'None', 'educator' ),
 								'price'        => edr_format_membership_price( $price, $duration, $period, false ),
 							)
 						);
@@ -375,7 +375,7 @@ class Edr_Admin_Actions {
 				if ( ! empty( $_POST['user_id'] ) ) {
 					$data['user_id'] = $_POST['user_id'];
 				} else {
-					$errors->add( 'user_id_empty', __( 'Please select a user', 'edr' ) );
+					$errors->add( 'user_id_empty', __( 'Please select a user', 'educator' ) );
 				}
 			}
 
@@ -383,7 +383,7 @@ class Edr_Admin_Actions {
 			if ( ! empty( $_POST['membership_id'] ) ) {
 				$data['membership_id'] = $_POST['membership_id'];
 			} else {
-				$errors->add( 'membership_id_empty', __( 'Please select a membership', 'edr' ) );
+				$errors->add( 'membership_id_empty', __( 'Please select a membership', 'educator' ) );
 			}
 
 			// Status.
@@ -404,7 +404,7 @@ class Edr_Admin_Actions {
 				$tmp_user_membership = $edr_memberships->get_user_membership_by( 'user_id', $data['user_id'] );
 
 				if ( $tmp_user_membership ) {
-					$errors->add( 'user_id_exists', __( 'The membership for this student already exists.', 'edr' ) );
+					$errors->add( 'user_id_exists', __( 'The membership for this student already exists.', 'educator' ) );
 				}
 			}
 

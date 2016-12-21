@@ -91,13 +91,13 @@ class Edr_Admin_EntriesTable extends WP_List_Table {
 			<form class="edr-admin-filters" action="<?php echo esc_url( admin_url( 'admin.php' ) ); ?>" method="get">
 				<input type="hidden" name="page" value="edr_admin_entries">
 				<div class="block">
-					<label for="search-entry-id"><?php echo _x( 'ID', 'ID of an item', 'edr' ); ?></label>
+					<label for="search-entry-id"><?php echo _x( 'ID', 'ID of an item', 'educator' ); ?></label>
 					<input type="text" id="search-entry-id" name="id" value="<?php if ( ! empty( $_GET['id'] ) ) echo intval( $_GET['id'] ); ?>">
 				</div>
 				<div class="block">
-					<label for="search-entry-status"><?php _e( 'Status', 'edr' ); ?></label>
+					<label for="search-entry-status"><?php _e( 'Status', 'educator' ); ?></label>
 					<select id="search-entry-status" name="status">
-						<option value=""><?php _e( 'All', 'edr' ); ?></option>
+						<option value=""><?php _e( 'All', 'educator' ); ?></option>
 						<?php
 							foreach ( $statuses as $key => $value ) {
 								$selected = ( isset( $_GET['status'] ) && $key == $_GET['status'] ) ? ' selected="selected"' : '';
@@ -108,7 +108,7 @@ class Edr_Admin_EntriesTable extends WP_List_Table {
 					</select>
 				</div>
 				<div class="block">
-					<label for="search-student"><?php _e( 'Student', 'edr' ); ?></label>
+					<label for="search-student"><?php _e( 'Student', 'educator' ); ?></label>
 					<div class="edr-select-values">
 						<input
 							type="text"
@@ -121,9 +121,9 @@ class Edr_Admin_EntriesTable extends WP_List_Table {
 				</div>
 				<?php if ( ! empty( $courses ) ) : ?>
 					<div class="block">
-						<label><?php _e( 'Course', 'edr' ); ?></label>
+						<label><?php _e( 'Course', 'educator' ); ?></label>
 						<select name="course_id">
-							<option value=""><?php _e( 'All', 'edr' ); ?></option>
+							<option value=""><?php _e( 'All', 'educator' ); ?></option>
 							<?php
 								foreach ( $courses as $course ) {
 									$selected = ( isset( $_GET['course_id'] ) && $course->ID == $_GET['course_id'] ) ? ' selected="selected"' : '';
@@ -135,7 +135,7 @@ class Edr_Admin_EntriesTable extends WP_List_Table {
 					</div>
 				<?php endif; ?>
 				<div class="block">
-					<input type="submit" class="button" value="<?php _e( 'Search', 'edr' ); ?>">
+					<input type="submit" class="button" value="<?php _e( 'Search', 'educator' ); ?>">
 				</div>
 			</form>
 		</div>
@@ -163,12 +163,12 @@ class Edr_Admin_EntriesTable extends WP_List_Table {
 	public function get_columns() {
 		$columns = array(
 			'cb'        => '<input type="checkbox">',
-			'ID'        => _x( 'ID', 'ID of an item', 'edr' ),
-			'course_id' => __( 'Course', 'edr' ),
-			'user_id'   => __( 'User', 'edr' ),
-			'status'    => __( 'Status', 'edr' ),
-			'grade'     => __( 'Grade', 'edr' ),
-			'date'      => __( 'Date', 'edr' ),
+			'ID'        => _x( 'ID', 'ID of an item', 'educator' ),
+			'course_id' => __( 'Course', 'educator' ),
+			'user_id'   => __( 'User', 'educator' ),
+			'status'    => __( 'Status', 'educator' ),
+			'grade'     => __( 'Grade', 'educator' ),
+			'date'      => __( 'Date', 'educator' ),
 		);
 
 		return $columns;
@@ -194,7 +194,7 @@ class Edr_Admin_EntriesTable extends WP_List_Table {
 		$html = intval( $item['ID'] );
 
 		if ( in_array( $item['ID'], $this->get_pending_quiz_entries() ) ) {
-			$html .= ' (' . __( 'quiz pending', 'edr' ) . ')';
+			$html .= ' (' . __( 'quiz pending', 'educator' ) . ')';
 		}
 
 		$base_url = admin_url( 'admin.php?page=edr_admin_entries' );
@@ -202,10 +202,10 @@ class Edr_Admin_EntriesTable extends WP_List_Table {
 		$delete_url = wp_nonce_url( add_query_arg( array( 'edr-action' => 'delete-entry', 'entry_id' => $item['ID'] ), $base_url ), 'edr_delete_entry' );
 
 		$actions = array();
-		$actions['edit'] = '<a href="' . esc_url( $edit_url ) . '">' . __( 'Edit', 'edr' ) . '</a>';
+		$actions['edit'] = '<a href="' . esc_url( $edit_url ) . '">' . __( 'Edit', 'educator' ) . '</a>';
 
 		if ( current_user_can( 'manage_educator' ) ) {
-			$actions['delete'] = '<a href="' . esc_url( $delete_url ) . '" class="delete-entry">' . __( 'Delete', 'edr' ) . '</a>';
+			$actions['delete'] = '<a href="' . esc_url( $delete_url ) . '" class="delete-entry">' . __( 'Delete', 'educator' ) . '</a>';
 		}
 
 		$html .= $this->row_actions( $actions );
@@ -295,7 +295,7 @@ class Edr_Admin_EntriesTable extends WP_List_Table {
 	 */
 	public function get_bulk_actions() {
 		$actions = array(
-			'delete' => __( 'Delete', 'edr' ),
+			'delete' => __( 'Delete', 'educator' ),
 		);
 
 		return $actions;

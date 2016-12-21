@@ -4,9 +4,9 @@ class Edr_Widget_LessonsList extends WP_Widget {
 	public function __construct() {
 		parent::__construct(
 			'lessons_list',
-			__( 'Lessons List', 'edr' ),
+			__( 'Lessons List', 'educator' ),
 			array(
-				'description' => __( 'List lessons. This widget should be used the single lesson page.', 'edr' ),
+				'description' => __( 'List lessons. This widget should be used the single lesson page.', 'educator' ),
 			)
 		);
 	}
@@ -43,10 +43,10 @@ class Edr_Widget_LessonsList extends WP_Widget {
 
 	public function form( $instance ) {
 		$title = ! empty( $instance['title'] ) ? $instance['title']
-			: __( 'Lessons', 'edr' );
+			: __( 'Lessons', 'educator' );
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title', 'edr' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title', 'educator' ); ?></label>
 			<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
 				name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" value="<?php echo esc_attr( $title ); ?>">
 		</p>

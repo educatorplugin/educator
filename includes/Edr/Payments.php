@@ -156,7 +156,7 @@ class Edr_Payments {
 					array(
 						'student_name' => $student->display_name,
 						'membership'   => $membership->post_title,
-						'expiration'   => ( $expiration ) ? date_i18n( get_option( 'date_format' ), $expiration ) : __( 'None', 'edr' ),
+						'expiration'   => ( $expiration ) ? date_i18n( get_option( 'date_format' ), $expiration ) : __( 'None', 'educator' ),
 						'price'        => edr_format_membership_price( $price, $duration, $period, false ),
 					)
 				);

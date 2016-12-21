@@ -34,10 +34,10 @@ class UploadClassTest extends WP_UnitTestCase {
 		$upload = new Edr_Upload();
 
 		$this->assertSame( '', $upload->get_error_message( UPLOAD_ERR_OK ) );
-		$this->assertSame( __( 'No file sent.', 'edr' ), $upload->get_error_message( UPLOAD_ERR_NO_FILE ) );
-		$this->assertSame( __( 'Exceeded file size limit.', 'edr' ), $upload->get_error_message( UPLOAD_ERR_INI_SIZE ) );
-		$this->assertSame( __( 'Exceeded file size limit.', 'edr' ), $upload->get_error_message( UPLOAD_ERR_FORM_SIZE ) );
-		$this->assertSame( __( 'Unknown upload error.', 'edr' ), $upload->get_error_message( -1 ) );
+		$this->assertSame( __( 'No file sent.', 'educator' ), $upload->get_error_message( UPLOAD_ERR_NO_FILE ) );
+		$this->assertSame( __( 'Exceeded file size limit.', 'educator' ), $upload->get_error_message( UPLOAD_ERR_INI_SIZE ) );
+		$this->assertSame( __( 'Exceeded file size limit.', 'educator' ), $upload->get_error_message( UPLOAD_ERR_FORM_SIZE ) );
+		$this->assertSame( __( 'Unknown upload error.', 'educator' ), $upload->get_error_message( -1 ) );
 	}
 
 	public function test_get_allowed_mime_types() {

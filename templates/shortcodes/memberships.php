@@ -30,6 +30,6 @@ if ( $query->have_posts() ) :
 	$GLOBALS['more'] = $tmp_more;
 	wp_reset_postdata();
 else :
-	echo '<p>' . __( 'No memberships found.', 'edr' ) . '</p>';
+	echo '<p>' . __( 'No memberships found.', 'educator' ) . '</p>';
 endif;
 ?>

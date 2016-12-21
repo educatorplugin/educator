@@ -45,7 +45,7 @@ function edr_get_the_membership_price( $membership_id ) {
 		$period = $obj_memberships->get_period( $membership_id );
 		$price_str = edr_format_membership_price( $price, $duration, $period );
 	} else {
-		$price_str = _x( 'Free', 'price', 'edr' );
+		$price_str = _x( 'Free', 'price', 'educator' );
 	}
 
 	return $price_str;
@@ -97,7 +97,7 @@ function edr_get_buy_widget( $atts ) {
 				'course_id'  => $atts['object_id'],
 			), get_permalink() );
 			$link_url = wp_nonce_url( $link_url, 'edr_join_course', '_wpnonce' );
-			$link_text = $atts['label'] ? $atts['label'] : __( 'Join', 'edr' );
+			$link_text = $atts['label'] ? $atts['label'] : __( 'Join', 'educator' );
 		} else {
 			$html = apply_filters( 'edr_get_membership_buy_widget_pre', null, $atts, $user_id );
 
@@ -110,12 +110,12 @@ function edr_get_buy_widget( $atts ) {
 			if ( $price > 0 ) {
 				$price_str = edr_format_price( $price );
 			} else {
-				$price_str = _x( 'Free', 'price', 'edr' );
+				$price_str = _x( 'Free', 'price', 'educator' );
 			}
 
 			$payment_page_url = get_permalink( edr_get_page_id( 'payment' ) );
 			$link_url = edr_get_endpoint_url( 'edr-object', $atts['object_id'], $payment_page_url );
-			$link_text = $atts['label'] ? $atts['label'] : __( 'Register', 'edr' );
+			$link_text = $atts['label'] ? $atts['label'] : __( 'Register', 'educator' );
 		}
 	} elseif ( EDR_PT_MEMBERSHIP == $atts['object_type'] ) {
 		$html = apply_filters( 'edr_get_membership_buy_widget_pre', null, $atts, $user_id );
@@ -126,7 +126,7 @@ function edr_get_buy_widget( $atts ) {
 
 		$price_str = edr_get_the_membership_price( $atts['object_id'] );
 		$link_url = $obj_memberships->get_payment_url( $atts['object_id'] );
-		$link_text = $atts['label'] ? $atts['label'] : __( 'Purchase', 'edr' );
+		$link_text = $atts['label'] ? $atts['label'] : __( 'Purchase', 'educator' );
 	}
 
 	$html = '<div class="edr-buy-widget">';
@@ -187,7 +187,7 @@ function edr_get_course_difficulty_html( $course_id ) {
  */
 function edr_get_course_categories_html( $course_id ) {
 	$html = '';
-	$categories = get_the_term_list( $course_id, EDR_TX_CATEGORY, '', __( ', ', 'edr' ) );
+	$categories = get_the_term_list( $course_id, EDR_TX_CATEGORY, '', __( ', ', 'educator' ) );
 
 	if ( $categories ) {
 		$html = '<span class="edr-course-categories">' . $categories . '</span>';
@@ -353,12 +353,12 @@ function edr_lessons_nav_links() {
 	echo edr_get_adjacent_lesson_link(
 		'previous',
 		'<div class="lessons-nav-links__link lessons-nav-links__link_prev">%link</div>',
-		'<span class="hint">' . __( 'Previous', 'edr' ) . '</span><span class="lesson-title">%title</span>'
+		'<span class="hint">' . __( 'Previous', 'educator' ) . '</span><span class="lesson-title">%title</span>'
 	);
 	echo edr_get_adjacent_lesson_link(
 		'next',
 		'<div class="lessons-nav-links__link lessons-nav-links__link_next">%link</div>',
-		'<span class="hint">' . __( 'Next', 'edr' ) . '</span><span class="lesson-title">%title</span>'
+		'<span class="hint">' . __( 'Next', 'educator' ) . '</span><span class="lesson-title">%title</span>'
 	);
 	echo '</div>';
 }

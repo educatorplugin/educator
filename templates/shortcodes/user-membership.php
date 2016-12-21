@@ -8,7 +8,7 @@
 $user_id = get_current_user_id();
 
 if ( ! $user_id ) {
-	echo '<p>' . __( 'Please log in to view this page.', 'edr' ) . '</p>';
+	echo '<p>' . __( 'Please log in to view this page.', 'educator' ) . '</p>';
 	return;
 }
 
@@ -18,7 +18,7 @@ $edr_memberships = Edr_Memberships::get_instance();
 $user_membership = $edr_memberships->get_user_membership_by( 'user_id', $user_id );
 
 if ( ! $user_membership ) {
-	echo '<p>' . __( 'Your account is not connected to a membership.', 'edr' ) . '</p>';
+	echo '<p>' . __( 'Your account is not connected to a membership.', 'educator' ) . '</p>';
 	return;
 }
 
@@ -34,7 +34,7 @@ if ( ! $membership ) {
 <table class="edr-user-membership">
 	<tbody>
 		<tr>
-			<th style="width:30%;"><?php _e( 'Membership Level', 'edr' ); ?></th>
+			<th style="width:30%;"><?php _e( 'Membership Level', 'educator' ); ?></th>
 			<td>
 				<?php echo esc_html( $membership->post_title ); ?>
 				<div>
@@ -42,14 +42,14 @@ if ( ! $membership ) {
 						echo edr_get_buy_widget( array(
 							'object_id'   => $membership->ID,
 							'object_type' => EDR_PT_MEMBERSHIP,
-							'label'       => __( 'Extend', 'edr' ),
+							'label'       => __( 'Extend', 'educator' ),
 						) );
 					?>
 				</div>
 			</td>
 		</tr>
 		<tr>
-			<th><?php _e( 'Status', 'edr' ); ?></th>
+			<th><?php _e( 'Status', 'educator' ); ?></th>
 			<td>
 				<?php
 					if ( ! empty( $user_membership['status'] ) && array_key_exists( $user_membership['status'], $statuses ) ) {
@@ -59,11 +59,11 @@ if ( ! $membership ) {
 			</td>
 		</tr>
 		<tr>
-			<th><?php _e( 'Expiration Date', 'edr' ); ?></th>
+			<th><?php _e( 'Expiration Date', 'educator' ); ?></th>
 			<td>
 				<?php
 					if ( ! $user_membership['expiration'] ) {
-						_e( 'None', 'edr' );
+						_e( 'None', 'educator' );
 					} else {
 						$date_format = get_option( 'date_format' );
 

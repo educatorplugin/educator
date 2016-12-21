@@ -8,10 +8,10 @@ $form->set_value( '_edr_register', get_post_meta( $post->ID, '_edr_register', tr
 $form->add( array(
 	'type'    => 'select',
 	'name'    => '_edr_register',
-	'label'   => __( 'Registration', 'edr' ),
+	'label'   => __( 'Registration', 'educator' ),
 	'options' => array(
-		'open'   => __( 'Open', 'edr' ),
-		'closed' => __( 'Closed', 'edr' ),
+		'open'   => __( 'Open', 'educator' ),
+		'closed' => __( 'Closed', 'educator' ),
 	),
 	'default' => 'open',
 ) );
@@ -23,7 +23,7 @@ $form->add( array(
 	'name'   => '_edr_price',
 	'class'  => '',
 	'id'     => 'edr-price',
-	'label'  => __( 'Price', 'edr' ),
+	'label'  => __( 'Price', 'educator' ),
 	'before' => esc_html( edr_get_currency_symbol( edr_get_currency() ) ) . ' ',
 ) );
 
@@ -33,7 +33,7 @@ $form->set_value( '_edr_tax_class', $tax_manager->get_tax_class_for( $post->ID )
 $form->add( array(
 	'type'    => 'select',
 	'name'    => '_edr_tax_class',
-	'label'   => __( 'Tax Class', 'edr' ),
+	'label'   => __( 'Tax Class', 'educator' ),
 	'options' => $tax_manager->get_tax_classes(),
 	'default' => 'default',
 ) );
@@ -44,12 +44,12 @@ $form->add( array(
 	'type'    => 'select',
 	'name'    => '_edr_difficulty',
 	'id'      => 'edr-difficulty',
-	'label'   => __( 'Difficulty', 'edr' ),
-	'options' => array_merge( array( '' => __( 'None', 'edr' ) ), edr_get_difficulty_levels() ),
+	'label'   => __( 'Difficulty', 'educator' ),
+	'options' => array_merge( array( '' => __( 'None', 'educator' ) ), edr_get_difficulty_levels() ),
 ) );
 
 // Prerequisite.
-$courses = array( '' => __( 'None', 'edr' ) );
+$courses = array( '' => __( 'None', 'educator' ) );
 $tmp = get_posts( array(
 	'post_type'      => EDR_PT_COURSE,
 	'post_status'    => 'publish',
@@ -67,7 +67,7 @@ $form->add( array(
 	'type'    => 'select',
 	'name'    => '_edr_prerequisites',
 	'id'      => 'edr-prerequisite',
-	'label'   => __( 'Prerequisite', 'edr' ),
+	'label'   => __( 'Prerequisite', 'educator' ),
 	'options' => $courses,
 ) );
 
@@ -78,7 +78,7 @@ $form->display();
 <script>
 (function($) {
 	$(document).on('edrSelect.shown', function(e, edrSelect) {
-		var txtCreateLesson = '<?php echo esc_js( __( 'Press enter to create this lesson', 'edr' ) ); ?>';
+		var txtCreateLesson = '<?php echo esc_js( __( 'Press enter to create this lesson', 'educator' ) ); ?>';
 		var choicesContainer = edrSelect.choicesDiv.find('.choices');
 
 		if (edrSelect.currentFilterValue && choicesContainer.html() == '') {

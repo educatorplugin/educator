@@ -16,7 +16,7 @@ $form->add( array(
 	'type'   => 'text',
 	'name'   => '_edr_price',
 	'id'     => 'edr-membership-price',
-	'label'  => __( 'Price', 'edr' ),
+	'label'  => __( 'Price', 'educator' ),
 	'before' => esc_html( edr_get_currency_symbol( edr_get_currency() ) ) . ' ',
 ) );
 
@@ -26,7 +26,7 @@ $form->set_value( '_edr_tax_class', $tax_manager->get_tax_class_for( $post->ID )
 $form->add( array(
 	'type'    => 'select',
 	'name'    => '_edr_tax_class',
-	'label'   => __( 'Tax Class', 'edr' ),
+	'label'   => __( 'Tax Class', 'educator' ),
 	'options' => $tax_manager->get_tax_classes(),
 	'default' => 'default',
 ) );
@@ -47,12 +47,12 @@ $form->add( array(
 	'name'   => '_edr_duration',
 	'id'     => 'edr-membership-duration',
 	'class'  => 'small-text',
-	'label'  => __( 'Duration', 'edr' ),
+	'label'  => __( 'Duration', 'educator' ),
 	'after'  => " $period_html",
 ) );
 
 // Categories.
-$categories_options = array( '' => __( 'Select Categories', 'edr' ) );
+$categories_options = array( '' => __( 'Select Categories', 'educator' ) );
 $terms = get_terms( EDR_TX_CATEGORY );
 
 if ( $terms && ! is_wp_error( $terms ) ) {
@@ -65,7 +65,7 @@ $form->set_value( '_edr_categories', $categories );
 $form->add( array(
 	'type'     => 'select',
 	'name'     => '_edr_categories',
-	'label'    => __( 'Categories', 'edr' ),
+	'label'    => __( 'Categories', 'educator' ),
 	'multiple' => true,
 	'size'     => 5,
 	'options'  => $categories_options,

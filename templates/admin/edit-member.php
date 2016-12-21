@@ -2,7 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 if ( ! current_user_can( 'manage_educator' ) ) {
-	echo '<p>' . __( 'Access denied', 'edr' ) . '</p>';
+	echo '<p>' . __( 'Access denied', 'educator' ) . '</p>';
 	exit;
 }
 
@@ -45,9 +45,9 @@ $username = ( $user ) ? $user->display_name : '';
 <div class="wrap">
 	<h2><?php
 		if ( $user_membership['ID'] ) {
-			_e( 'Edit Member', 'edr' );
+			_e( 'Edit Member', 'educator' );
 		} else {
-			_e( 'Add Member', 'edr' );
+			_e( 'Add Member', 'educator' );
 		}
 	?></h2>
 
@@ -65,7 +65,7 @@ $username = ( $user ) ? $user->display_name : '';
 
 	<?php if ( isset( $_GET['edr-message'] ) && 'saved' == $_GET['edr-message'] ) : ?>
 		<div id="message" class="updated below-h2">
-			<p><?php _e( 'Member updated.', 'edr' ); ?></p>
+			<p><?php _e( 'Member updated.', 'educator' ); ?></p>
 		</div>
 	<?php endif; ?>
 
@@ -78,11 +78,11 @@ $username = ( $user ) ? $user->display_name : '';
 					<div id="side-sortables" class="meta-box-sortables">
 						<div id="member-settings" class="postbox">
 							<div class="handlediv"><br></div>
-							<h3 class="hndle"><span><?php _e( 'Member', 'edr' ); ?></span></h3>
+							<h3 class="hndle"><span><?php _e( 'Member', 'educator' ); ?></span></h3>
 							<div class="inside">
 								<!-- Status -->
 								<div class="edr-field edr-field_block">
-									<div class="edr-field__label"><label for="membership-status"><?php _e( 'Status', 'edr' ); ?></label></div>
+									<div class="edr-field__label"><label for="membership-status"><?php _e( 'Status', 'educator' ); ?></label></div>
 									<div class="edr-field__control">
 										<select id="membership-status" name="membership_status">
 											<?php
@@ -110,11 +110,11 @@ $username = ( $user ) ? $user->display_name : '';
 					<div id="normal-sortables" class="meta-box-sortables">
 						<div id="member-settings" class="postbox">
 							<div class="handlediv"><br></div>
-							<h3 class="hndle"><span><?php _e( 'Data', 'edr' ); ?></span></h3>
+							<h3 class="hndle"><span><?php _e( 'Data', 'educator' ); ?></span></h3>
 							<div class="inside">
 								<!-- Member -->
 								<div class="edr-field">
-									<div class="edr-field__label"><label for="member"><?php _e( 'Member', 'edr' ); ?></label></div>
+									<div class="edr-field__label"><label for="member"><?php _e( 'Member', 'educator' ); ?></label></div>
 									<div class="edr-field__control">
 										<div class="edr-select-values">
 											<input
@@ -129,14 +129,14 @@ $username = ( $user ) ? $user->display_name : '';
 
 										<?php if ( current_user_can( 'edit_user', $user_membership['user_id'] ) ) : ?>
 											<div class="edr-field__info">
-												<a href="<?php echo esc_url( get_edit_user_link( $user_membership['user_id'] ) ); ?>" target="_blank"><?php _e( 'Edit Profile', 'edr' ); ?></a>
+												<a href="<?php echo esc_url( get_edit_user_link( $user_membership['user_id'] ) ); ?>" target="_blank"><?php _e( 'Edit Profile', 'educator' ); ?></a>
 											</div>
 										<?php endif; ?>
 									</div>
 								</div>
 								<!-- Membership Level -->
 								<div class="edr-field">
-									<div class="edr-field__label"><label for="membership-id"><?php _e( 'Membership Level', 'edr' ); ?></label></div>
+									<div class="edr-field__label"><label for="membership-id"><?php _e( 'Membership Level', 'educator' ); ?></label></div>
 									<div class="edr-field__control">
 										<select id="membership-id" name="membership_id">
 											<?php
@@ -153,11 +153,11 @@ $username = ( $user ) ? $user->display_name : '';
 								</div>
 								<!-- Expiration Date -->
 								<div class="edr-field">
-									<div class="edr-field__label"><label for="membership-expiration"><?php _e( 'Expiration Date', 'edr' ); ?></label></div>
+									<div class="edr-field__label"><label for="membership-expiration"><?php _e( 'Expiration Date', 'educator' ); ?></label></div>
 									<div class="edr-field__control">
 										<input type="text" id="membership-expiration" name="expiration" value="<?php echo ( ! empty( $user_membership['expiration'] ) ) ? esc_attr( date( 'Y-m-d H:i:s', $user_membership['expiration'] ) ) : '0000-00-00 00:00:00'; ?>">
 										<div class="edr-field__info">
-											<?php _e( 'Enter the date like yyyy-mm-dd hh:mm:ss', 'edr' ); ?>
+											<?php _e( 'Enter the date like yyyy-mm-dd hh:mm:ss', 'educator' ); ?>
 										</div>
 									</div>
 								</div>
@@ -165,7 +165,7 @@ $username = ( $user ) ? $user->display_name : '';
 						</div>
 						<div id="member-payments" class="postbox closed">
 							<div class="handlediv"><br></div>
-							<h3 class="hndle"><span><?php _e( 'Payments', 'edr' ); ?></span></h3>
+							<h3 class="hndle"><span><?php _e( 'Payments', 'educator' ); ?></span></h3>
 							<div class="inside">
 								<?php if ( ! empty( $payments ) ) : ?>
 									<ul>
@@ -177,7 +177,7 @@ $username = ( $user ) ? $user->display_name : '';
 										?>
 									</ul>
 								<?php else : ?>
-									<p><?php _e( 'No payments found.', 'edr' ); ?></p>
+									<p><?php _e( 'No payments found.', 'educator' ); ?></p>
 								<?php endif; ?>
 							</div>
 						</div>

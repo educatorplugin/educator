@@ -16,7 +16,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 	public function register_settings() {
 		add_settings_section(
 			'edr_pages', // id
-			__( 'Pages', 'edr' ),
+			__( 'Pages', 'educator' ),
 			array( $this, 'section_description' ),
 			'edr_general_page' // page
 		);
@@ -33,7 +33,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 
 		add_settings_field(
 			'student_courses_page',
-			__( 'Student\'s Courses', 'edr' ),
+			__( 'Student\'s Courses', 'educator' ),
 			array( $this, 'setting_select' ),
 			'edr_general_page', // page
 			'edr_pages', // section
@@ -41,7 +41,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 				'name'           => 'student_courses_page',
 				'settings_group' => 'edr_settings',
 				'choices'        => $pages,
-				'description'    => sprintf( __( 'This page outputs the student\'s pending, in progress and complete courses. Add the following shortcode to this page: %s', 'edr' ), '[' . esc_html( $student_courses_sc ) . ']' ),
+				'description'    => sprintf( __( 'This page outputs the student\'s pending, in progress and complete courses. Add the following shortcode to this page: %s', 'educator' ), '[' . esc_html( $student_courses_sc ) . ']' ),
 			)
 		);
 
@@ -49,7 +49,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 
 		add_settings_field(
 			'payment_page',
-			__( 'Payment', 'edr' ),
+			__( 'Payment', 'educator' ),
 			array( $this, 'setting_select' ),
 			'edr_general_page', // page
 			'edr_pages', // section
@@ -57,7 +57,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 				'name'           => 'payment_page',
 				'settings_group' => 'edr_settings',
 				'choices'        => $pages,
-				'description'    => sprintf( __( 'This page outputs the payment details of the course. Add the following shortcode to this page: %s', 'edr' ), '[' . esc_html( $payment_sc ) . ']' ),
+				'description'    => sprintf( __( 'This page outputs the payment details of the course. Add the following shortcode to this page: %s', 'educator' ), '[' . esc_html( $payment_sc ) . ']' ),
 			)
 		);
 
@@ -65,7 +65,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 
 		add_settings_field(
 			'edr_memberships_page',
-			__( 'Memberships', 'edr' ),
+			__( 'Memberships', 'educator' ),
 			array( $this, 'setting_select' ),
 			'edr_general_page', // page
 			'edr_pages', // section
@@ -73,7 +73,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 				'name'           => 'memberships_page',
 				'settings_group' => 'edr_settings',
 				'choices'        => $pages,
-				'description'    => sprintf( __( 'This page outputs all memberships. Shortcode: %s', 'edr' ), '[' . esc_html( $memberships_sc ) . ']' ),
+				'description'    => sprintf( __( 'This page outputs all memberships. Shortcode: %s', 'educator' ), '[' . esc_html( $memberships_sc ) . ']' ),
 			)
 		);
 
@@ -81,7 +81,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 
 		add_settings_field(
 			'edr_user_membership_page',
-			__( 'User\'s Membership', 'edr' ),
+			__( 'User\'s Membership', 'educator' ),
 			array( $this, 'setting_select' ),
 			'edr_general_page', // page
 			'edr_pages', // section
@@ -89,7 +89,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 				'name'           => 'user_membership_page',
 				'settings_group' => 'edr_settings',
 				'choices'        => $pages,
-				'description'    => sprintf( __( 'This page outputs the membership settings for the current user. Shortcode: %s', 'edr' ), '[' . esc_html( $user_membership_sc ) . ']' ),
+				'description'    => sprintf( __( 'This page outputs the membership settings for the current user. Shortcode: %s', 'educator' ), '[' . esc_html( $user_membership_sc ) . ']' ),
 			)
 		);
 
@@ -97,7 +97,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 
 		add_settings_field(
 			'edr_user_payments_page',
-			__( 'User\'s Payments', 'edr' ),
+			__( 'User\'s Payments', 'educator' ),
 			array( $this, 'setting_select' ),
 			'edr_general_page', // page
 			'edr_pages', // section
@@ -105,14 +105,14 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 				'name'           => 'user_payments_page',
 				'settings_group' => 'edr_settings',
 				'choices'        => $pages,
-				'description'    => sprintf( __( 'This page outputs the user\'s payments. Shortcode: %s', 'edr' ), '[' . esc_html( $user_payments_sc ) . ']' ),
+				'description'    => sprintf( __( 'This page outputs the user\'s payments. Shortcode: %s', 'educator' ), '[' . esc_html( $user_payments_sc ) . ']' ),
 			)
 		);
 
 		// Selling settings.
 		add_settings_section(
 			'edr_selling', // id
-			__( 'Selling', 'edr' ),
+			__( 'Selling', 'educator' ),
 			array( $this, 'section_description' ),
 			'edr_general_page' // page
 		);
@@ -120,21 +120,21 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 		// Location.
 		add_settings_field(
 			'edr_location',
-			__( 'Location', 'edr' ),
+			__( 'Location', 'educator' ),
 			array( $this, 'setting_location' ),
 			'edr_general_page', // page
 			'edr_selling', // section
 			array(
 				'name'           => 'location',
 				'settings_group' => 'edr_settings',
-				'description'    => __( 'The location where you sell from.', 'edr' ),
+				'description'    => __( 'The location where you sell from.', 'educator' ),
 			)
 		);
 
 		// Currency settings.
 		add_settings_section(
 			'edr_currency', // id
-			__( 'Currency', 'edr' ),
+			__( 'Currency', 'educator' ),
 			array( $this, 'section_description' ),
 			'edr_general_page' // page
 		);
@@ -142,7 +142,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 		// Currency.
 		add_settings_field(
 			'currency',
-			__( 'Currency', 'edr' ),
+			__( 'Currency', 'educator' ),
 			array( $this, 'setting_select' ),
 			'edr_general_page', // page
 			'edr_currency', // section
@@ -156,7 +156,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 		// Currency position.
 		add_settings_field(
 			'currency_position',
-			__( 'Currency Position', 'edr' ),
+			__( 'Currency Position', 'educator' ),
 			array( $this, 'setting_select' ),
 			'edr_general_page', // page
 			'edr_currency', // section
@@ -164,8 +164,8 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 				'name'           => 'currency_position',
 				'settings_group' => 'edr_settings',
 				'choices'        => array(
-					'before' => __( 'Before', 'edr' ),
-					'after'  => __( 'After', 'edr' ),
+					'before' => __( 'Before', 'educator' ),
+					'after'  => __( 'After', 'educator' ),
 				),
 			)
 		);
@@ -173,7 +173,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 		// Decimal point separator.
 		add_settings_field(
 			'decimal_point',
-			__( 'Decimal Point Separator', 'edr' ),
+			__( 'Decimal Point Separator', 'educator' ),
 			array( $this, 'setting_text' ),
 			'edr_general_page', // page
 			'edr_currency', // section
@@ -188,7 +188,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 		// Thousands separator.
 		add_settings_field(
 			'thousands_sep',
-			__( 'Thousands Separator', 'edr' ),
+			__( 'Thousands Separator', 'educator' ),
 			array( $this, 'setting_text' ),
 			'edr_general_page', // page
 			'edr_currency', // section
@@ -220,7 +220,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 					<table class="form-table">
 						<tbody>
 							<tr>
-								<th scope="row"><?php _e( 'Courses Archive', 'edr' ); ?></th>
+								<th scope="row"><?php _e( 'Courses Archive', 'educator' ); ?></th>
 								<td>
 									<?php
 										$archive_link = get_post_type_archive_link( EDR_PT_COURSE );
@@ -291,7 +291,7 @@ class Edr_Admin_Settings_General extends Edr_Admin_Settings_Base {
 	 * @return array
 	 */
 	public function add_tab( $tabs ) {
-		$tabs['general'] = __( 'General', 'edr' );
+		$tabs['general'] = __( 'General', 'educator' );
 
 		return $tabs;
 	}

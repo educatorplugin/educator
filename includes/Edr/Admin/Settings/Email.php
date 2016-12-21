@@ -16,7 +16,7 @@ class Edr_Admin_Settings_Email extends Edr_Admin_Settings_Base {
 	public function register_settings() {
 		add_settings_section(
 			'edr_email_settings', // id
-			__( 'Email Settings', 'edr' ),
+			__( 'Email Settings', 'educator' ),
 			array( $this, 'section_description' ),
 			'edr_email_page' // page
 		);
@@ -24,14 +24,14 @@ class Edr_Admin_Settings_Email extends Edr_Admin_Settings_Base {
 		// Setting: From Name.
 		add_settings_field(
 			'edr_from_name',
-			__( 'From Name', 'edr' ),
+			__( 'From Name', 'educator' ),
 			array( $this, 'setting_text' ),
 			'edr_email_page', // page
 			'edr_email_settings', // section
 			array(
 				'name'           => 'from_name',
 				'settings_group' => 'edr_email',
-				'description'    => __( 'The name email notifications are said to come from.', 'edr' ),
+				'description'    => __( 'The name email notifications are said to come from.', 'educator' ),
 				'default'        => get_bloginfo( 'name' ),
 			)
 		);
@@ -39,14 +39,14 @@ class Edr_Admin_Settings_Email extends Edr_Admin_Settings_Base {
 		// Setting: From Email.
 		add_settings_field(
 			'edr_from_email',
-			__( 'From Email', 'edr' ),
+			__( 'From Email', 'educator' ),
 			array( $this, 'setting_text' ),
 			'edr_email_page', // page
 			'edr_email_settings', // section
 			array(
 				'name'           => 'from_email',
 				'settings_group' => 'edr_email',
-				'description'    => __( 'Email to send notifications from.', 'edr' ),
+				'description'    => __( 'Email to send notifications from.', 'educator' ),
 				'default'        => get_bloginfo( 'admin_email' ),
 			)
 		);
@@ -54,7 +54,7 @@ class Edr_Admin_Settings_Email extends Edr_Admin_Settings_Base {
 		// Email templates.
 		add_settings_section(
 			'edr_email_templates', // id
-			__( 'Email Templates', 'edr' ),
+			__( 'Email Templates', 'educator' ),
 			array( $this, 'section_description' ),
 			'edr_email_page' // page
 		);
@@ -62,63 +62,63 @@ class Edr_Admin_Settings_Email extends Edr_Admin_Settings_Base {
 		// Subject: student registered.
 		add_settings_field(
 			'edr_subject_student_registered',
-			__( 'Student registered subject', 'edr' ),
+			__( 'Student registered subject', 'educator' ),
 			array( $this, 'setting_text' ),
 			'edr_email_page', // page
 			'edr_email_templates', // section
 			array(
 				'name'           => 'subject',
 				'settings_group' => 'edr_student_registered',
-				'description'    => sprintf( __( 'Subject of the student registered notification email. Placeholders: %s', 'edr' ), '{course_title}, {login_link}' ),
+				'description'    => sprintf( __( 'Subject of the student registered notification email. Placeholders: %s', 'educator' ), '{course_title}, {login_link}' ),
 			)
 		);
 
 		// Template: student registered.
 		add_settings_field(
 			'edr_template_student_registered',
-			__( 'Student registered template', 'edr' ),
+			__( 'Student registered template', 'educator' ),
 			array( $this, 'setting_textarea' ),
 			'edr_email_page', // page
 			'edr_email_templates', // section
 			array(
 				'name'           => 'template',
 				'settings_group' => 'edr_student_registered',
-				'description'    => sprintf( __( 'Placeholders: %s', 'edr' ), '{student_name}, {course_title}, {course_excerpt}, {login_link}' ),
+				'description'    => sprintf( __( 'Placeholders: %s', 'educator' ), '{student_name}, {course_title}, {course_excerpt}, {login_link}' ),
 			)
 		);
 
 		// Subject: quiz grade.
 		add_settings_field(
 			'edr_subject_quiz_grade',
-			__( 'Quiz grade subject', 'edr' ),
+			__( 'Quiz grade subject', 'educator' ),
 			array( $this, 'setting_text' ),
 			'edr_email_page', // page
 			'edr_email_templates', // section
 			array(
 				'name'           => 'subject',
 				'settings_group' => 'edr_quiz_grade',
-				'description'    => __( 'Subject of the quiz grade email.', 'edr' ),
+				'description'    => __( 'Subject of the quiz grade email.', 'educator' ),
 			)
 		);
 
 		// Template: quiz grade.
 		add_settings_field(
 			'edr_template_quiz_grade',
-			__( 'Quiz grade template', 'edr' ),
+			__( 'Quiz grade template', 'educator' ),
 			array( $this, 'setting_textarea' ),
 			'edr_email_page', // page
 			'edr_email_templates', // section
 			array(
 				'name'           => 'template',
 				'settings_group' => 'edr_quiz_grade',
-				'description'    => sprintf( __( 'Placeholders: %s', 'edr' ), '{student_name}, {lesson_title}, {grade}, {login_link}' ),
+				'description'    => sprintf( __( 'Placeholders: %s', 'educator' ), '{student_name}, {lesson_title}, {grade}, {login_link}' ),
 			)
 		);
 
 		// Subject: membership_register.
 		add_settings_field(
 			'edr_subject_membership_register',
-			__( 'Membership registration subject', 'edr' ),
+			__( 'Membership registration subject', 'educator' ),
 			array( $this, 'setting_text' ),
 			'edr_email_page', // page
 			'edr_email_templates', // section
@@ -131,21 +131,21 @@ class Edr_Admin_Settings_Email extends Edr_Admin_Settings_Base {
 		// Template: membership_register.
 		add_settings_field(
 			'edr_template_membership_register',
-			__( 'Membership registration template', 'edr' ),
+			__( 'Membership registration template', 'educator' ),
 			array( $this, 'setting_textarea' ),
 			'edr_email_page', // page
 			'edr_email_templates', // section
 			array(
 				'name'           => 'template',
 				'settings_group' => 'edr_membership_register',
-				'description'    => sprintf( __( 'Placeholders: %s', 'edr' ), '{student_name}, {membership}, {expiration}, {price}, {login_link}' ),
+				'description'    => sprintf( __( 'Placeholders: %s', 'educator' ), '{student_name}, {membership}, {expiration}, {price}, {login_link}' ),
 			)
 		);
 
 		// Subject: membership_renew.
 		add_settings_field(
 			'edr_subject_membership_renew',
-			__( 'Membership renew subject', 'edr' ),
+			__( 'Membership renew subject', 'educator' ),
 			array( $this, 'setting_text' ),
 			'edr_email_page', // page
 			'edr_email_templates', // section
@@ -158,14 +158,14 @@ class Edr_Admin_Settings_Email extends Edr_Admin_Settings_Base {
 		// Template: membership_renew.
 		add_settings_field(
 			'edr_template_membership_renew',
-			__( 'Membership renew template', 'edr' ),
+			__( 'Membership renew template', 'educator' ),
 			array( $this, 'setting_textarea' ),
 			'edr_email_page', // page
 			'edr_email_templates', // section
 			array(
 				'name'           => 'template',
 				'settings_group' => 'edr_membership_renew',
-				'description'    => sprintf( __( 'Placeholders: %s', 'edr' ), '{student_name}, {membership}, {membership_payment_url}, {login_link}' ),
+				'description'    => sprintf( __( 'Placeholders: %s', 'educator' ), '{student_name}, {membership}, {membership_payment_url}, {login_link}' ),
 			)
 		);
 
@@ -243,7 +243,7 @@ class Edr_Admin_Settings_Email extends Edr_Admin_Settings_Base {
 	 * @return array
 	 */
 	public function add_tab( $tabs ) {
-		$tabs['email'] = __( 'Email', 'edr' );
+		$tabs['email'] = __( 'Email', 'educator' );
 
 		return $tabs;
 	}

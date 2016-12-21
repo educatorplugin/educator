@@ -16,7 +16,7 @@ class Edr_Admin_Settings_Memberships extends Edr_Admin_Settings_Base {
 	public function register_settings() {
 		add_settings_section(
 			'edr_memberships_settings', // id
-			__( 'Memberships Settings', 'edr' ),
+			__( 'Memberships Settings', 'educator' ),
 			array( $this, 'section_description' ),
 			'edr_memberships_page' // page
 		);
@@ -24,7 +24,7 @@ class Edr_Admin_Settings_Memberships extends Edr_Admin_Settings_Base {
 		// Setting: Notify a user X days before his/her membership expires.
 		add_settings_field(
 			'edr_days_notify',
-			__( 'Send an email notification to a user X days before his/her membership expires', 'edr' ),
+			__( 'Send an email notification to a user X days before his/her membership expires', 'educator' ),
 			array( $this, 'setting_text' ),
 			'edr_memberships_page', // page
 			'edr_memberships_settings', // section
@@ -74,7 +74,7 @@ class Edr_Admin_Settings_Memberships extends Edr_Admin_Settings_Base {
 	 * @return array
 	 */
 	public function add_tab( $tabs ) {
-		$tabs['memberships'] = __( 'Memberships', 'edr' );
+		$tabs['memberships'] = __( 'Memberships', 'educator' );
 
 		return $tabs;
 	}

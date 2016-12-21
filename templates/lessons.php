@@ -1,5 +1,5 @@
 <?php if ( ! empty( $lessons ) ) : ?>
-	<h2 class="edr-lessons-title"><?php _e( 'Lessons', 'edr' ); ?></h2>
+	<h2 class="edr-lessons-title"><?php _e( 'Lessons', 'educator' ); ?></h2>
 	<ul class="edr-lessons">
 		<?php foreach ( $lessons as $lesson ) : ?>
 			<li class="lesson">

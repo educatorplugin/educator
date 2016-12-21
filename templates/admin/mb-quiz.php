@@ -10,7 +10,7 @@ if ( ! $attempts_number ) {
 
 <div class="edr-field">
 	<div class="edr-field__label">
-		<label for="edr-attempts-number"><?php _e( 'Number of attempts', 'edr' ); ?></label>
+		<label for="edr-attempts-number"><?php _e( 'Number of attempts', 'educator' ); ?></label>
 	</div>
 	<div class="edr-field__control">
 		<input type="number" id="edr-attempts-number" name="_edr_attempts" value="<?php echo intval( $attempts_number ); ?>">
@@ -22,15 +22,15 @@ if ( ! $attempts_number ) {
 	<div class="edr-quiz__add-question">
 		<?php
 			printf(
-				__( 'Add %s question.', 'edr' ),
+				__( 'Add %s question.', 'educator' ),
 				'<select id="edr-quiz-question-type">' .
-				'<option value="multiplechoice">' . __( 'Multiple Choice', 'edr' ) . '</option>' .
-				'<option value="writtenanswer">' . __( 'Written Answer', 'edr' ) . '</option>' .
-				'<option value="fileupload">' . __( 'File Upload', 'edr' ) . '</option>' .
+				'<option value="multiplechoice">' . __( 'Multiple Choice', 'educator' ) . '</option>' .
+				'<option value="writtenanswer">' . __( 'Written Answer', 'educator' ) . '</option>' .
+				'<option value="fileupload">' . __( 'File Upload', 'educator' ) . '</option>' .
 				'</select>'
 			);
 		?>
-		<button class="add-question button button-secondary"><?php _e( 'Add', 'edr' ); ?></button>
+		<button class="add-question button button-secondary"><?php _e( 'Add', 'educator' ); ?></button>
 	</div>
 </div>
 
@@ -53,22 +53,22 @@ if ( ! $attempts_number ) {
 </a>
 <div class="edr-question__body">
 	<div class="edr-question__text">
-		<label><?php _e( 'Question', 'edr' ); ?></label>
+		<label><?php _e( 'Question', 'educator' ); ?></label>
 		<input type="text" class="question-text" value="<%- question %>">
 	</div>
 	<div class="edr-question__content">
-		<label><?php _e( 'Content', 'edr' ); ?></label>
+		<label><?php _e( 'Content', 'educator' ); ?></label>
 		<textarea class="question-content"><%- question_content %></textarea>
 	</div>
 	<div class="edr-question__answers">
-		<label><?php _e( 'Answers', 'edr' ); ?></label>
-		<p class="no-answers"><?php _e( 'No answers yet.', 'edr' ); ?></p>
+		<label><?php _e( 'Answers', 'educator' ); ?></label>
+		<p class="no-answers"><?php _e( 'No answers yet.', 'educator' ); ?></p>
 		<table>
 			<thead>
 				<tr>
 					<th></th>
-					<th><?php _e( 'Correct?', 'edr' ); ?></th>
-					<th><?php _e( 'Answer', 'edr' ); ?></th>
+					<th><?php _e( 'Correct?', 'educator' ); ?></th>
+					<th><?php _e( 'Answer', 'educator' ); ?></th>
 					<th></th>
 				</tr>
 			</thead>
@@ -76,12 +76,12 @@ if ( ! $attempts_number ) {
 		</table>
 	</div>
 	<div class="edr-question__optional">
-		<label><input type="checkbox" class="question-optional"<%= (optional == 1) ? ' checked' : '' %>><?php _e( 'Optional', 'edr' ); ?></label>
+		<label><input type="checkbox" class="question-optional"<%= (optional == 1) ? ' checked' : '' %>><?php _e( 'Optional', 'educator' ); ?></label>
 	</div>
 	<div class="edr-question__buttons">
-		<button class="save-question button button-primary"><?php _e( 'Save Question', 'edr' ); ?></button>
-		<button class="add-answer button button-secondary"><?php _e( 'Add Answer', 'edr' ); ?></button>
-		<a class="delete-question" href="#"><?php _e( 'Delete', 'edr' ); ?></a>
+		<button class="save-question button button-primary"><?php _e( 'Save Question', 'educator' ); ?></button>
+		<button class="add-answer button button-secondary"><?php _e( 'Add Answer', 'educator' ); ?></button>
+		<a class="delete-question" href="#"><?php _e( 'Delete', 'educator' ); ?></a>
 	</div>
 </div>
 </script>
@@ -94,19 +94,19 @@ if ( ! $attempts_number ) {
 </a>
 <div class="edr-question__body">
 	<div class="edr-question__text">
-		<label><?php _e( 'Question', 'edr' ); ?></label>
+		<label><?php _e( 'Question', 'educator' ); ?></label>
 		<input type="text" class="question-text" value="<%- question %>">
 	</div>
 	<div class="edr-question__content">
-		<label><?php _e( 'Content', 'edr' ); ?></label>
+		<label><?php _e( 'Content', 'educator' ); ?></label>
 		<textarea class="question-content"><%- question_content %></textarea>
 	</div>
 	<div class="edr-question__optional">
-		<label><input type="checkbox" class="question-optional"<%= (optional == 1) ? ' checked' : '' %>><?php _e( 'Optional', 'edr' ); ?></label>
+		<label><input type="checkbox" class="question-optional"<%= (optional == 1) ? ' checked' : '' %>><?php _e( 'Optional', 'educator' ); ?></label>
 	</div>
 	<div class="edr-question__buttons">
-		<button class="save-question button button-primary"><?php _e( 'Save Question', 'edr' ); ?></button>
-		<a class="delete-question" href="#"><?php _e( 'Delete', 'edr' ); ?></a>
+		<button class="save-question button button-primary"><?php _e( 'Save Question', 'educator' ); ?></button>
+		<a class="delete-question" href="#"><?php _e( 'Delete', 'educator' ); ?></a>
 	</div>
 </div>
 </script>
@@ -119,19 +119,19 @@ if ( ! $attempts_number ) {
 </a>
 <div class="edr-question__body">
 	<div class="edr-question__text">
-		<label><?php _e( 'Question', 'edr' ); ?></label>
+		<label><?php _e( 'Question', 'educator' ); ?></label>
 		<input type="text" class="question-text" value="<%- question %>">
 	</div>
 	<div class="edr-question__content">
-		<label><?php _e( 'Content', 'edr' ); ?></label>
+		<label><?php _e( 'Content', 'educator' ); ?></label>
 		<textarea class="question-content"><%- question_content %></textarea>
 	</div>
 	<div class="edr-question__optional">
-		<label><input type="checkbox" class="question-optional"<%= (optional == 1) ? ' checked' : '' %>><?php _e( 'Optional', 'edr' ); ?></label>
+		<label><input type="checkbox" class="question-optional"<%= (optional == 1) ? ' checked' : '' %>><?php _e( 'Optional', 'educator' ); ?></label>
 	</div>
 	<div class="edr-question__buttons">
-		<button class="save-question button button-primary"><?php _e( 'Save Question', 'edr' ); ?></button>
-		<a class="delete-question" href="#"><?php _e( 'Delete', 'edr' ); ?></a>
+		<button class="save-question button button-primary"><?php _e( 'Save Question', 'educator' ); ?></button>
+		<a class="delete-question" href="#"><?php _e( 'Delete', 'educator' ); ?></a>
 	</div>
 </div>
 </script>

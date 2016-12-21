@@ -33,16 +33,16 @@ if ( $payment_id ) {
 
 	$lines = $payment->get_lines();
 	?>
-	<h2><?php _e( 'Payment Summary', 'edr' ); ?></h2>
+	<h2><?php _e( 'Payment Summary', 'educator' ); ?></h2>
 
 	<dl id="payment-details" class="edr-dl">
-		<dt class="payment-id"><?php _e( 'Payment', 'edr' ); ?></dt>
+		<dt class="payment-id"><?php _e( 'Payment', 'educator' ); ?></dt>
 		<dd><?php echo intval( $payment->ID ); ?></dd>
 
-		<dt class="payment-date"><?php _e( 'Date', 'edr' ); ?></dt>
+		<dt class="payment-date"><?php _e( 'Date', 'educator' ); ?></dt>
 		<dd><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $payment->payment_date ) ) ); ?></dd>
 
-		<dt class="payment-status"><?php _e( 'Payment Status', 'edr' ); ?></dt>
+		<dt class="payment-status"><?php _e( 'Payment Status', 'educator' ); ?></dt>
 		<dd>
 			<?php
 				$statuses = edr_get_payment_statuses();
@@ -57,8 +57,8 @@ if ( $payment_id ) {
 	<table class="edr-payment-table">
 		<thead>
 			<tr>
-				<th><?php _e( 'Item', 'edr' ); ?></th>
-				<th><?php _e( 'Price', 'edr' ); ?></th>
+				<th><?php _e( 'Item', 'educator' ); ?></th>
+				<th><?php _e( 'Price', 'educator' ); ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -72,7 +72,7 @@ if ( $payment_id ) {
 	<dl class="edr-payment-summary edr-dl">
 		<?php
 			if ( $payment->tax > 0.0 ) {
-				echo '<dt class="payment-subtotal">' . __( 'Subtotal', 'edr' ) .'</dt><dd>' . edr_format_price( $payment->amount - $payment->tax, false ) . '</dd>';
+				echo '<dt class="payment-subtotal">' . __( 'Subtotal', 'educator' ) .'</dt><dd>' . edr_format_price( $payment->amount - $payment->tax, false ) . '</dd>';
 
 				foreach ( $lines as $line ) {
 					if ( 'tax' == $line->line_type ) {
@@ -82,7 +82,7 @@ if ( $payment_id ) {
 			}
 		?>
 
-		<dt class="payment-total"><?php _e( 'Total', 'edr' ); ?></dt>
+		<dt class="payment-total"><?php _e( 'Total', 'educator' ); ?></dt>
 		<dd><?php echo edr_format_price( $payment->amount, false ) ?></dd>
 	</dl>
 	<?php
@@ -94,7 +94,7 @@ if ( $payment_id ) {
 	$payments_page = get_post( edr_get_page_id( 'user_payments' ) );
 	
 	if ( $payments_page ) {
-		echo '<p>' . sprintf( __( 'Go to %s page', 'edr' ), '<a href="' . esc_url( get_permalink( $payments_page->ID ) ) .
+		echo '<p>' . sprintf( __( 'Go to %s page', 'educator' ), '<a href="' . esc_url( get_permalink( $payments_page->ID ) ) .
 			'">' . esc_html( $payments_page->post_title ) . '</a>' ) . '</p>';
 	}
 } elseif ( ( $payment_id = get_query_var( 'edr-pay' ) ) ) {
@@ -130,7 +130,7 @@ if ( $payment_id ) {
 		$course_status = $edr_courses->get_register_status( $post->ID );
 
 		if ( 'closed' == $course_status ) {
-			echo '<p>' . __( 'Registration for this course is closed.', 'edr' ) . '</p>';
+			echo '<p>' . __( 'Registration for this course is closed.', 'educator' ) . '</p>';
 			return;
 		}
 
@@ -142,14 +142,14 @@ if ( $payment_id ) {
 			) );
 
 			if ( ! empty( $payments ) ) {
-				echo '<p>' . __( 'The payment for this course is pending.', 'edr' ) . '</p>';
+				echo '<p>' . __( 'The payment for this course is pending.', 'educator' ) . '</p>';
 
 				$payments_page = get_post( edr_get_page_id( 'user_payments' ) );
 
 				if ( $payments_page ) {
 					$payments_link = '<a href="' . esc_url( get_permalink( $payments_page->ID ) ) . '">' .
 						esc_html( $payments_page->post_title ) . '</a>';
-					echo '<p>' . sprintf( __( 'Go to %s', 'edr' ), $payments_link ) . '</p>';
+					echo '<p>' . sprintf( __( 'Go to %s', 'educator' ), $payments_link ) . '</p>';
 				}
 
 				return;
@@ -159,8 +159,8 @@ if ( $payment_id ) {
 
 	if ( ! $user_id ) {
 		$login_url = wp_login_url( edr_get_endpoint_url( 'edr-object', $post->ID, get_permalink() ) );
-		echo '<p>' . __( 'Already have an account?', 'edr' ) . ' <a href="' .
-			esc_url( $login_url ) . '">' . __( 'Log in', 'edr' ) . '</a></p>';
+		echo '<p>' . __( 'Already have an account?', 'educator' ) . ' <a href="' .
+			esc_url( $login_url ) . '">' . __( 'Log in', 'educator' ) . '</a></p>';
 	}
 
 	// Output error messages.
@@ -195,7 +195,7 @@ if ( $payment_id ) {
 			?>
 
 			<div class="edr-form__fields">
-				<div class="edr-form__legend"><?php _e( 'Payment Information', 'edr' ); ?></div>
+				<div class="edr-form__legend"><?php _e( 'Payment Information', 'educator' ); ?></div>
 
 				<?php
 					$args = array();
@@ -236,7 +236,7 @@ if ( $payment_id ) {
 				<?php if ( $args['price'] && ! empty( $gateways ) ) : ?>
 					<div class="edr-field<?php if ( in_array( 'empty_payment_method', $error_codes ) ) echo ' edr-field_error'; ?>">
 						<div class="edr-field__label">
-							<label><?php _e( 'Payment Method', 'edr' ); ?><span class="required">*</span></label>
+							<label><?php _e( 'Payment Method', 'educator' ); ?><span class="required">*</span></label>
 						</div>
 						<div class="edr-field__control">
 							<ul class="edr-payment-methods">
@@ -273,7 +273,7 @@ if ( $payment_id ) {
 			</div>
 
 			<div class="edr-form__actions">
-				<button type="submit" class="edr-button"><?php _e( 'Continue', 'edr' ) ?></button>
+				<button type="submit" class="edr-button"><?php _e( 'Continue', 'educator' ) ?></button>
 			</div>
 		</form>
 	<?php

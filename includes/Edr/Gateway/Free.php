@@ -6,7 +6,7 @@ class Edr_Gateway_Free extends Edr_Gateway_Base {
 	 */
 	public function __construct() {
 		$this->id = 'free';
-		$this->title = __( 'Free', 'edr' );
+		$this->title = __( 'Free', 'educator' );
 		$this->editable = false;
 	}
 

@@ -83,7 +83,7 @@ $questions = $edr_quizzes->get_questions( $post_id );
 	?>
 
 	<div id="edr-quiz-<?php echo intval( $post_id ); ?>" class="edr-quiz <?php echo $do_quiz ? 'edr-quiz_editable' : 'edr-quiz_done'; ?>">
-		<h2 class="edr-quiz__title"><?php _e( 'Quiz', 'edr' ); ?></h2>
+		<h2 class="edr-quiz__title"><?php _e( 'Quiz', 'educator' ); ?></h2>
 
 		<?php
 			$messages = edr_internal_message( 'quiz' );
@@ -101,7 +101,7 @@ $questions = $edr_quizzes->get_questions( $post_id );
 				switch ( get_query_var( 'edr-message' ) ) {
 					case 'quiz-submitted':
 						echo '<div class="edr-messages">';
-						echo '<div class="edr-message success">' . __( 'Thank you. the quiz has been accepted.', 'edr' ) . '</div>';
+						echo '<div class="edr-message success">' . __( 'Thank you. the quiz has been accepted.', 'educator' ) . '</div>';
 						echo '</div>';
 						break;
 				}
@@ -112,19 +112,19 @@ $questions = $edr_quizzes->get_questions( $post_id );
 			<div class="edr-quiz__grade">
 				<?php
 					if ( 'approved' == $grade->status ) {
-						printf( __( 'You scored %s for this quiz.', 'edr' ), '<strong>' . edr_format_grade( $grade->grade ) . '</strong>' );
+						printf( __( 'You scored %s for this quiz.', 'educator' ), '<strong>' . edr_format_grade( $grade->grade ) . '</strong>' );
 					} else {
-						_e( 'Your grade is pending.', 'edr' );
+						_e( 'Your grade is pending.', 'educator' );
 					}
 				?>
 			</div>
 		<?php endif; ?>
 
 		<div class="edr-quiz__attempts">
-			<?php printf( __( 'Attempt %1$d of %2$d', 'edr' ), $current_attempt, $max_attempts_number ); ?>
+			<?php printf( __( 'Attempt %1$d of %2$d', 'educator' ), $current_attempt, $max_attempts_number ); ?>
 
 			<?php if ( $can_attempt && ! $do_quiz ) : ?>
-				<a class="edr-quiz__attempts__try-again" href="<?php echo esc_url( add_query_arg( 'try_again', 'true', get_permalink() ) ); ?>#edr-quiz"><?php _e( 'Try again', 'edr' ); ?></a>
+				<a class="edr-quiz__attempts__try-again" href="<?php echo esc_url( add_query_arg( 'try_again', 'true', get_permalink() ) ); ?>#edr-quiz"><?php _e( 'Try again', 'educator' ); ?></a>
 			<?php endif; ?>
 		</div>
 
@@ -192,7 +192,7 @@ $questions = $edr_quizzes->get_questions( $post_id );
 
 			<?php if ( $do_quiz ) : ?>
 				<div class="edr-form__actions">
-					<button class="edr-button" type="submit"><?php _e( 'Submit', 'edr' ); ?></button>
+					<button class="edr-button" type="submit"><?php _e( 'Submit', 'educator' ); ?></button>
 				</div>
 			<?php endif; ?>
 		</form>

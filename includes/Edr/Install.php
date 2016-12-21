@@ -291,12 +291,12 @@ CREATE TABLE $this->entry_meta (
 
 		if ( isset( $wp_roles ) && is_object( $wp_roles ) ) {
 			// Lecturer role.
-			add_role( 'lecturer', __( 'Lecturer', 'edr' ), array(
+			add_role( 'lecturer', __( 'Lecturer', 'educator' ), array(
 				'read' => true,
 			) );
 
 			// Student role.
-			add_role( 'student', __( 'Student', 'edr' ), array(
+			add_role( 'student', __( 'Student', 'educator' ), array(
 				'read' => true,
 			) );
 
@@ -408,7 +408,7 @@ CREATE TABLE $this->entry_meta (
 	public function setup_email_templates() {
 		if ( ! get_option( 'edr_student_registered' ) ) {
 			update_option( 'edr_student_registered', array(
-				'subject'  => sprintf( __( 'Registration for %s is complete', 'edr' ), '{course_title}' ),
+				'subject'  => sprintf( __( 'Registration for %s is complete', 'educator' ), '{course_title}' ),
 				'template' => 'Dear {student_name},
 
 You\'ve got access to {course_title}.
@@ -424,7 +424,7 @@ Administration',
 
 		if ( ! get_option( 'edr_quiz_grade' ) ) {
 			update_option( 'edr_quiz_grade', array(
-				'subject' => __( 'You\'ve got a grade', 'edr' ),
+				'subject' => __( 'You\'ve got a grade', 'educator' ),
 				'template' => 'Dear {student_name},
 
 You\'ve got {grade} for {lesson_title}.
@@ -438,7 +438,7 @@ Administration',
 
 		if ( ! get_option( 'edr_membership_register' ) ) {
 			update_option( 'edr_membership_register', array(
-				'subject' => __( 'You\'ve been registered for a membership', 'edr' ),
+				'subject' => __( 'You\'ve been registered for a membership', 'educator' ),
 				'template' => 'Dear {student_name},
 
 Thank you for registering for the {membership} membership.
@@ -456,7 +456,7 @@ Administration',
 
 		if ( ! get_option( 'edr_membership_renew' ) ) {
 			update_option( 'edr_membership_renew', array(
-				'subject' => __( 'Your membership expires', 'edr' ),
+				'subject' => __( 'Your membership expires', 'educator' ),
 				'template' => 'Dear {student_name},
 
 Your {membership} membership expires on {expiration}.

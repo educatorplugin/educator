@@ -12,7 +12,7 @@ $user = get_user_by( 'id', $grade->user_id );
 $form_action = admin_url( 'admin.php?page=edr_admin_quiz_grades&edr-action=edit-quiz-grade&grade_id=' . $grade_id );
 ?>
 <div class="wrap">
-	<h2><?php _e( 'Edit Quiz Grade', 'edr' ); ?></h2>
+	<h2><?php _e( 'Edit Quiz Grade', 'educator' ); ?></h2>
 
 	<form id="edr-edit-quiz-grade-form" class="edr-admin-form" action="<?php echo esc_url( $form_action ); ?>" method="post">
 		<?php wp_nonce_field( 'edr_edit_quiz_grade_' . $grade->ID ); ?>
@@ -23,11 +23,11 @@ $form_action = admin_url( 'admin.php?page=edr_admin_quiz_grades&edr-action=edit-
 					<div id="normal-sortables" class="meta-box-sortables">
 						<div id="quiz-grade-info" class="postbox">
 							<div class="handlediv"><br></div>
-							<h3 class="hndle"><span><?php _e( 'Grade Info', 'edr' ); ?></span></h3>
+							<h3 class="hndle"><span><?php _e( 'Grade Info', 'educator' ); ?></span></h3>
 							<div class="inside">
 								<div class="edr-field">
 									<div class="edr-field__label">
-										<label><?php _e( 'User', 'edr' ); ?></label>
+										<label><?php _e( 'User', 'educator' ); ?></label>
 									</div>
 									<div class="edr-field__control">
 										<?php
@@ -40,7 +40,7 @@ $form_action = admin_url( 'admin.php?page=edr_admin_quiz_grades&edr-action=edit-
 
 								<div class="edr-field">
 									<div class="edr-field__label">
-										<label><?php _e( 'Post', 'edr' ); ?></label>
+										<label><?php _e( 'Post', 'educator' ); ?></label>
 									</div>
 									<div class="edr-field__control">
 										<?php
@@ -53,7 +53,7 @@ $form_action = admin_url( 'admin.php?page=edr_admin_quiz_grades&edr-action=edit-
 
 								<div class="edr-field">
 									<div class="edr-field__label">
-										<label><?php _e( 'Entry', 'edr' ); ?></label>
+										<label><?php _e( 'Entry', 'educator' ); ?></label>
 									</div>
 									<div class="edr-field__control">
 										<?php if ( $grade->entry_id ) : ?>
@@ -64,16 +64,16 @@ $form_action = admin_url( 'admin.php?page=edr_admin_quiz_grades&edr-action=edit-
 													'entry_id'   => $grade->entry_id,
 												), admin_url( 'admin.php' ) );
 											?>
-											<a href="<?php echo esc_url( $url_edit_entry ); ?>" title="<?php _e( 'Edit Entry', 'edr' ); ?>" target="_blank"><?php echo intval( $grade->entry_id ); ?></a>
+											<a href="<?php echo esc_url( $url_edit_entry ); ?>" title="<?php _e( 'Edit Entry', 'educator' ); ?>" target="_blank"><?php echo intval( $grade->entry_id ); ?></a>
 										<?php else : ?>
-											<?php _e( 'None', 'edr' ); ?>
+											<?php _e( 'None', 'educator' ); ?>
 										<?php endif; ?>
 									</div>
 								</div>
 
 								<div class="edr-field">
 									<div class="edr-field__label">
-										<label><?php _e( 'Status', 'edr' ); ?></label>
+										<label><?php _e( 'Status', 'educator' ); ?></label>
 									</div>
 									<div class="edr-field__control">
 										<?php

@@ -2,7 +2,7 @@
 global $post;
 ?>
 <?php if ( ! empty( $syllabus ) ) : ?>
-	<h2 class="edr-syllabus-title"><?php _e( 'Lessons', 'edr' ); ?></h2>
+	<h2 class="edr-syllabus-title"><?php _e( 'Lessons', 'educator' ); ?></h2>
 	<div class="edr-syllabus">
 		<?php foreach ( $syllabus as $group ) : ?>
 			<?php if ( ! empty( $group['lessons'] ) ) : ?>

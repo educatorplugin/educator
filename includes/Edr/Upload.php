@@ -34,14 +34,14 @@ class Edr_Upload {
 			case UPLOAD_ERR_OK:
 				break;
 			case UPLOAD_ERR_NO_FILE:
-				$message = __( 'No file sent.', 'edr' );
+				$message = __( 'No file sent.', 'educator' );
 				break;
 			case UPLOAD_ERR_INI_SIZE:
 			case UPLOAD_ERR_FORM_SIZE:
-				$message = __( 'Exceeded file size limit.', 'edr' );
+				$message = __( 'Exceeded file size limit.', 'educator' );
 				break;
 			default:
-				$message = __( 'Unknown upload error.', 'edr' );
+				$message = __( 'Unknown upload error.', 'educator' );
 		}
 
 		return $message;
@@ -132,14 +132,14 @@ class Edr_Upload {
 	 */
 	public function upload_file( $file ) {
 		if ( ! $this->is_uploaded_file( $file['tmp_name'] ) ) {
-			return array( 'error' => __( 'A file failed upload test.', 'edr' ) );
+			return array( 'error' => __( 'A file failed upload test.', 'educator' ) );
 		}
 
 		// Check the file type.
 		$file_info = $this->check_mime_type( $file['tmp_name'] );
 
 		if ( ! $file_info['type'] ) {
-			return array( 'error' => __( 'This file type is not supported.', 'edr' ) );
+			return array( 'error' => __( 'This file type is not supported.', 'educator' ) );
 		}
 
 		// Get file extension.
@@ -151,20 +151,20 @@ class Edr_Upload {
 		}
 
 		if ( ! $ext || ! preg_match( '#^(' . $file_info['ext_regexp'] . ')$#i', $ext ) ) {
-			return array( 'error' => __( 'Could not verify the file extension.', 'edr' ) );
+			return array( 'error' => __( 'Could not verify the file extension.', 'educator' ) );
 		}
 
 		// Determine the directory where to upload the file.
 		$file_dir = edr_get_private_uploads_dir();
 
 		if ( ! $file_dir ) {
-			return array( 'error' => __( 'Could not determine the uploads directory.', 'edr' ) );
+			return array( 'error' => __( 'Could not determine the uploads directory.', 'educator' ) );
 		}
 
 		$path = $this->get_file_path( $file['tmp_name'] );
 
 		if ( ! $path ) {
-			return array( 'error' => __( 'Could not determine the file path.', 'edr' ) );
+			return array( 'error' => __( 'Could not determine the file path.', 'educator' ) );
 		}
 
 		if ( ! empty( $file['context_dir'] ) ) {
@@ -184,7 +184,7 @@ class Edr_Upload {
 
 		// Move uploaded file to a new path.
 		if ( false === $this->move_uploaded_file( $file['tmp_name'], $file_path ) ) {
-			return array( 'error' => __( 'Could not upload the file.', 'edr' ) );
+			return array( 'error' => __( 'Could not upload the file.', 'educator' ) );
 		}
 
 		// Set proper file permissions.

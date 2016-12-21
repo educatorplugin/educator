@@ -131,7 +131,7 @@ class FunctionsTest extends WP_UnitTestCase {
 
 		$expected = array(
 			'key' => 'intermediate',
-			'label' => __( 'Intermediate', 'edr' ),
+			'label' => __( 'Intermediate', 'educator' ),
 		);
 		$actual = edr_get_difficulty( $post_id );
 

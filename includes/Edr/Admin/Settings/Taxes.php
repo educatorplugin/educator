@@ -18,7 +18,7 @@ class Edr_Admin_Settings_Taxes extends Edr_Admin_Settings_Base {
 	public function register_settings() {
 		add_settings_section(
 			'edr_taxes_settings', // id
-			__( 'Taxes', 'edr' ),
+			__( 'Taxes', 'educator' ),
 			array( $this, 'section_description' ),
 			'edr_taxes_page' // page
 		);
@@ -26,7 +26,7 @@ class Edr_Admin_Settings_Taxes extends Edr_Admin_Settings_Base {
 		// Setting: Enable Taxes.
 		add_settings_field(
 			'edr_taxes_enable',
-			__( 'Enable Taxes', 'edr' ),
+			__( 'Enable Taxes', 'educator' ),
 			array( $this, 'setting_checkbox' ),
 			'edr_taxes_page', // page
 			'edr_taxes_settings', // section
@@ -41,7 +41,7 @@ class Edr_Admin_Settings_Taxes extends Edr_Admin_Settings_Base {
 		// Setting: Prices Entered With Tax.
 		add_settings_field(
 			'edr_tax_inclusive',
-			__( 'Prices Entered With Tax', 'edr' ),
+			__( 'Prices Entered With Tax', 'educator' ),
 			array( $this, 'setting_select' ),
 			'edr_taxes_page', // page
 			'edr_taxes_settings', // section
@@ -51,8 +51,8 @@ class Edr_Admin_Settings_Taxes extends Edr_Admin_Settings_Base {
 				'default'        => 'y',
 				'id'             => 'edr_tax_inclusive',
 				'choices'        => array(
-					'y' => __( 'Yes', 'edr' ),
-					'n' => __( 'No', 'edr' ),
+					'y' => __( 'Yes', 'educator' ),
+					'n' => __( 'No', 'educator' ),
 				),
 			)
 		);
@@ -60,7 +60,7 @@ class Edr_Admin_Settings_Taxes extends Edr_Admin_Settings_Base {
 		// Setting: Tax Classes.
 		add_settings_field(
 			'edr_taxes_classes',
-			__( 'Tax Classes', 'edr' ),
+			__( 'Tax Classes', 'educator' ),
 			array( $this, 'render_tax_classes' ),
 			'edr_taxes_page', // page
 			'edr_taxes_settings' // section
@@ -108,7 +108,7 @@ class Edr_Admin_Settings_Taxes extends Edr_Admin_Settings_Base {
 	 * @return array
 	 */
 	public function add_tab( $tabs ) {
-		$tabs['taxes'] = __( 'Taxes', 'edr' );
+		$tabs['taxes'] = __( 'Taxes', 'educator' );
 
 		return $tabs;
 	}
@@ -296,9 +296,9 @@ class Edr_Admin_Settings_Taxes extends Edr_Admin_Settings_Base {
 		<script id="edr-tax-class" type="text/html">
 		<td><%= description %></td>
 		<td>
-			<button class="button edit-tax-class"><?php _e( 'Edit', 'edr' ); ?></button>
-			<button class="button edit-rates"><?php _e( 'Rates', 'edr' ); ?></button>
-			<button class="button delete-tax-class"><?php _e( 'Delete', 'edr' ); ?></button>
+			<button class="button edit-tax-class"><?php _e( 'Edit', 'educator' ); ?></button>
+			<button class="button edit-rates"><?php _e( 'Rates', 'educator' ); ?></button>
+			<button class="button delete-tax-class"><?php _e( 'Delete', 'educator' ); ?></button>
 		</td>
 		</script>
 
@@ -307,32 +307,32 @@ class Edr_Admin_Settings_Taxes extends Edr_Admin_Settings_Base {
 		<table class="edr-table">
 			<thead>
 				<tr>
-					<th><?php _e( 'Tax Class', 'edr' ); ?></th>
-					<th><?php _e( 'Options', 'edr' ); ?></th>
+					<th><?php _e( 'Tax Class', 'educator' ); ?></th>
+					<th><?php _e( 'Options', 'educator' ); ?></th>
 				</tr>
 			</thead>
 			<tbody></tbody>
 		</table>
 		<p class="actions">
-			<button class="button add-new-class"><?php _e( 'Add New', 'edr' ); ?></button>
+			<button class="button add-new-class"><?php _e( 'Add New', 'educator' ); ?></button>
 		</p>
 		</script>
 
 		<!-- TEMPLATE: EditTaxClassView -->
 		<script id="edr-edit-tax-class" type="text/html">
-		<h4 class="title-add-new"><?php _e( 'Add New Tax Rate', 'edr' ); ?></h4>
-		<h4 class="title-edit"><?php _e( 'Edit Tax Rate', 'edr' ); ?></h4>
+		<h4 class="title-add-new"><?php _e( 'Add New Tax Rate', 'educator' ); ?></h4>
+		<h4 class="title-edit"><?php _e( 'Edit Tax Rate', 'educator' ); ?></h4>
 		<p>
-			<label><?php _e( 'Short Name', 'edr' ); ?></label>
+			<label><?php _e( 'Short Name', 'educator' ); ?></label>
 			<input type="text" class="short-name" value="<%= name %>">
 		</p>
 		<p>
-			<label><?php _e( 'Description', 'edr' ); ?></label>
+			<label><?php _e( 'Description', 'educator' ); ?></label>
 			<input type="text" class="description" value="<%= description %>">
 		</p>
 		<p>
-			<button class="button button-primary save-tax-class"><?php _e( 'Save', 'edr' ); ?></button>
-			<button class="button cancel"><?php _e( 'Cancel', 'edr' ); ?></button>
+			<button class="button button-primary save-tax-class"><?php _e( 'Save', 'educator' ); ?></button>
+			<button class="button cancel"><?php _e( 'Cancel', 'educator' ); ?></button>
 		</p>
 		</script>
 
@@ -345,8 +345,8 @@ class Edr_Admin_Settings_Taxes extends Edr_Admin_Settings_Base {
 		<td class="rate"><%= rate %></td>
 		<td class="priority"><%= priority %></td>
 		<td class="options">
-			<a class="edit-rate" href="#"><?php _e( 'Edit', 'edr' ); ?></a> <span>|</span>
-			<a class="delete-rate" href="#"><?php _e( 'Delete', 'edr' ); ?></a>
+			<a class="edit-rate" href="#"><?php _e( 'Edit', 'educator' ); ?></a> <span>|</span>
+			<a class="delete-rate" href="#"><?php _e( 'Delete', 'educator' ); ?></a>
 		</td>
 		</script>
 
@@ -368,8 +368,8 @@ class Edr_Admin_Settings_Taxes extends Edr_Admin_Settings_Base {
 		<td class="rate"><input type="number" value="<%= rate %>"></td>
 		<td class="priority"><input type="number" value="<%= priority %>"></td>
 		<td class="options">
-			<a class="save-rate" href="#"><?php _e( 'Save', 'edr' ); ?></a> <span>|</span>
-			<a class="delete-rate" href="#"><?php _e( 'Delete', 'edr' ); ?></a>
+			<a class="save-rate" href="#"><?php _e( 'Save', 'educator' ); ?></a> <span>|</span>
+			<a class="delete-rate" href="#"><?php _e( 'Delete', 'educator' ); ?></a>
 		</td>
 		</script>
 
@@ -379,27 +379,27 @@ class Edr_Admin_Settings_Taxes extends Edr_Admin_Settings_Base {
 			<thead>
 				<tr>
 					<th></th>
-					<th><?php _e( 'Country', 'edr' ); ?></th>
-					<th><?php _e( 'State', 'edr' ); ?></th>
-					<th><?php _e( 'Name', 'edr' ); ?></th>
-					<th><?php _e( 'Rate (%)', 'edr' ); ?></th>
-					<th><?php _e( 'Priority', 'edr' ); ?></th>
-					<th><?php _e( 'Options', 'edr' ); ?></th>
+					<th><?php _e( 'Country', 'educator' ); ?></th>
+					<th><?php _e( 'State', 'educator' ); ?></th>
+					<th><?php _e( 'Name', 'educator' ); ?></th>
+					<th><?php _e( 'Rate (%)', 'educator' ); ?></th>
+					<th><?php _e( 'Priority', 'educator' ); ?></th>
+					<th><?php _e( 'Options', 'educator' ); ?></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr class="loading">
 					<td colspan="7">
-						<?php _e( 'Loading', 'edr' ); ?>
+						<?php _e( 'Loading', 'educator' ); ?>
 					</td>
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
 					<td colspan="7">
-						<button class="button button-primary add-new-rate"><?php _e( 'Add New', 'edr' ); ?></button>
-						<button class="button save-order" disabled="disabled"><?php _e( 'Save Order', 'edr' ); ?></button>
-						<button class="button cancel"><?php _e( 'Close', 'edr' ); ?></button>
+						<button class="button button-primary add-new-rate"><?php _e( 'Add New', 'educator' ); ?></button>
+						<button class="button save-order" disabled="disabled"><?php _e( 'Save Order', 'educator' ); ?></button>
+						<button class="button cancel"><?php _e( 'Close', 'educator' ); ?></button>
 					</td>
 				</tr>
 			</tfoot>
@@ -428,10 +428,10 @@ class Edr_Admin_Settings_Taxes extends Edr_Admin_Settings_Base {
 			echo $json;
 		?>;
 		var edrTaxAppErrors = {
-			name: '<?php echo esc_js( __( 'The name is invalid.', 'edr' ) ); ?>',
-			nameNotUnique: '<?php echo esc_js( __( 'Tax class with this name exists.', 'edr' ) ); ?>',
-			description: '<?php echo esc_js( __( 'Description cannot be empty.', 'edr' ) ); ?>',
-			ratesNotSaved: '<?php echo esc_js( __( 'Rates could not be saved.', 'edr' ) ); ?>'
+			name: '<?php echo esc_js( __( 'The name is invalid.', 'educator' ) ); ?>',
+			nameNotUnique: '<?php echo esc_js( __( 'Tax class with this name exists.', 'educator' ) ); ?>',
+			description: '<?php echo esc_js( __( 'Description cannot be empty.', 'educator' ) ); ?>',
+			ratesNotSaved: '<?php echo esc_js( __( 'Rates could not be saved.', 'educator' ) ); ?>'
 		};
 		</script>
 		<?php

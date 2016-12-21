@@ -165,17 +165,17 @@ class Edr_TaxManager {
 		$errors = new WP_Error();
 
 		if ( empty( $input['name'] ) ) {
-			$errors->add( 'name_empty', __( 'Name cannot be empty.', 'edr' ) );
+			$errors->add( 'name_empty', __( 'Name cannot be empty.', 'educator' ) );
 		} else {
 			$data['name'] = preg_replace( '/[^a-zA-Z0-9-_]+/', '', $input['name'] );
 
 			if ( empty( $data['name'] ) ) {
-				$errors->add( 'name_invalid', __( 'Invalid name.', 'edr' ) );
+				$errors->add( 'name_invalid', __( 'Invalid name.', 'educator' ) );
 			}
 		}
 
 		if ( empty( $input['description'] ) ) {
-			$errors->add( 'description_empty', __( 'Description cannot be empty.', 'edr' ) );
+			$errors->add( 'description_empty', __( 'Description cannot be empty.', 'educator' ) );
 		} else {
 			$data['description'] = sanitize_text_field( $input['description'] );
 		}

@@ -11,7 +11,7 @@ $form_action = add_query_arg( array(
 ), admin_url( 'admin.php?page=edr_admin_quiz_grades' ) );
 ?>
 <div class="wrap">
-	<h2><?php _e( 'Quiz Grades', 'edr' ); ?></h2>
+	<h2><?php _e( 'Quiz Grades', 'educator' ); ?></h2>
 
 	<?php $quiz_grades_table->display_quiz_grade_filters(); ?>
 

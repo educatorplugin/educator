@@ -63,7 +63,7 @@ class Edr_StudentAccount {
 			// Add account details group.
 			$form->add_group( array(
 				'name'  => 'account',
-				'label' => __( 'Create an Account', 'edr' ),
+				'label' => __( 'Create an Account', 'educator' ),
 			) );
 
 			// Set values.
@@ -75,7 +75,7 @@ class Edr_StudentAccount {
 				'type'         => 'text',
 				'name'         => 'account_username',
 				'container_id' => 'account-username-field',
-				'label'        => __( 'Username', 'edr' ),
+				'label'        => __( 'Username', 'educator' ),
 				'id'           => 'account-username',
 				'class'        => isset( $has_error['account_username'] ) ? 'error' : '',
 				'required'     => true,
@@ -86,7 +86,7 @@ class Edr_StudentAccount {
 				'type'         => 'text',
 				'name'         => 'account_email',
 				'container_id' => 'account-email-field',
-				'label'        => __( 'Email', 'edr' ),
+				'label'        => __( 'Email', 'educator' ),
 				'id'           => 'account-email',
 				'class'        => isset( $has_error['account_email'] ) ? 'error' : '',
 				'required'     => true,
@@ -97,7 +97,7 @@ class Edr_StudentAccount {
 			// Add billing details group.
 			$form->add_group( array(
 				'name'  => 'billing',
-				'label' => __( 'Billing Details', 'edr' ),
+				'label' => __( 'Billing Details', 'educator' ),
 			) );
 
 			// Set values.
@@ -129,7 +129,7 @@ class Edr_StudentAccount {
 				'type'         => 'text',
 				'name'         => 'billing_first_name',
 				'container_id' => 'billing-first-name-field',
-				'label'        => __( 'First Name', 'edr' ),
+				'label'        => __( 'First Name', 'educator' ),
 				'id'           => 'billing-first-name',
 				'class'        => in_array( 'billing_first_name_empty', $error_codes ) ? 'error' : '',
 				'required'     => true,
@@ -140,7 +140,7 @@ class Edr_StudentAccount {
 				'type'         => 'text',
 				'name'         => 'billing_last_name',
 				'container_id' => 'billing-last-name-field',
-				'label'        => __( 'Last Name', 'edr' ),
+				'label'        => __( 'Last Name', 'educator' ),
 				'id'           => 'billing-last-name',
 				'class'        => in_array( 'billing_last_name_empty', $error_codes ) ? 'error' : '',
 				'required'     => true,
@@ -151,7 +151,7 @@ class Edr_StudentAccount {
 				'type'         => 'text',
 				'name'         => 'billing_address',
 				'container_id' => 'billing-address-field',
-				'label'        => __( 'Address', 'edr' ),
+				'label'        => __( 'Address', 'educator' ),
 				'id'           => 'billing-address',
 				'class'        => in_array( 'billing_address_empty', $error_codes ) ? 'error' : '',
 				'required'     => true,
@@ -162,7 +162,7 @@ class Edr_StudentAccount {
 				'type'         => 'text',
 				'name'         => 'billing_address_2',
 				'container_id' => 'billing-address-2-field',
-				'label'        => __( 'Address Line 2', 'edr' ),
+				'label'        => __( 'Address Line 2', 'educator' ),
 				'id'           => 'billing-address-2',
 			), 'billing' );
 
@@ -171,7 +171,7 @@ class Edr_StudentAccount {
 				'type'         => 'text',
 				'name'         => 'billing_city',
 				'container_id' => 'billing-city-field',
-				'label'        => __( 'City', 'edr' ),
+				'label'        => __( 'City', 'educator' ),
 				'id'           => 'billing-city',
 				'class'        => in_array( 'billing_city_empty', $error_codes ) ? 'error' : '',
 				'required'     => true,
@@ -183,7 +183,7 @@ class Edr_StudentAccount {
 			$state_field = array(
 				'name'         => 'billing_state',
 				'container_id' => 'billing-state-field',
-				'label'        => __( 'State / Province', 'edr' ),
+				'label'        => __( 'State / Province', 'educator' ),
 				'id'           => 'billing-state',
 				'class'        => in_array( 'billing_state_empty', $error_codes ) ? 'error' : '',
 				'required'     => true,
@@ -207,7 +207,7 @@ class Edr_StudentAccount {
 				'type'         => 'text',
 				'name'         => 'billing_postcode',
 				'container_id' => 'billing-postcode-field',
-				'label'        => __( 'Postcode / Zip', 'edr' ),
+				'label'        => __( 'Postcode / Zip', 'educator' ),
 				'id'           => 'billing-postcode',
 				'class'        => in_array( 'billing_postcode_empty', $error_codes ) ? 'error' : '',
 				'required'     => true,
@@ -218,7 +218,7 @@ class Edr_StudentAccount {
 				'type'         => 'select',
 				'name'         => 'billing_country',
 				'container_id' => 'billing-country-field',
-				'label'        => __( 'Country', 'edr' ),
+				'label'        => __( 'Country', 'educator' ),
 				'id'           => 'billing-country',
 				'class'        => in_array( 'billing_country_empty', $error_codes ) ? 'error' : '',
 				'required'     => true,
@@ -243,56 +243,56 @@ class Edr_StudentAccount {
 			// Username.
 			if ( ! empty( $_POST['account_username'] ) ) {
 				if ( ! validate_username( $_POST['account_username'] ) ) {
-					$errors->add( 'invalid_username', __( 'Please check if you entered your username correctly.', 'edr' ) );
+					$errors->add( 'invalid_username', __( 'Please check if you entered your username correctly.', 'educator' ) );
 				}
 			} else {
-				$errors->add( 'account_info_empty', __( 'Please enter your username and email.', 'edr' ) );
+				$errors->add( 'account_info_empty', __( 'Please enter your username and email.', 'educator' ) );
 			}
 
 			// Email.
 			if ( ! empty( $_POST['account_email'] ) ) {
 				if ( ! is_email( $_POST['account_email'] ) ) {
-					$errors->add( 'invalid_email', __( 'Please check if you entered your email correctly.', 'edr' ) );
+					$errors->add( 'invalid_email', __( 'Please check if you entered your email correctly.', 'educator' ) );
 				}
 			} elseif ( ! $errors->get_error_message( 'account_info_empty' ) ) {
-				$errors->add( 'account_info_empty', __( 'Please enter your username and email.', 'edr' ) );
+				$errors->add( 'account_info_empty', __( 'Please enter your username and email.', 'educator' ) );
 			}
 		}
 
 		if ( edr_collect_billing_data( $object ) ) {
 			// First Name.
 			if ( empty( $_POST['billing_first_name'] ) ) {
-				$errors->add( 'billing_first_name_empty', __( 'Please enter your first name.', 'edr' ) );
+				$errors->add( 'billing_first_name_empty', __( 'Please enter your first name.', 'educator' ) );
 			}
 
 			// Last Name.
 			if ( empty( $_POST['billing_last_name'] ) ) {
-				$errors->add( 'billing_last_name_empty', __( 'Please enter your last name.', 'edr' ) );
+				$errors->add( 'billing_last_name_empty', __( 'Please enter your last name.', 'educator' ) );
 			}
 
 			// Address.
 			if ( empty( $_POST['billing_address'] ) ) {
-				$errors->add( 'billing_address_empty', __( 'Please enter your billing address.', 'edr' ) );
+				$errors->add( 'billing_address_empty', __( 'Please enter your billing address.', 'educator' ) );
 			}
 
 			// Address Line 2.
 			if ( empty( $_POST['billing_city'] ) ) {
-				$errors->add( 'billing_city_empty', __( 'Please enter your billing city.', 'edr' ) );
+				$errors->add( 'billing_city_empty', __( 'Please enter your billing city.', 'educator' ) );
 			}
 
 			// State / Province.
 			if ( empty( $_POST['billing_state'] ) ) {
-				$errors->add( 'billing_state_empty', __( 'Please enter your billing state / province.', 'edr' ) );
+				$errors->add( 'billing_state_empty', __( 'Please enter your billing state / province.', 'educator' ) );
 			}
 
 			// Postcode / Zip.
 			if ( empty( $_POST['billing_postcode'] ) ) {
-				$errors->add( 'billing_postcode_empty', __( 'Please enter your billing postcode / zip.', 'edr' ) );
+				$errors->add( 'billing_postcode_empty', __( 'Please enter your billing postcode / zip.', 'educator' ) );
 			}
 
 			// Country.
 			if ( empty( $_POST['billing_country'] ) ) {
-				$errors->add( 'billing_country_empty', __( 'Please select your billing country.', 'edr' ) );
+				$errors->add( 'billing_country_empty', __( 'Please select your billing country.', 'educator' ) );
 			}
 		}
 
@@ -406,7 +406,7 @@ class Edr_StudentAccount {
 
 		// Items list.
 		$output = '<table class="edr-payment-table">';
-		$output .= '<thead><tr><th>' . __( 'Item', 'edr' ) . '</th><th>' . __( 'Price', 'edr' ) . '</th></tr></thead>';
+		$output .= '<thead><tr><th>' . __( 'Item', 'educator' ) . '</th><th>' . __( 'Price', 'educator' ) . '</th></tr></thead>';
 
 		if ( EDR_PT_COURSE == $object->post_type ) {
 			$output .= '<tbody><tr>';
@@ -430,14 +430,14 @@ class Edr_StudentAccount {
 		$output .= '<dl class="edr-payment-summary edr-dl">';
 
 		if ( $tax_data['tax'] > 0.0 ) {
-			$output .= '<dt class="payment-subtotal">' . __( 'Subtotal', 'edr' ) . '</dt><dd>' . edr_format_price( $tax_data['subtotal'], false ) . '</dd>';
+			$output .= '<dt class="payment-subtotal">' . __( 'Subtotal', 'educator' ) . '</dt><dd>' . edr_format_price( $tax_data['subtotal'], false ) . '</dd>';
 
 			foreach ( $tax_data['taxes'] as $tax ) {
 				$output .= '<dt class="payment-tax">' . esc_html( $tax->name ) . '</dt><dd>' . edr_format_price( $tax->amount, false ) . '</dd>';
 			}
 		}
 
-		$output .= '<dt class="payment-total">' . __( 'Total', 'edr' ) . '</dt><dd>' . edr_format_price( $tax_data['total'], false ) . '</dd>';
+		$output .= '<dt class="payment-total">' . __( 'Total', 'educator' ) . '</dt><dd>' . edr_format_price( $tax_data['total'], false ) . '</dd>';
 		$output .= '</dl>';
 
 		return $output;

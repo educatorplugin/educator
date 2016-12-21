@@ -12,27 +12,27 @@ class Edr_Gateway_Paypal extends Edr_Gateway_Base {
 	 */
 	public function __construct() {
 		$this->id = 'paypal';
-		$this->title = __( 'PayPal', 'edr' );
+		$this->title = __( 'PayPal', 'educator' );
 		$this->live_url = 'https://www.paypal.com/cgi-bin/webscr';
 		$this->test_url = 'https://www.sandbox.paypal.com/cgi-bin/webscr';
 
 		$this->init_options( array(
 			'business_email' => array(
 				'type'  => 'text',
-				'label' => __( 'Business Email', 'edr' ),
+				'label' => __( 'Business Email', 'educator' ),
 				'id'    => 'edr-paypal-business-email',
 			),
 
 			'test' => array(
 				'type'        => 'checkbox',
-				'label'       => __( 'Test', 'edr' ),
-				'description' => __( 'If checked, Educator will use PayPal sandbox URL and PayPal payments will be in testing mode.', 'edr' ),
+				'label'       => __( 'Test', 'educator' ),
+				'description' => __( 'If checked, Educator will use PayPal sandbox URL and PayPal payments will be in testing mode.', 'educator' ),
 				'id'          => 'edr-paypal-test',
 			),
 
 			'thankyou_message' => array(
 				'type'      => 'textarea',
-				'label'     => __( 'Thank you message', 'edr' ),
+				'label'     => __( 'Thank you message', 'educator' ),
 				'id'        => 'edr-paypal-thankyou-message',
 				'rich_text' => true,
 			),
@@ -122,9 +122,9 @@ class Edr_Gateway_Paypal extends Edr_Gateway_Base {
 		}
 
 		echo '<input type="hidden" name="amount" value="' . (float) $amount . '">';
-		echo '<div id="paypal-form-buttons"><button type="submit">' . __( 'Continue', 'edr' ) . '</button></div>';
+		echo '<div id="paypal-form-buttons"><button type="submit">' . __( 'Continue', 'educator' ) . '</button></div>';
 		echo '</form>';
-		echo '<div id="paypal-redirect-notice" style="display: none;">' . __( 'Redirecting to PayPal...', 'edr' ) . '</div>';
+		echo '<div id="paypal-redirect-notice" style="display: none;">' . __( 'Redirecting to PayPal...', 'educator' ) . '</div>';
 		echo '<script>(function() {
 			function goToPayPal() {
 				document.getElementById("paypal-form-buttons").style.display = "none";

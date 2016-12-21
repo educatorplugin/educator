@@ -18,15 +18,15 @@ $courses = get_posts( array(
 
 <div class="edr-field">
 	<div class="edr-field__label">
-		<label for="course-access"><?php _e( 'Access', 'edr' ); ?></label>
+		<label for="course-access"><?php _e( 'Access', 'educator' ); ?></label>
 	</div>
 	<div class="edr-field__control">
 		<select id="course-access" name="_edr_access">
 			<?php
 				$access_options = array(
-					'registered' => __( 'Registered users', 'edr' ),
-					'logged_in'  => __( 'Logged in users', 'edr' ),
-					'public'     => __( 'Everyone', 'edr' ),
+					'registered' => __( 'Registered users', 'educator' ),
+					'logged_in'  => __( 'Logged in users', 'educator' ),
+					'public'     => __( 'Everyone', 'educator' ),
 				);
 
 				foreach ( $access_options as $key => $label ) {
@@ -40,11 +40,11 @@ $courses = get_posts( array(
 <?php if ( ! empty( $courses ) ) : ?>
 	<div class="edr-field">
 		<div class="edr-field__label">
-			<label for="course-id"><?php _e( 'Course', 'edr' ); ?></label>
+			<label for="course-id"><?php _e( 'Course', 'educator' ); ?></label>
 		</div>
 		<div class="edr-field__control">
 			<select id="course-id" name="_edr_course_id">
-				<option value=""><?php _e( 'Select Course', 'edr' ); ?></option>
+				<option value=""><?php _e( 'Select Course', 'educator' ); ?></option>
 				<?php foreach ( $courses as $post ) : ?>
 					<option value="<?php echo intval( $post->ID ); ?>"<?php if ( $course_id == $post->ID ) echo ' selected="selected"'; ?>>
 						<?php echo esc_html( $post->post_title ); ?>

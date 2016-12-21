@@ -109,13 +109,13 @@ class Edr_Admin_Settings_Base {
 		if ( $multiple ) {
 			$multiple_attr = ' multiple="multiple"';
 			$name .= '[]';
-			$empty_choice = __( 'None', 'edr' );
+			$empty_choice = __( 'None', 'educator' );
 
 			if ( ! is_array( $value ) ) {
 				$value = (array) $value;
 			}
 		} else {
-			$empty_choice = __( 'Select', 'edr' );
+			$empty_choice = __( 'Select', 'educator' );
 		}
 
 		echo '<select name="' . esc_attr( $name ) . '"' . $multiple_attr . '>';

@@ -8,7 +8,7 @@
 $user_id = get_current_user_id();
 
 if ( ! $user_id ) {
-	echo '<p>' . __( 'Please log in to view this page.', 'edr' ) . '</p>';
+	echo '<p>' . __( 'Please log in to view this page.', 'educator' ) . '</p>';
 	return;
 }
 
@@ -21,7 +21,7 @@ $edr_memberships = Edr_Memberships::get_instance();
 $message = get_query_var( 'edr-message' );
 
 if ( 'payment-cancelled' == $message ) {
-	echo '<div class="edr-messages"><div class="edr-message success">' . __( 'Payment has been cancelled.', 'edr' ) . '</div></div>';
+	echo '<div class="edr-messages"><div class="edr-message success">' . __( 'Payment has been cancelled.', 'educator' ) . '</div></div>';
 }
 
 if ( $courses || $pending_courses ) {
@@ -29,9 +29,9 @@ if ( $courses || $pending_courses ) {
 		/**
 		 * Pending Payment.
 		 */
-		echo '<h3>' . __( 'Pending Payment', 'edr' ) . '</h3>';
+		echo '<h3>' . __( 'Pending Payment', 'educator' ) . '</h3>';
 		echo '<table class="edr-student-courses edr-student-courses_pending">';
-		echo '<thead><tr><th style="width:20%;">' . _x( 'Payment', 'Table column heading', 'edr' ) . '</th><th style="width:50%;">' . __( 'Course', 'edr' ) . '</th><th>' . __( 'Actions', 'edr' ) . '</th></tr></thead>';
+		echo '<thead><tr><th style="width:20%;">' . _x( 'Payment', 'Table column heading', 'educator' ) . '</th><th style="width:50%;">' . __( 'Course', 'educator' ) . '</th><th>' . __( 'Actions', 'educator' ) . '</th></tr></thead>';
 		echo '<tbody>';
 
 		$gateways = Edr_Main::get_instance()->get_gateways();
@@ -50,7 +50,7 @@ if ( $courses || $pending_courses ) {
 							if ( $description ) {
 								?>
 								<div class="payment-description">
-									<a class="open-description" href="#"><?php _e( 'View payment instructions', 'edr' ); ?></a>
+									<a class="open-description" href="#"><?php _e( 'View payment instructions', 'educator' ); ?></a>
 									<div class="text"><?php echo wpautop( stripslashes( $description ) ); ?></div>
 								</div>
 								<?php
@@ -67,7 +67,7 @@ if ( $courses || $pending_courses ) {
 						), get_permalink() );
 						$cancel_payment_url = wp_nonce_url( $cancel_payment_url, 'edr_cancel_payment', '_wpnonce' );
 					?>
-					<a href="<?php echo esc_url( $cancel_payment_url ); ?>" class="cancel-payment"><?php _e( 'Cancel', 'edr' ); ?></a>
+					<a href="<?php echo esc_url( $cancel_payment_url ); ?>" class="cancel-payment"><?php _e( 'Cancel', 'educator' ); ?></a>
 				</td>
 			</tr>
 			<?php
@@ -81,9 +81,9 @@ if ( $courses || $pending_courses ) {
 		 * In Progress.
 		 */
 		if ( array_key_exists( 'inprogress', $courses['statuses'] ) ) {
-			echo '<h3>' . __( 'In Progress', 'edr' ) . '</h3>';
+			echo '<h3>' . __( 'In Progress', 'educator' ) . '</h3>';
 			echo '<table class="edr-student-courses edr-student-courses_inprogress">';
-			echo '<thead><tr><th style="width:20%;">' . __( 'Entry ID', 'edr' ) . '</th><th style="width:50%;">' . __( 'Course', 'edr' ) . '</th><th>' . __( 'Date taken', 'edr' ) . '</th></tr></thead>';
+			echo '<thead><tr><th style="width:20%;">' . __( 'Entry ID', 'educator' ) . '</th><th style="width:50%;">' . __( 'Course', 'educator' ) . '</th><th>' . __( 'Date taken', 'educator' ) . '</th></tr></thead>';
 			echo '<tbody>';
 			
 			foreach ( $courses['entries'] as $entry ) {
@@ -114,12 +114,12 @@ if ( $courses || $pending_courses ) {
 			 * @param string $entry_status
 			 */
 			$headings = apply_filters( 'edr_student_courses_headings', array(
-				'entry'  => '<th>' . __( 'Entry ID', 'edr' ) . '</th>',
-				'course' => '<th>' . __( 'Course', 'edr' ) . '</th>',
-				'grade'  => '<th>' . __( 'Grade', 'edr' ) . '</th>',
+				'entry'  => '<th>' . __( 'Entry ID', 'educator' ) . '</th>',
+				'course' => '<th>' . __( 'Course', 'educator' ) . '</th>',
+				'grade'  => '<th>' . __( 'Grade', 'educator' ) . '</th>',
 			), 'complete' );
 
-			echo '<h3>' . __( 'Complete', 'edr' ) . '</h3>';
+			echo '<h3>' . __( 'Complete', 'educator' ) . '</h3>';
 			echo '<table class="edr-student-courses edr-student-courses_complete">';
 			echo '<thead><tr>';
 
@@ -164,9 +164,9 @@ if ( $courses || $pending_courses ) {
 		 * Paused.
 		 */
 		if ( array_key_exists( 'paused', $courses['statuses'] ) ) {
-			echo '<h3>' . __( 'Paused', 'edr' ) . '</h3>';
+			echo '<h3>' . __( 'Paused', 'educator' ) . '</h3>';
 			echo '<table class="edr-student-courses edr-student-courses_paused">';
-			echo '<thead><tr><th style="width:20%;">' . __( 'Entry ID', 'edr' ) . '</th><th style="width:50%;">' . __( 'Course', 'edr' ) . '</th><th>' . __( 'Actions', 'edr' ) . '</th></tr></thead>';
+			echo '<thead><tr><th style="width:20%;">' . __( 'Entry ID', 'educator' ) . '</th><th style="width:50%;">' . __( 'Course', 'educator' ) . '</th><th>' . __( 'Actions', 'educator' ) . '</th></tr></thead>';
 			echo '<tbody>';
 			
 			foreach ( $courses['entries'] as $entry ) {
@@ -186,9 +186,9 @@ if ( $courses || $pending_courses ) {
 						<td><a class="title" href="<?php echo esc_url( get_permalink( $course->ID ) ); ?>"><?php echo esc_html( $course->post_title ); ?></a></td>
 						<td>
 							<?php if ( $resume_url ) : ?>
-								<a href="<?php echo esc_url( $resume_url ); ?>"><?php _e( 'Resume', 'edr' ); ?></a>
+								<a href="<?php echo esc_url( $resume_url ); ?>"><?php _e( 'Resume', 'educator' ); ?></a>
 							<?php else : ?>
-								<span class="resume-disabled"><?php _e( 'Resume', 'edr' ); ?></span>
+								<span class="resume-disabled"><?php _e( 'Resume', 'educator' ); ?></span>
 							<?php endif; ?>
 						</td>
 					</tr>
@@ -200,7 +200,7 @@ if ( $courses || $pending_courses ) {
 		}
 	}
 } else {
-	echo '<p>' . __( 'You are not registered for any course.', 'edr' ) . ' <a href="' . esc_url( get_post_type_archive_link( EDR_PT_COURSE ) ) . '">' . __( 'Browse courses', 'edr' ) . '</a></p>';
+	echo '<p>' . __( 'You are not registered for any course.', 'educator' ) . ' <a href="' . esc_url( get_post_type_archive_link( EDR_PT_COURSE ) ) . '">' . __( 'Browse courses', 'educator' ) . '</a></p>';
 }
 ?>
 

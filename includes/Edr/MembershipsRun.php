@@ -183,7 +183,7 @@ class Edr_MembershipsRun {
 			$new_columns[ $key ] = $value;
 
 			if ( 'title' == $key ) {
-				$new_columns['price'] = __( 'Price', 'edr' );
+				$new_columns['price'] = __( 'Price', 'educator' );
 			}
 		}
 

@@ -79,12 +79,12 @@ abstract class Edr_Gateway_Base {
 	public function init_options( $options = array() ) {
 		$this->options['enabled'] = array(
 			'type'  => 'checkbox',
-			'label' => __( 'Enabled', 'edr' ),
+			'label' => __( 'Enabled', 'educator' ),
 			'id'    => 'gateway-enabled',
 		);
 		$this->options['default'] = array(
 			'type'  => 'checkbox',
-			'label' => __( 'Default', 'edr' ),
+			'label' => __( 'Default', 'educator' ),
 			'id'    => 'gateway-default',
 		);
 		$this->options = array_merge( $this->options, $options );

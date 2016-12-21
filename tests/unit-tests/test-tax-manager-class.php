@@ -239,8 +239,8 @@ class TaxManagerClassTest extends WP_UnitTestCase {
 	public function test_sanitize_tax_class() {
 		$tax_class = array();
 		$expected_result = new WP_Error();
-		$expected_result->add( 'name_empty', __( 'Name cannot be empty.', 'edr' ) );
-		$expected_result->add( 'description_empty', __( 'Description cannot be empty.', 'edr' ) );
+		$expected_result->add( 'name_empty', __( 'Name cannot be empty.', 'educator' ) );
+		$expected_result->add( 'description_empty', __( 'Description cannot be empty.', 'educator' ) );
 		$actual_result = $this->tm->sanitize_tax_class( $tax_class );
 		$this->assertEquals( $expected_result, $actual_result );
 

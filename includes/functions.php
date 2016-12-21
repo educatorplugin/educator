@@ -67,37 +67,37 @@ function edr_db_tables() {
  */
 function edr_get_currencies() {
 	return apply_filters( 'edr_currencies', array(
-		'AUD' => __( 'Australian Dollars', 'edr' ),
-		'AZN' => __( 'Azerbaijani Manat', 'edr' ),
-		'BRL' => __( 'Brazilian Real', 'edr' ),
-		'CAD' => __( 'Canadian Dollars', 'edr' ),
-		'CNY' => __( 'Chinese Yuan', 'edr' ),
-		'CZK' => __( 'Czech Koruna', 'edr' ),
-		'DKK' => __( 'Danish Krone', 'edr' ),
-		'EUR' => __( 'Euros', 'edr' ),
-		'HKD' => __( 'Hong Kong Dollar', 'edr' ),
-		'HUF' => __( 'Hungarian Forint', 'edr' ),
-		'INR' => __( 'Indian Rupee', 'edr' ),
-		'IRR' => __( 'Iranian Rial', 'edr' ),
-		'ILS' => __( 'Israeli Shekel', 'edr' ),
-		'JPY' => __( 'Japanese Yen', 'edr' ),
-		'MYR' => __( 'Malaysian Ringgits', 'edr' ),
-		'MXN' => __( 'Mexican Peso', 'edr' ),
-		'NZD' => __( 'New Zealand Dollar', 'edr' ),
-		'NOK' => __( 'Norwegian Krone', 'edr' ),
-		'PHP' => __( 'Philippine Pesos', 'edr' ),
-		'PLN' => __( 'Polish Zloty', 'edr' ),
-		'GBP' => __( 'Pounds Sterling', 'edr' ),
-		'RUB' => __( 'Russian Rubles', 'edr' ),
-		'SGD' => __( 'Singapore Dollar', 'edr' ),
-		'SEK' => __( 'Swedish Krona', 'edr' ),
-		'KRW' => __( 'South Korean Won', 'edr' ),
-		'CHF' => __( 'Swiss Franc', 'edr' ),
-		'TWD' => __( 'Taiwan New Dollars', 'edr' ),
-		'THB' => __( 'Thai Baht', 'edr' ),
-		'TRY' => __( 'Turkish Lira', 'edr' ),
-		'USD' => __( 'US Dollars', 'edr' ),
-		'UAH' => __( 'Ukrainian Hryvnia', 'edr' ),
+		'AUD' => __( 'Australian Dollars', 'educator' ),
+		'AZN' => __( 'Azerbaijani Manat', 'educator' ),
+		'BRL' => __( 'Brazilian Real', 'educator' ),
+		'CAD' => __( 'Canadian Dollars', 'educator' ),
+		'CNY' => __( 'Chinese Yuan', 'educator' ),
+		'CZK' => __( 'Czech Koruna', 'educator' ),
+		'DKK' => __( 'Danish Krone', 'educator' ),
+		'EUR' => __( 'Euros', 'educator' ),
+		'HKD' => __( 'Hong Kong Dollar', 'educator' ),
+		'HUF' => __( 'Hungarian Forint', 'educator' ),
+		'INR' => __( 'Indian Rupee', 'educator' ),
+		'IRR' => __( 'Iranian Rial', 'educator' ),
+		'ILS' => __( 'Israeli Shekel', 'educator' ),
+		'JPY' => __( 'Japanese Yen', 'educator' ),
+		'MYR' => __( 'Malaysian Ringgits', 'educator' ),
+		'MXN' => __( 'Mexican Peso', 'educator' ),
+		'NZD' => __( 'New Zealand Dollar', 'educator' ),
+		'NOK' => __( 'Norwegian Krone', 'educator' ),
+		'PHP' => __( 'Philippine Pesos', 'educator' ),
+		'PLN' => __( 'Polish Zloty', 'educator' ),
+		'GBP' => __( 'Pounds Sterling', 'educator' ),
+		'RUB' => __( 'Russian Rubles', 'educator' ),
+		'SGD' => __( 'Singapore Dollar', 'educator' ),
+		'SEK' => __( 'Swedish Krona', 'educator' ),
+		'KRW' => __( 'South Korean Won', 'educator' ),
+		'CHF' => __( 'Swiss Franc', 'educator' ),
+		'TWD' => __( 'Taiwan New Dollars', 'educator' ),
+		'THB' => __( 'Thai Baht', 'educator' ),
+		'TRY' => __( 'Turkish Lira', 'educator' ),
+		'USD' => __( 'US Dollars', 'educator' ),
+		'UAH' => __( 'Ukrainian Hryvnia', 'educator' ),
 	) );
 }
 
@@ -215,9 +215,9 @@ function edr_internal_message( $key, $value = null ) {
  */
 function edr_get_difficulty_levels() {
 	return array(
-		'beginner'     => __( 'Beginner', 'edr' ),
-		'intermediate' => __( 'Intermediate', 'edr' ),
-		'advanced'     => __( 'Advanced', 'edr' ),
+		'beginner'     => __( 'Beginner', 'educator' ),
+		'intermediate' => __( 'Intermediate', 'educator' ),
+		'advanced'     => __( 'Advanced', 'educator' ),
 	);
 }
 
@@ -354,10 +354,10 @@ function edr_get_payment( $data = null ) {
  */
 function edr_get_payment_statuses() {
 	return array(
-		'pending'   => __( 'Pending', 'edr' ),
-		'complete'  => __( 'Complete', 'edr' ),
-		'failed'    => __( 'Failed', 'edr' ),
-		'cancelled' => __( 'Cancelled', 'edr' ),
+		'pending'   => __( 'Pending', 'educator' ),
+		'complete'  => __( 'Complete', 'educator' ),
+		'failed'    => __( 'Failed', 'educator' ),
+		'cancelled' => __( 'Cancelled', 'educator' ),
 	);
 }
 
@@ -368,8 +368,8 @@ function edr_get_payment_statuses() {
  */
 function edr_get_payment_types() {
 	return array(
-		'course'     => __( 'Course', 'edr' ),
-		'membership' => __( 'Membership', 'edr' ),
+		'course'     => __( 'Course', 'educator' ),
+		'membership' => __( 'Membership', 'educator' ),
 	);
 }
 
@@ -390,11 +390,11 @@ function edr_get_entry( $data = null ) {
  */
 function edr_get_entry_statuses() {
 	return array(
-		'pending'    => __( 'Pending', 'edr' ),
-		'inprogress' => __( 'In progress', 'edr' ),
-		'complete'   => __( 'Complete', 'edr' ),
-		'cancelled'  => __( 'Cancelled', 'edr' ),
-		'paused'     => __( 'Paused', 'edr' ),
+		'pending'    => __( 'Pending', 'educator' ),
+		'inprogress' => __( 'In progress', 'educator' ),
+		'complete'   => __( 'Complete', 'educator' ),
+		'cancelled'  => __( 'Cancelled', 'educator' ),
+		'paused'     => __( 'Paused', 'educator' ),
 	);
 }
 
@@ -405,8 +405,8 @@ function edr_get_entry_statuses() {
  */
 function edr_get_entry_origins() {
 	return apply_filters( 'edr_entry_origins', array(
-		'payment'    => __( 'Payment', 'edr' ),
-		'membership' => __( 'Membership', 'edr' ),
+		'payment'    => __( 'Payment', 'educator' ),
+		'membership' => __( 'Membership', 'educator' ),
 	) );
 }
 
@@ -508,9 +508,9 @@ function edr_get_user_full_name( $user ) {
 function edr_deprecated_function( $function, $version, $replacement = null ) {
 	if ( WP_DEBUG ) {
 		if ( is_null( $replacement ) ) {
-			trigger_error( sprintf( __( '%1$s is <strong>deprecated</strong> since Educator version %2$s with no alternative available.', 'edr' ), $function, $version ) );
+			trigger_error( sprintf( __( '%1$s is <strong>deprecated</strong> since Educator version %2$s with no alternative available.', 'educator' ), $function, $version ) );
 		} else {
-			trigger_error( sprintf( __( '%1$s is <strong>deprecated</strong> since Educator version %2$s! Use %3$s instead.', 'edr'), $function, $version, $replacement ) );
+			trigger_error( sprintf( __( '%1$s is <strong>deprecated</strong> since Educator version %2$s! Use %3$s instead.', 'educator' ), $function, $version, $replacement ) );
 		}
 	}
 }

@@ -16,7 +16,7 @@ class Edr_Admin_Settings_Payment extends Edr_Admin_Settings_Base {
 	 * @return array
 	 */
 	public function add_tab( $tabs ) {
-		$tabs['payment'] = __( 'Payment Gateways', 'edr' );
+		$tabs['payment'] = __( 'Payment Gateways', 'educator' );
 
 		return $tabs;
 	}

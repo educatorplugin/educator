@@ -141,7 +141,7 @@ class Edr_FrontActions {
 
 					if ( ! $user_answer ) {
 						if ( ! $question->optional ) {
-							$errors->add( "q_$question->ID", sprintf( __( 'Please answer question %d', 'edr' ), $question_num ) );
+							$errors->add( "q_$question->ID", sprintf( __( 'Please answer question %d', 'educator' ), $question_num ) );
 						}
 
 						continue;
@@ -166,7 +166,7 @@ class Edr_FrontActions {
 						$saved = $answer->save();
 
 						if ( ! $saved ) {
-							$errors->add( "q_$question->ID", __( 'The answer could not be saved.', 'edr' ) );
+							$errors->add( "q_$question->ID", __( 'The answer could not be saved.', 'educator' ) );
 						}
 
 						if ( 1 == $choice->correct ) {
@@ -196,7 +196,7 @@ class Edr_FrontActions {
 						if ( ! $question->optional && empty( $answer->answer_text ) ) {
 							// If the question is not optional and the answer doesn't exist
 							// in the database already, ask to answer the question.
-							$errors->add( "q_$question->ID", sprintf( __( 'Please answer question %d', 'edr' ), $question_num ) );
+							$errors->add( "q_$question->ID", sprintf( __( 'Please answer question %d', 'educator' ), $question_num ) );
 						}
 
 						continue;
@@ -212,7 +212,7 @@ class Edr_FrontActions {
 					$saved = $answer->save();
 
 					if ( ! $saved ) {
-						$errors->add( "q_$question->ID", __( 'The answer could not be saved.', 'edr' ) );
+						$errors->add( "q_$question->ID", __( 'The answer could not be saved.', 'educator' ) );
 					}
 
 					break;
@@ -233,7 +233,7 @@ class Edr_FrontActions {
 					}
 
 					if ( ! isset( $_FILES['answer_' . $question->ID] ) ) {
-						$errors->add( "q_$question->ID", __( 'No file sent.', 'edr' ) );
+						$errors->add( "q_$question->ID", __( 'No file sent.', 'educator' ) );
 						continue;
 					}
 
@@ -256,7 +256,7 @@ class Edr_FrontActions {
 					}
 
 					if ( file_exists( $current_file ) && ! unlink( $current_file ) ) {
-						$errors->add( "q_$question->ID", __( 'Could not replace the current file.', 'edr' ) );
+						$errors->add( "q_$question->ID", __( 'Could not replace the current file.', 'educator' ) );
 						continue;
 					}
 
@@ -289,7 +289,7 @@ class Edr_FrontActions {
 					$saved = $answer->save();
 
 					if ( ! $saved ) {
-						$errors->add( "q_$question->ID", __( 'The answer could not be saved.', 'edr' ) );
+						$errors->add( "q_$question->ID", __( 'The answer could not be saved.', 'educator' ) );
 					}
 
 					break;
@@ -381,7 +381,7 @@ class Edr_FrontActions {
 					}
 				}
 
-				$errors->add( 'prerequisites', sprintf( __( 'You have to complete the prerequisites for this course: %s', 'edr' ), $prerequisites_html ) );
+				$errors->add( 'prerequisites', sprintf( __( 'You have to complete the prerequisites for this course: %s', 'educator' ), $prerequisites_html ) );
 				edr_internal_message( 'payment_errors', $errors );
 
 				return;
@@ -395,7 +395,7 @@ class Edr_FrontActions {
 		if ( isset( $_POST['payment_method'] ) && array_key_exists( $_POST['payment_method'], $gateways ) ) {
 			$payment_method = $_POST['payment_method'];
 		} else {
-			$errors->add( 'empty_payment_method', __( 'Please select a payment method.', 'edr' ) );
+			$errors->add( 'empty_payment_method', __( 'Please select a payment method.', 'educator' ) );
 		}
 
 		/**
@@ -519,7 +519,7 @@ class Edr_FrontActions {
 				}
 			}
 
-			$errors->add( 'prerequisites', sprintf( __( 'You have to complete the prerequisites for this course: %s', 'edr' ), $prerequisites_html ) );
+			$errors->add( 'prerequisites', sprintf( __( 'You have to complete the prerequisites for this course: %s', 'educator' ), $prerequisites_html ) );
 			edr_internal_message( 'course_join_errors', $errors );
 
 			return;
@@ -637,7 +637,7 @@ class Edr_FrontActions {
 			$entry = edr_get_entry( $grade->entry_id );
 
 			if ( ! $entry || ! current_user_can( 'edit_' . EDR_PT_COURSE, $entry->course_id ) ) {
-				exit( __( 'Access denied.', 'edr' ) );
+				exit( __( 'Access denied.', 'educator' ) );
 			}
 		}
 

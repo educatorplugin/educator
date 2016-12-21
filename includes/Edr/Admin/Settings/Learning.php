@@ -16,7 +16,7 @@ class Edr_Admin_Settings_Learning extends Edr_Admin_Settings_Base {
 	public function register_settings() {
 		add_settings_section(
 			'edr_learning_settings', // id
-			__( 'Learning', 'edr' ),
+			__( 'Learning', 'educator' ),
 			array( $this, 'section_description' ),
 			'edr_learning_page' // page
 		);
@@ -24,7 +24,7 @@ class Edr_Admin_Settings_Learning extends Edr_Admin_Settings_Base {
 		// Setting: Enable comments on lessons.
 		add_settings_field(
 			'edr_lesson_comments',
-			__( 'Enable comments on lessons', 'edr' ),
+			__( 'Enable comments on lessons', 'educator' ),
 			array( $this, 'setting_checkbox' ),
 			'edr_learning_page', // page
 			'edr_learning_settings', // section
@@ -41,7 +41,7 @@ class Edr_Admin_Settings_Learning extends Edr_Admin_Settings_Base {
 
 		add_settings_field(
 			'edr_quiz_support',
-			__( 'Enable quizzes for', 'edr' ),
+			__( 'Enable quizzes for', 'educator' ),
 			array( $this, 'setting_select' ),
 			'edr_learning_page', // page
 			'edr_learning_settings', // section
@@ -51,7 +51,7 @@ class Edr_Admin_Settings_Learning extends Edr_Admin_Settings_Base {
 				'choices'  => $post_types,
 				'id'       => 'edr_quiz_support',
 				'multiple' => true,
-				'description' => __( 'Select one or more post types.', 'edr' ),
+				'description' => __( 'Select one or more post types.', 'educator' ),
 			)
 		);
 
@@ -121,7 +121,7 @@ class Edr_Admin_Settings_Learning extends Edr_Admin_Settings_Base {
 	 * @return array
 	 */
 	public function add_tab( $tabs ) {
-		$tabs['learning'] = __( 'Learning', 'edr' );
+		$tabs['learning'] = __( 'Learning', 'educator' );
 
 		return $tabs;
 	}

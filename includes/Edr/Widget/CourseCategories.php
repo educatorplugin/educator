@@ -4,9 +4,9 @@ class Edr_Widget_CourseCategories extends WP_Widget {
 	public function __construct() {
 		parent::__construct(
 			'course_categories',
-			__( 'Course Categories', 'edr' ),
+			__( 'Course Categories', 'educator' ),
 			array(
-				'description' => __( 'List course categories.', 'edr' ),
+				'description' => __( 'List course categories.', 'educator' ),
 			)
 		);
 	}
@@ -33,10 +33,10 @@ class Edr_Widget_CourseCategories extends WP_Widget {
 
 	public function form( $instance ) {
 		$title = ! empty( $instance['title'] ) ? $instance['title']
-			: __( 'Course Categories', 'edr' );
+			: __( 'Course Categories', 'educator' );
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title', 'edr' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title', 'educator' ); ?></label>
 			<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
 				name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" value="<?php echo esc_attr( $title ); ?>">
 		</p>

@@ -6,23 +6,23 @@ class Edr_Gateway_Stripe extends Edr_Gateway_Base {
 	 */
 	public function __construct() {
 		$this->id = 'stripe';
-		$this->title = __( 'Stripe', 'edr' );
+		$this->title = __( 'Stripe', 'educator' );
 
 		// Setup options.
 		$this->init_options( array(
 			'secret_key' => array(
 				'type'      => 'text',
-				'label'     => __( 'Secret key', 'edr' ),
+				'label'     => __( 'Secret key', 'educator' ),
 				'id'        => 'edr-stripe-secret-key',
 			),
 			'publishable_key' => array(
 				'type'      => 'text',
-				'label'     => __( 'Publishable key', 'edr' ),
+				'label'     => __( 'Publishable key', 'educator' ),
 				'id'        => 'edr-stripe-publishable-key',
 			),
 			'thankyou_message' => array(
 				'type'      => 'textarea',
-				'label'     => __( 'Thank you message', 'edr' ),
+				'label'     => __( 'Thank you message', 'educator' ),
 				'id'        => 'edr-stripe-thankyou-message',
 				'rich_text' => true,
 			),
@@ -89,7 +89,7 @@ class Edr_Gateway_Stripe extends Edr_Gateway_Base {
 		}
 		?>
 		<p id="edr-payment-processing-msg">
-			<?php _e( 'The payment is getting processed...', 'edr' ); ?>
+			<?php _e( 'The payment is getting processed...', 'educator' ); ?>
 		</p>
 		<script src="https://checkout.stripe.com/checkout.js"></script>
 		<script>
@@ -110,7 +110,7 @@ class Edr_Gateway_Stripe extends Edr_Gateway_Base {
 						},
 						success: function(response) {
 							if (response === '1') {
-								$('#edr-payment-processing-msg').text('<?php echo esc_js( __( 'Redirecting to the payment summary page...', 'edr' ) ); ?>');
+								$('#edr-payment-processing-msg').text('<?php echo esc_js( __( 'Redirecting to the payment summary page...', 'educator' ) ); ?>');
 								var redirectTo = '<?php echo esc_js( edr_get_endpoint_url( 'edr-payment', $payment->ID, get_permalink( edr_get_page_id( 'payment' ) ) ) ); ?>';
 								document.location = redirectTo;
 							}
@@ -199,7 +199,7 @@ class Edr_Gateway_Stripe extends Edr_Gateway_Base {
 
 		$token = $_POST['token'];
 		$amount = round( (float) $payment->amount, 2 );
-		$description = sprintf( __( 'Payment #%d', 'edr' ), $payment->ID );
+		$description = sprintf( __( 'Payment #%d', 'educator' ), $payment->ID );
 		$description .= ' , ' . get_the_title( $payment->object_id );
 
 		try {

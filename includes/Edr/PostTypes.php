@@ -23,17 +23,17 @@ class Edr_PostTypes {
 		// Courses.
 		$course_slug = ( $permalink_settings && ! empty( $permalink_settings['course_base'] ) )
 			? $permalink_settings['course_base']
-			: _x( 'courses', 'course slug', 'edr' );
+			: _x( 'courses', 'course slug', 'educator' );
 		$courses_archive_slug = ( $permalink_settings && ! empty( $permalink_settings['courses_archive_base'] ) )
 			? $permalink_settings['courses_archive_base']
-			: _x( 'courses', 'courses archive slug', 'edr' );
+			: _x( 'courses', 'courses archive slug', 'educator' );
 
 		register_post_type(
 			EDR_PT_COURSE,
 			apply_filters( 'edr_cpt_course', array(
 				'labels'              => array(
-					'name'          => __( 'Courses', 'edr' ),
-					'singular_name' => __( 'Course', 'edr' ),
+					'name'          => __( 'Courses', 'educator' ),
+					'singular_name' => __( 'Course', 'educator' ),
 				),
 				'public'              => true,
 				'exclude_from_search' => false,
@@ -64,8 +64,8 @@ class Edr_PostTypes {
 			EDR_PT_LESSON,
 			apply_filters( 'edr_cpt_lesson', array(
 				'labels'              => array(
-					'name'          => __( 'Lessons', 'edr' ),
-					'singular_name' => __( 'Lesson', 'edr' ),
+					'name'          => __( 'Lessons', 'educator' ),
+					'singular_name' => __( 'Lesson', 'educator' ),
 				),
 				'public'              => true,
 				'exclude_from_search' => false,
@@ -78,9 +78,9 @@ class Edr_PostTypes {
 				'map_meta_cap'        => true,
 				'hierarchical'        => false,
 				'supports'            => $supports,
-				'has_archive'         => ( ! empty( $permalink_settings['lessons_archive_base'] ) ) ? $permalink_settings['lessons_archive_base'] : _x( 'lessons', 'lesson slug', 'edr' ),
+				'has_archive'         => ( ! empty( $permalink_settings['lessons_archive_base'] ) ) ? $permalink_settings['lessons_archive_base'] : _x( 'lessons', 'lesson slug', 'educator' ),
 				'rewrite'             => array(
-					'slug' => ( ! empty( $permalink_settings['lesson_base'] ) ) ? $permalink_settings['lesson_base'] : _x( 'lessons', 'lessons archive slug', 'edr' ),
+					'slug' => ( ! empty( $permalink_settings['lesson_base'] ) ) ? $permalink_settings['lesson_base'] : _x( 'lessons', 'lessons archive slug', 'educator' ),
 				),
 				'query_var'           => 'lesson',
 				'can_export'          => true,
@@ -91,17 +91,17 @@ class Edr_PostTypes {
 		register_post_type(
 			EDR_PT_MEMBERSHIP,
 			apply_filters( 'edr_cpt_membership', array(
-				'label'               => __( 'Membership Levels', 'edr' ),
+				'label'               => __( 'Membership Levels', 'educator' ),
 				'labels'              => array(
-					'name'               => __( 'Membership Levels', 'edr' ),
-					'singular_name'      => __( 'Membership Level', 'edr' ),
-					'add_new_item'       => __( 'Add New Membership Level', 'edr' ),
-					'edit_item'          => __( 'Edit Membership Level', 'edr' ),
-					'new_item'           => __( 'New Membership Level', 'edr' ),
-					'view_item'          => __( 'View Membership Level', 'edr' ),
-					'search_items'       => __( 'Search Membership Levels', 'edr' ),
-					'not_found'          => __( 'No membership levels found', 'edr' ),
-					'not_found_in_trash' => __( 'No membership levels found in Trash', 'edr' ),
+					'name'               => __( 'Membership Levels', 'educator' ),
+					'singular_name'      => __( 'Membership Level', 'educator' ),
+					'add_new_item'       => __( 'Add New Membership Level', 'educator' ),
+					'edit_item'          => __( 'Edit Membership Level', 'educator' ),
+					'new_item'           => __( 'New Membership Level', 'educator' ),
+					'view_item'          => __( 'View Membership Level', 'educator' ),
+					'search_items'       => __( 'Search Membership Levels', 'educator' ),
+					'not_found'          => __( 'No membership levels found', 'educator' ),
+					'not_found_in_trash' => __( 'No membership levels found in Trash', 'educator' ),
 				),
 				'public'              => true,
 				'show_ui'             => true,
@@ -130,13 +130,13 @@ class Edr_PostTypes {
 			EDR_TX_CATEGORY,
 			EDR_PT_COURSE,
 			apply_filters( 'edr_ctx_category', array(
-				'label'             => __( 'Course Categories', 'edr' ),
+				'label'             => __( 'Course Categories', 'educator' ),
 				'public'            => true,
 				'show_ui'           => true,
 				'show_in_nav_menus' => true,
 				'hierarchical'      => true,
 				'rewrite'           => array(
-					'slug' => ( ! empty( $permalink_settings['category_base'] ) ) ? $permalink_settings['category_base'] : _x( 'course-category', 'slug', 'edr' ),
+					'slug' => ( ! empty( $permalink_settings['category_base'] ) ) ? $permalink_settings['category_base'] : _x( 'course-category', 'slug', 'educator' ),
 				),
 				'capabilities'      => array(
 					'assign_terms' => 'edit_' . EDR_PT_COURSE . 's',
@@ -166,7 +166,7 @@ class Edr_PostTypes {
 					$course_url = get_permalink( $course_id );
 					$course_title = get_the_title( $course_id );
 					$content = '<div class="edr-no-access-notice">';
-					$content .= sprintf( __( 'Please register for %s to view this lesson.', 'edr' ),
+					$content .= sprintf( __( 'Please register for %s to view this lesson.', 'educator' ),
 						'<a href="' . esc_url( $course_url ) . '">' . $course_title . '</a>' );
 					$content .= '</div>';
 				} else {

@@ -1,7 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; ?>
 
 <div class="wrap">
-	<h2><?php _e( 'Educator Settings', 'edr' ); ?></h2>
+	<h2><?php _e( 'Educator Settings', 'educator' ); ?></h2>
 
 	<?php
 		settings_errors( 'general' );

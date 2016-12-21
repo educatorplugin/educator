@@ -105,7 +105,7 @@ class Edr_Main {
 	 * Load plugin's textdomain.
 	 */
 	public function load_textdomain() {
-		load_plugin_textdomain( 'edr', false, 'edr/languages' );
+		load_plugin_textdomain( 'educator', false, 'educator/languages' );
 	}
 
 	/**

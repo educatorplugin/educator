@@ -8,7 +8,7 @@
 $user_id = get_current_user_id();
 
 if ( ! $user_id ) {
-	echo '<p>' . __( 'Please log in to view this page.', 'edr' ) . '</p>';
+	echo '<p>' . __( 'Please log in to view this page.', 'educator' ) . '</p>';
 	return;
 }
 
@@ -21,7 +21,7 @@ $statuses = edr_get_payment_statuses();
 $message = get_query_var( 'edr-message' );
 
 if ( 'payment-cancelled' == $message ) {
-	echo '<div class="edr-messages"><div class="edr-message success">' . __( 'Payment has been cancelled.', 'edr' ) . '</div></div>';
+	echo '<div class="edr-messages"><div class="edr-message success">' . __( 'Payment has been cancelled.', 'educator' ) . '</div></div>';
 }
 ?>
 
@@ -29,10 +29,10 @@ if ( 'payment-cancelled' == $message ) {
 	<table class="edr-user-payments">
 		<thead>
 			<tr>
-				<th><?php _e( 'ID', 'edr' ); ?></th>
-				<th><?php _e( 'Date', 'edr' ); ?></th>
-				<th><?php _e( 'Payment Status', 'edr' ); ?></th>
-				<th><?php _e( 'Amount', 'edr' ); ?></th>
+				<th><?php _e( 'ID', 'educator' ); ?></th>
+				<th><?php _e( 'Date', 'educator' ); ?></th>
+				<th><?php _e( 'Payment Status', 'educator' ); ?></th>
+				<th><?php _e( 'Amount', 'educator' ); ?></th>
 				<th></th>
 			</tr>
 		</thead>
@@ -53,7 +53,7 @@ if ( 'payment-cancelled' == $message ) {
 					</td>
 					<td><?php echo edr_format_price( $payment->amount, false ); ?></td>
 					<td class="actions-group">
-						<a href="<?php echo esc_url( $invoice_url ); ?>"><?php _e( 'Details', 'edr' ); ?></a>
+						<a href="<?php echo esc_url( $invoice_url ); ?>"><?php _e( 'Details', 'educator' ); ?></a>
 						<?php if ( 'pending' == $payment->payment_status ) : ?>
 							<?php
 								$cancel_payment_url = add_query_arg( array(
@@ -63,7 +63,7 @@ if ( 'payment-cancelled' == $message ) {
 								), get_permalink() );
 								$cancel_payment_url = wp_nonce_url( $cancel_payment_url, 'edr_cancel_payment', '_wpnonce' );
 							?>
-							<a href="<?php echo esc_url( $cancel_payment_url ); ?>" class="cancel-payment"><?php _e( 'Cancel', 'edr' ); ?></a>
+							<a href="<?php echo esc_url( $cancel_payment_url ); ?>" class="cancel-payment"><?php _e( 'Cancel', 'educator' ); ?></a>
 						<?php endif; ?>
 					</td>
 				</tr>
@@ -71,5 +71,5 @@ if ( 'payment-cancelled' == $message ) {
 		</tbody>
 	</table>
 <?php else : ?>
-	<p><?php _e( 'No payments found.', 'edr' ); ?></p>
+	<p><?php _e( 'No payments found.', 'educator' ); ?></p>
 <?php endif; ?>

@@ -15,14 +15,14 @@ class Edr_Admin_Settings_Permalink extends Edr_Admin_Settings_Base {
 	public function register_settings() {
 		add_settings_section(
 			'edr_permalink_settings', // id
-			__( 'Educator Permalink Settings', 'edr' ),
+			__( 'Educator Permalink Settings', 'educator' ),
 			array( $this, 'section_description' ),
 			'permalink' // page
 		);
 
 		add_settings_field(
 			'edr_category_base',
-			__( 'Course category base', 'edr' ),
+			__( 'Course category base', 'educator' ),
 			array( $this, 'setting_text' ),
 			'permalink', // page
 			'edr_permalink_settings', // section
@@ -36,56 +36,56 @@ class Edr_Admin_Settings_Permalink extends Edr_Admin_Settings_Base {
 
 		add_settings_field(
 			'edr_courses_archive_base',
-			__( 'Courses archive base', 'edr' ),
+			__( 'Courses archive base', 'educator' ),
 			array( $this, 'setting_text' ),
 			'permalink', // page
 			'edr_permalink_settings', // section
 			array(
 				'name'           => 'courses_archive_base',
 				'settings_group' => 'edr_permalinks',
-				'default'        => _x( 'courses', 'courses archive slug', 'edr' ),
+				'default'        => _x( 'courses', 'courses archive slug', 'educator' ),
 				'id'             => 'edr_courses_archive_base',
 			)
 		);
 
 		add_settings_field(
 			'edr_course_base',
-			__( 'Course base', 'edr' ),
+			__( 'Course base', 'educator' ),
 			array( $this, 'setting_text' ),
 			'permalink', // page
 			'edr_permalink_settings', // section
 			array(
 				'name'           => 'course_base',
 				'settings_group' => 'edr_permalinks',
-				'default'        => _x( 'courses', 'course slug', 'edr' ),
+				'default'        => _x( 'courses', 'course slug', 'educator' ),
 				'id'             => 'edr_course_base',
 			)
 		);
 
 		add_settings_field(
 			'edr_lessons_archive_base',
-			__( 'Lessons archive base', 'edr' ),
+			__( 'Lessons archive base', 'educator' ),
 			array( $this, 'setting_text' ),
 			'permalink', // page
 			'edr_permalink_settings', // section
 			array(
 				'name'           => 'lessons_archive_base',
 				'settings_group' => 'edr_permalinks',
-				'default'        => _x( 'lessons', 'lessons archive slug', 'edr' ),
+				'default'        => _x( 'lessons', 'lessons archive slug', 'educator' ),
 				'id'             => 'edr_lessons_archive_base',
 			)
 		);
 
 		add_settings_field(
 			'edr_lesson_base',
-			__( 'Lesson base', 'edr' ),
+			__( 'Lesson base', 'educator' ),
 			array( $this, 'setting_text' ),
 			'permalink', // page
 			'edr_permalink_settings', // section
 			array(
 				'name'           => 'lesson_base',
 				'settings_group' => 'edr_permalinks',
-				'default'        => _x( 'lessons', 'lesson slug', 'edr' ),
+				'default'        => _x( 'lessons', 'lesson slug', 'educator' ),
 				'id'             => 'edr_lesson_base',
 			)
 		);

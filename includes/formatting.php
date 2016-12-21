@@ -52,15 +52,15 @@ function edr_format_membership_price( $price, $duration, $period, $symbol = true
 
 	switch ( $period ) {
 		case 'days':
-			$price_str .= ' ' . sprintf( _n( 'per day', 'per %d days', $duration, 'edr' ), intval( $duration ) );
+			$price_str .= ' ' . sprintf( _n( 'per day', 'per %d days', $duration, 'educator' ), intval( $duration ) );
 			break;
 
 		case 'months':
-			$price_str .= ' ' . sprintf( _n( 'per month', 'per %d months', $duration, 'edr' ), intval( $duration ) );
+			$price_str .= ' ' . sprintf( _n( 'per month', 'per %d months', $duration, 'educator' ), intval( $duration ) );
 			break;
 
 		case 'years':
-			$price_str .= ' ' . sprintf( _n( 'per year', 'per %d years', $duration, 'edr' ), intval( $duration ) );
+			$price_str .= ' ' . sprintf( _n( 'per year', 'per %d years', $duration, 'educator' ), intval( $duration ) );
 			break;
 	}
 

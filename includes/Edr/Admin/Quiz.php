@@ -29,7 +29,7 @@ class Edr_Admin_Quiz {
 			wp_enqueue_script( 'edr-quiz', EDR_PLUGIN_URL . 'assets/js/quiz/quiz.min.js', array( 'jquery', 'underscore', 'backbone' ), '1.1', true );
 			wp_localize_script( 'edr-quiz', 'EdrQuiz', array(
 				'text' => array(
-					'confirmDelete' => __( 'Are you sure you want to delete this item?', 'edr' ),
+					'confirmDelete' => __( 'Are you sure you want to delete this item?', 'educator' ),
 				)
 			) );
 		}
@@ -44,7 +44,7 @@ class Edr_Admin_Quiz {
 		foreach ( $post_types as $post_type ) {
 			add_meta_box(
 				'edr_quiz_meta',
-				__( 'Quiz', 'edr' ),
+				__( 'Quiz', 'educator' ),
 				array( __CLASS__, 'quiz_meta_box' ),
 				$post_type
 			);

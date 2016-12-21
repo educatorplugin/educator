@@ -11,7 +11,7 @@ $nonce = wp_create_nonce( 'edr_edit_quiz_grade_' . $grade->ID );
 <?php if ( ! empty( $questions ) ) : ?>
 	<div class="edr-field edr-field_quiz-answers">
 		<div class="edr-field__label">
-			<label><?php _e( 'Answers', 'edr' ); ?></label>
+			<label><?php _e( 'Answers', 'educator' ); ?></label>
 		</div>
 		<div class="edr-field__control">
 			<ul class="edr-quiz-answers">
@@ -40,12 +40,12 @@ $nonce = wp_create_nonce( 'edr_edit_quiz_grade_' . $grade->ID );
 							<?php
 								if ( 'multiplechoice' == $question->question_type ) {
 									if ( $answer ) {
-										echo ( 1 == $answer->correct ) ? __( 'Correct', 'edr' ) : __( 'Wrong', 'edr' );
+										echo ( 1 == $answer->correct ) ? __( 'Correct', 'educator' ) : __( 'Wrong', 'educator' );
 									} else {
-										echo __( 'No answer', 'edr' );
+										echo __( 'No answer', 'educator' );
 									}
 								} elseif ( 'writtenanswer' == $question->question_type ) {
-									echo ( $answer ) ? esc_html( $answer->answer_text ) : __( 'No answer', 'edr' );
+									echo ( $answer ) ? esc_html( $answer->answer_text ) : __( 'No answer', 'educator' );
 								} elseif ( 'fileupload' == $question->question_type ) {
 									if ( $answer ) {
 										$answer_files = maybe_unserialize( $answer->answer_text );
@@ -54,7 +54,7 @@ $nonce = wp_create_nonce( 'edr_edit_quiz_grade_' . $grade->ID );
 											edr_quiz_file_list( $answer_files, $question->ID, $grade->ID, $grade->lesson_id );
 										}
 									} else {
-										echo __( 'No answer', 'edr' );
+										echo __( 'No answer', 'educator' );
 									}
 								}
 							?>
@@ -69,7 +69,7 @@ $nonce = wp_create_nonce( 'edr_edit_quiz_grade_' . $grade->ID );
 <div class="edr-quiz-grade-form">
 	<div class="edr-field">
 		<div class="edr-field__label">
-			<label for="input-grade-<?php echo intval( $grade->ID ); ?>"><?php _e( 'Grade', 'edr' ); ?></label>
+			<label for="input-grade-<?php echo intval( $grade->ID ); ?>"><?php _e( 'Grade', 'educator' ); ?></label>
 		</div>
 		<div class="edr-field__control">
 			<input type="hidden" class="input-grade-id" value="<?php echo intval( $grade->ID ); ?>">
@@ -78,9 +78,9 @@ $nonce = wp_create_nonce( 'edr_edit_quiz_grade_' . $grade->ID );
 			<span class="percentage">%</span>
 			<p class="edr-info">
 				<?php
-					_e( 'Please enter a number between 0 and 100.', 'edr' );
+					_e( 'Please enter a number between 0 and 100.', 'educator' );
 					echo ' ';
-					_e( 'The student will receive a notification email.', 'edr' );
+					_e( 'The student will receive a notification email.', 'educator' );
 				?>
 			</p>
 		</div>
@@ -89,7 +89,7 @@ $nonce = wp_create_nonce( 'edr_edit_quiz_grade_' . $grade->ID );
 	<div class="edr-field">
 		<div class="edr-field__label"></div>
 		<div class="edr-field__control">
-			<button type="button" class="save-quiz-grade button-primary"<?php if ( ! $grade ) echo ' disabled="disabled"'; ?>><?php _e( 'Save Grade', 'edr' ); ?></button>
+			<button type="button" class="save-quiz-grade button-primary"<?php if ( ! $grade ) echo ' disabled="disabled"'; ?>><?php _e( 'Save Grade', 'educator' ); ?></button>
 		</div>
 	</div>
 </div>

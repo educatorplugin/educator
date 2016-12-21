@@ -18,7 +18,7 @@ class Edr_Admin_Meta {
 		// Course meta box.
 		add_meta_box(
 			'edr_course_meta',
-			__( 'Course Settings', 'edr' ),
+			__( 'Course Settings', 'educator' ),
 			array( __CLASS__, 'course_meta_box' ),
 			EDR_PT_COURSE
 		);
@@ -26,7 +26,7 @@ class Edr_Admin_Meta {
 		// Lesson meta box.
 		add_meta_box(
 			'edr_lesson_meta',
-			__( 'Lesson Settings', 'edr' ),
+			__( 'Lesson Settings', 'educator' ),
 			array( __CLASS__, 'lesson_meta_box' ),
 			EDR_PT_LESSON
 		);
@@ -34,7 +34,7 @@ class Edr_Admin_Meta {
 		// Membership meta box.
 		add_meta_box(
 			'edr_membership',
-			__( 'Membership Settings', 'edr' ),
+			__( 'Membership Settings', 'educator' ),
 			array( __CLASS__, 'membership_meta_box' ),
 			EDR_PT_MEMBERSHIP
 		);

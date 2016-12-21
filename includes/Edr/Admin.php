@@ -54,8 +54,8 @@ class Edr_Admin {
 	 */
 	public static function admin_menu() {
 		add_menu_page(
-			__( 'Educator', 'edr' ),
-			__( 'Educator', 'edr' ),
+			__( 'Educator', 'educator' ),
+			__( 'Educator', 'educator' ),
 			'manage_educator',
 			'edr_admin_settings',
 			array( __CLASS__, 'settings_page' ),
@@ -64,16 +64,16 @@ class Edr_Admin {
 
 		add_submenu_page(
 			'edr_admin_settings',
-			__( 'Educator Settings', 'edr' ),
-			__( 'Settings', 'edr' ),
+			__( 'Educator Settings', 'educator' ),
+			__( 'Settings', 'educator' ),
 			'manage_educator',
 			'edr_admin_settings'
 		);
 
 		$payments_hook = add_submenu_page(
 			'edr_admin_settings',
-			__( 'Educator Payments', 'edr' ),
-			__( 'Payments', 'edr' ),
+			__( 'Educator Payments', 'educator' ),
+			__( 'Payments', 'educator' ),
 			'manage_educator',
 			'edr_admin_payments',
 			array( __CLASS__, 'admin_payments' )
@@ -89,8 +89,8 @@ class Edr_Admin {
 		if ( current_user_can( 'manage_educator' ) ) {
 			$entries_hook = add_submenu_page(
 				'edr_admin_settings',
-				__( 'Educator Entries', 'edr' ),
-				__( 'Entries', 'edr' ),
+				__( 'Educator Entries', 'educator' ),
+				__( 'Entries', 'educator' ),
 				'manage_educator',
 				'edr_admin_entries',
 				array( __CLASS__, 'admin_entries' )
@@ -98,16 +98,16 @@ class Edr_Admin {
 
 			$quiz_grades_hook = add_submenu_page(
 				'edr_admin_settings',
-				__( 'Quiz Grades', 'edr' ),
-				__( 'Quiz Grades', 'edr' ),
+				__( 'Quiz Grades', 'educator' ),
+				__( 'Quiz Grades', 'educator' ),
 				'edr_edit_quiz_grades_all',
 				'edr_admin_quiz_grades',
 				array( __CLASS__, 'admin_quiz_grades' )
 			);
 		} elseif ( current_user_can( 'educator_edit_entries' ) ) {
 			$entries_hook = add_menu_page(
-				__( 'Educator Entries', 'edr' ),
-				__( 'Entries', 'edr' ),
+				__( 'Educator Entries', 'educator' ),
+				__( 'Entries', 'educator' ),
 				'educator_edit_entries',
 				'edr_admin_entries',
 				array( __CLASS__, 'admin_entries' )
@@ -124,8 +124,8 @@ class Edr_Admin {
 
 		$members_hook = add_submenu_page(
 			'edr_admin_settings',
-			__( 'Educator Members', 'edr' ),
-			__( 'Members', 'edr' ),
+			__( 'Educator Members', 'educator' ),
+			__( 'Members', 'educator' ),
 			'manage_educator',
 			'edr_admin_members',
 			array( __CLASS__, 'admin_members' )
@@ -252,7 +252,7 @@ class Edr_Admin {
 
 		$args = array(
 			'option'  => 'payments_per_page',
-			'label'   => __( 'Payments per page', 'edr' ),
+			'label'   => __( 'Payments per page', 'educator' ),
 			'default' => 10,
 		);
 
@@ -271,7 +271,7 @@ class Edr_Admin {
 
 		$args = array(
 			'option'  => 'entries_per_page',
-			'label'   => __( 'Entries per page', 'edr' ),
+			'label'   => __( 'Entries per page', 'educator' ),
 			'default' => 10,
 		);
 
@@ -290,7 +290,7 @@ class Edr_Admin {
 
 		$args = array(
 			'option'  => 'quiz_grades_per_page',
-			'label'   => __( 'Grades per page', 'edr' ),
+			'label'   => __( 'Grades per page', 'educator' ),
 			'default' => 10,
 		);
 
@@ -309,7 +309,7 @@ class Edr_Admin {
 
 		$args = array(
 			'option'  => 'members_per_page',
-			'label'   => __( 'Members per page', 'edr' ),
+			'label'   => __( 'Members per page', 'educator' ),
 			'default' => 10,
 		);
 

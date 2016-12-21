@@ -14,7 +14,7 @@ if ( current_user_can( 'manage_educator' ) ) {
 // Check capabilities.
 if ( empty( $who ) ) {
 	// Current user cannot create entries.
-	echo '<p>' . __( 'Access denied', 'edr' ) . '</p>';
+	echo '<p>' . __( 'Access denied', 'educator' ) . '</p>';
 	return;
 }
 
@@ -72,15 +72,15 @@ $form_action = admin_url( 'admin.php?page=edr_admin_entries&edr-action=edit-entr
 <div class="wrap">
 	<h2><?php
 		if ( $entry->ID ) {
-			_e( 'Edit Entry', 'edr' );
+			_e( 'Edit Entry', 'educator' );
 		} else {
-			_e( 'Add Entry', 'edr' );
+			_e( 'Add Entry', 'educator' );
 		}
 	?></h2>
 
 	<?php if ( isset( $_GET['edr-message'] ) && 'saved' == $_GET['edr-message'] ) : ?>
 		<div id="message" class="updated below-h2">
-			<p><?php _e( 'Entry saved.', 'edr' ); ?></p>
+			<p><?php _e( 'Entry saved.', 'educator' ); ?></p>
 		</div>
 	<?php endif; ?>
 
@@ -108,12 +108,12 @@ $form_action = admin_url( 'admin.php?page=edr_admin_entries&edr-action=edit-entr
 
 						<div id="entry-settings" class="postbox">
 							<div class="handlediv"><br></div>
-							<h3 class="hndle"><span><?php _e( 'Entry', 'edr' ); ?></span></h3>
+							<h3 class="hndle"><span><?php _e( 'Entry', 'educator' ); ?></span></h3>
 							<div class="inside">
 								<!-- Status -->
 								<div class="edr-field edr-field_block">
 									<div class="edr-field__label">
-										<label for="entry-status"><?php _e( 'Status', 'edr' ); ?></label>
+										<label for="entry-status"><?php _e( 'Status', 'educator' ); ?></label>
 									</div>
 									<div class="edr-field__control">
 										<select name="entry_status" id="entry-status">
@@ -129,11 +129,11 @@ $form_action = admin_url( 'admin.php?page=edr_admin_entries&edr-action=edit-entr
 								<!-- Date -->
 								<div class="edr-field edr-field_block">
 									<div class="edr-field__label">
-										<label for="entry-date"><?php _e( 'Date', 'edr' ); ?></label>
+										<label for="entry-date"><?php _e( 'Date', 'educator' ); ?></label>
 									</div>
 									<div class=edr-field__control">
 										<input type="text" id="entry-date" class="regular-text" maxlength="19" size="19" name="entry_date" value="<?php echo esc_attr( $input['entry_date'] ); ?>">
-										<div class="edr-field__info"><?php _e( 'Date format: yyyy-mm-dd hh:mm:ss', 'edr' ); ?></div>
+										<div class="edr-field__info"><?php _e( 'Date format: yyyy-mm-dd hh:mm:ss', 'educator' ); ?></div>
 									</div>
 								</div>
 							</div>
@@ -156,7 +156,7 @@ $form_action = admin_url( 'admin.php?page=edr_admin_entries&edr-action=edit-entr
 
 						<div id="entry-settings" class="postbox">
 							<div class="handlediv"><br></div>
-							<h3 class="hndle"><span><?php _e( 'Entry Data', 'edr' ); ?></span></h3>
+							<h3 class="hndle"><span><?php _e( 'Entry Data', 'educator' ); ?></span></h3>
 							<div class="inside">
 								<?php if ( 'admin' == $who ) : ?>
 									<!-- Membership -->
@@ -166,11 +166,11 @@ $form_action = admin_url( 'admin.php?page=edr_admin_entries&edr-action=edit-entr
 									?>
 									<div class="edr-field" data-origin="membership"<?php if ( 'membership' != $input['entry_origin'] ) echo ' style="display:none;"'; ?>>
 										<div class="edr-field__label">
-											<label for="entry-membership-id"><?php _e( 'Membership', 'edr' ); ?></label>
+											<label for="entry-membership-id"><?php _e( 'Membership', 'educator' ); ?></label>
 										</div>
 										<div class="edr-field__control">
 											<select name="membership_id" id="entry-membership-id">
-												<option value=""><?php _e( 'Select Membership', 'edr' ); ?></option>
+												<option value=""><?php _e( 'Select Membership', 'educator' ); ?></option>
 												<?php
 													if ( $memberships ) {
 														foreach ( $memberships as $membership ) {
@@ -186,15 +186,15 @@ $form_action = admin_url( 'admin.php?page=edr_admin_entries&edr-action=edit-entr
 									<!-- Payment ID -->
 									<div class="edr-field" data-origin="payment"<?php if ( 'payment' != $input['entry_origin'] ) echo ' style="display:none;"'; ?>>
 										<div class="edr-field__label">
-											<label for="entry-payment-id"><?php _e( 'Payment ID', 'edr' ); ?></label>
+											<label for="entry-payment-id"><?php _e( 'Payment ID', 'educator' ); ?></label>
 										</div>
 										<div class="edr-field__control">
 											<input type="text" id="entry-payment-id" class="small-text" maxlength="20" size="6" name="payment_id" value="<?php echo intval( $input['payment_id'] ); ?>">
 											<div class="edr-field__info">
 												<?php
-													printf( __( 'Please find payment ID on %s page.', 'edr' ), '<a href="'
+													printf( __( 'Please find payment ID on %s page.', 'educator' ), '<a href="'
 														. admin_url( 'admin.php?page=edr_admin_payments' ) . '" target="_blank">'
-														. __( 'Payments', 'edr' ) . '</a>' );
+														. __( 'Payments', 'educator' ) . '</a>' );
 												?>
 											</div>
 										</div>
@@ -203,7 +203,7 @@ $form_action = admin_url( 'admin.php?page=edr_admin_entries&edr-action=edit-entr
 									<!-- Origin -->
 									<div class="edr-field">
 										<div class="edr-field__label">
-											<label for="entry-origin"><?php _e( 'Origin', 'edr' ); ?></label>
+											<label for="entry-origin"><?php _e( 'Origin', 'educator' ); ?></label>
 										</div>
 										<div class="edr-field__control">
 											<select name="entry_origin" id="entry-origin">
@@ -220,7 +220,7 @@ $form_action = admin_url( 'admin.php?page=edr_admin_entries&edr-action=edit-entr
 								<!-- Student -->
 								<div class="edr-field">
 									<div class="edr-field__label">
-										<label><?php _e( 'Student', 'edr' ); ?></label>
+										<label><?php _e( 'Student', 'educator' ); ?></label>
 									</div>
 									<div class="edr-field__control">
 										<div class="edr-select-values">
@@ -239,7 +239,7 @@ $form_action = admin_url( 'admin.php?page=edr_admin_entries&edr-action=edit-entr
 								<!-- Course -->
 								<div class="edr-field">
 									<div class="edr-field__label">
-										<label><?php _e( 'Course', 'edr' ); ?></label>
+										<label><?php _e( 'Course', 'educator' ); ?></label>
 									</div>
 									<div class="edr-field__control">
 										<div class="edr-select-values">
@@ -258,11 +258,11 @@ $form_action = admin_url( 'admin.php?page=edr_admin_entries&edr-action=edit-entr
 								<!-- Grade -->
 								<div class="edr-field">
 									<div class="edr-field__label">
-										<label for="entry-grade"><?php _e( 'Final Grade', 'edr' ); ?></label>
+										<label for="entry-grade"><?php _e( 'Final Grade', 'educator' ); ?></label>
 									</div>
 									<div class="edr-field__control">
 										<input type="text" id="entry-grade" class="small-text" maxlength="6" size="6" name="grade" value="<?php echo esc_attr( $input['grade'] ); ?>">
-										<div class="edr-field__info"><?php _e( 'A number between 0 and 100.', 'edr' ); ?></div>
+										<div class="edr-field__info"><?php _e( 'A number between 0 and 100.', 'educator' ); ?></div>
 									</div>
 								</div>
 
@@ -270,10 +270,10 @@ $form_action = admin_url( 'admin.php?page=edr_admin_entries&edr-action=edit-entr
 								<?php if ( 'admin' == $who ) : ?>
 									<div class="edr-field" data-origin="payment"<?php if ( 'payment' != $input['entry_origin'] ) echo ' style="display:none;"'; ?>>
 										<div class="edr-field__label">
-											<label><?php _e( 'Prerequisites', 'edr' ); ?></label>
+											<label><?php _e( 'Prerequisites', 'educator' ); ?></label>
 										</div>
 										<div class="edr-field__control">
-											<label><input type="checkbox" name="ignore_prerequisites"> <?php _e( 'Ignore prerequisites', 'edr' ); ?></label>
+											<label><input type="checkbox" name="ignore_prerequisites"> <?php _e( 'Ignore prerequisites', 'educator' ); ?></label>
 										</div>
 									</div>
 								<?php endif; ?>
@@ -283,7 +283,7 @@ $form_action = admin_url( 'admin.php?page=edr_admin_entries&edr-action=edit-entr
 						<?php if ( $quizzes && $quizzes->have_posts() ) : ?>
 							<div id="entry-quizzes" class="postbox">
 								<div class="handlediv"><br></div>
-								<h3 class="hndle"><span><?php _e( 'Quiz Grades', 'edr' ); ?></span></h3>
+								<h3 class="hndle"><span><?php _e( 'Quiz Grades', 'educator' ); ?></span></h3>
 								<div class="inside">
 									<div id="edr-quiz-grades">
 										<?php while ( $quizzes->have_posts() ) : $quizzes->the_post(); ?>

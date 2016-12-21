@@ -37,7 +37,7 @@ class Edr_Admin_Syllabus {
 	public function add_meta_box() {
 		add_meta_box(
 			'edr_syllabus',
-			__( 'Syllabus', 'edr' ),
+			__( 'Syllabus', 'educator' ),
 			array( $this, 'output_meta_box' ),
 			EDR_PT_COURSE
 		);
@@ -53,10 +53,10 @@ class Edr_Admin_Syllabus {
 		?>
 			<div id="edr-syllabus">
 				<input type="hidden" name="edr_syllabus_status" value="loading">
-				<div class="edr-loading"><?php _e( 'Loading', 'edr' ); ?></div>
+				<div class="edr-loading"><?php _e( 'Loading', 'educator' ); ?></div>
 				<ul class="groups"></ul>
 				<p>
-					<button class="add-group button"><?php _e( 'Add Group', 'edr' ); ?></button>
+					<button class="add-group button"><?php _e( 'Add Group', 'educator' ); ?></button>
 				</p>
 			</div>
 			<script type="text/html" id="edr-syllabus-group-view">
@@ -74,7 +74,7 @@ class Edr_Admin_Syllabus {
 								autocomplete="off"
 								value=""
 								data-placeholder="Add Lesson"
-								data-label="<?php _e( 'Select Lesson', 'edr' ); ?>">
+								data-label="<?php _e( 'Select Lesson', 'educator' ); ?>">
 						</div>
 					</div>
 				</div>

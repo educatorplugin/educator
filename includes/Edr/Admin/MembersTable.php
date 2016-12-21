@@ -50,11 +50,11 @@ class Edr_Admin_MembersTable extends WP_List_Table {
 			<form class="edr-admin-filters" action="<?php echo esc_url( admin_url( 'admin.php' ) ); ?>" method="get">
 				<input type="hidden" name="page" value="edr_admin_members">
 				<div class="block">
-					<label for="search-member-name"><?php _e( 'Search Members', 'edr' ); ?></label>
+					<label for="search-member-name"><?php _e( 'Search Members', 'educator' ); ?></label>
 					<input type="text" id="search-member-name" name="member_name" value="<?php if ( ! empty( $_GET['member_name'] ) ) echo esc_attr( $_GET['member_name'] ); ?>">
 				</div>
 				<div class="block">
-					<input type="submit" class="button" value="<?php _e( 'Search', 'edr' ); ?>">
+					<input type="submit" class="button" value="<?php _e( 'Search', 'educator' ); ?>">
 				</div>
 			</form>
 		</div>
@@ -68,11 +68,11 @@ class Edr_Admin_MembersTable extends WP_List_Table {
 	 */
 	public function get_columns() {
 		$columns = array(
-			'username'         => __( 'User', 'edr' ),
-			'name'             => __( 'Name', 'edr' ),
-			'membership_level' => __( 'Membership Level', 'edr' ),
-			'status'           => __( 'Status', 'edr' ),
-			'expiration_date'  => __( 'Expiration Date', 'edr' ),
+			'username'         => __( 'User', 'educator' ),
+			'name'             => __( 'Name', 'educator' ),
+			'membership_level' => __( 'Membership Level', 'educator' ),
+			'status'           => __( 'Status', 'educator' ),
+			'expiration_date'  => __( 'Expiration Date', 'educator' ),
 		);
 
 		return $columns;
@@ -95,7 +95,7 @@ class Edr_Admin_MembersTable extends WP_List_Table {
 		$edit_url = admin_url( 'admin.php?page=edr_admin_members&edr-action=edit-member&id=' . $user->ID );
 
 		$actions = array();
-		$actions['edit'] = '<a href="' . esc_url( $edit_url ) . '">' . __( 'Edit', 'edr' ) . '</a>';
+		$actions['edit'] = '<a href="' . esc_url( $edit_url ) . '">' . __( 'Edit', 'educator' ) . '</a>';
 
 		return '<strong>' . esc_html( $full_name ) . '</strong>' . $this->row_actions( $actions );
 	}
@@ -156,7 +156,7 @@ class Edr_Admin_MembersTable extends WP_List_Table {
 			return esc_html( date_i18n( get_option( 'date_format' ), $user_membership['expiration'] ) );
 		}
 
-		return __( 'None', 'edr' );
+		return __( 'None', 'educator' );
 	}
 
 	/**

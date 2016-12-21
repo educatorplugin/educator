@@ -6,13 +6,13 @@ class Edr_Gateway_Cash extends Edr_Gateway_Base {
 	 */
 	public function __construct() {
 		$this->id = 'cash';
-		$this->title = __( 'Cash', 'edr' );
+		$this->title = __( 'Cash', 'educator' );
 
 		// Setup options.
 		$this->init_options( array(
 			'description' => array(
 				'type'      => 'textarea',
-				'label'     => __( 'Instructions for a student', 'edr' ),
+				'label'     => __( 'Instructions for a student', 'educator' ),
 				'id'        => 'gateway-description',
 				'rich_text' => true,
 			),
@@ -61,7 +61,7 @@ class Edr_Gateway_Cash extends Edr_Gateway_Base {
 			$description = $this->get_option( 'description' );
 
 			if ( ! empty( $description ) ) {
-				echo '<h2>' . __( 'Payment Instructions', 'edr' ) . '</h2>';
+				echo '<h2>' . __( 'Payment Instructions', 'educator' ) . '</h2>';
 				echo '<div class="edr-gateway-description">' . wpautop( stripslashes( $description ) ) . '</div>';
 			}
 		}
