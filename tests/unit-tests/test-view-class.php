@@ -25,8 +25,8 @@ TEXT;
 
 	public function create_test_templates() {
 		$template_dirs = array(
-			'parent' => get_theme_root() . '/twentysixteen/edr',
-			'child'  => get_theme_root() . '/test-child-theme/edr',
+			'parent' => get_theme_root() . '/twentysixteen/educator',
+			'child'  => get_theme_root() . '/test-child-theme/educator',
 		);
 
 		foreach ( $template_dirs as $template => $path ) {
