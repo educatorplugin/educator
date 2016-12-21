@@ -8,7 +8,7 @@ class Edr_View {
 	 * @return string|boolean Template path if found, otherwise false.
 	 */
 	public static function locate_template( $template_names ) {
-		$templates_dir = 'edr';
+		$templates_dir = 'educator';
 		$located_path = false;
 
 		foreach ( $template_names as $name ) {
