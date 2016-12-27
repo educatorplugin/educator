@@ -435,7 +435,7 @@
 	width: 100%;
 }
 
-.edr-tax-rates-table td.handle {padding: 0; width: 4%;}
+.edr-tax-rates-table td.handle {padding: 0 4px; width: 4%;}
 .edr-tax-rates-table .edr-handle-y {line-height: 44px;}
 .edr-tax-rates-table td.country {width: 24%;}
 .edr-tax-rates-table td.state {width: 24%;}
@@ -446,6 +446,26 @@
 .edr-tax-rates-table td.rate input,
 .edr-tax-rates-table td.priority input {
 	width: 70px;
+}
+
+.edr-tax-rates-table .options a {
+    text-decoration: none;
+}
+
+.edr-tax-rates-table .delete-rate {
+    color: #a00;
+}
+
+.edr-tax-rates-table .delete-rate:hover {
+    color: red;
+}
+
+.edr-tax-rates-table .save-rate {
+    color: #006505;
+}
+
+.edr-tax-rates-table .save-rate:hover {
+    color: green;
 }
 
 /* Toggle */

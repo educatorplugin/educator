@@ -2,7 +2,7 @@
 
 return array(
 	'AF' => 'Afghanistan',
-	'AX' => '&#197;land Islands',
+	'AX' => 'Åland Islands',
 	'AL' => 'Albania',
 	'DZ' => 'Algeria',
 	'AS' => 'American Samoa',

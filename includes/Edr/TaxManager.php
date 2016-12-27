@@ -192,10 +192,11 @@ class Edr_TaxManager {
 	/**
 	 * Sanitize tax rate.
 	 *
-	 * @param {stdClass} $input
+	 * @param stdClass $input
+	 * @param string $context
 	 * @return stdClass
 	 */
-	public function sanitize_tax_rate( $input ) {
+	public function sanitize_tax_rate( $input, $context = 'save' ) {
 		$clean = new stdClass();
 
 		foreach ( $input as $key => $value ) {
@@ -212,7 +213,13 @@ class Edr_TaxManager {
 				case 'country':
 				case 'state':
 				case 'name':
-					$clean->$key = sanitize_text_field( $value );
+					if ( 'save' == $context ) {
+						$clean->$key = sanitize_text_field( $value );
+					} elseif ( 'lite' == $context ) {
+						$clean->$key = $value;
+					} elseif ( 'display' == $context ) {
+						$clean->$key = esc_html( $value );
+					}
 					break;
 			}
 		}

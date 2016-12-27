@@ -303,7 +303,7 @@
 			err.html('');
 
 			for (var i = 0; i < errors.length; ++i) {
-				err.append('<li>' + errors[i] + '</li>');
+				err.append('<li>' + _.escape(errors[i]) + '</li>');
 			}
 
 			this.$el.find('button').removeAttr('disabled');
