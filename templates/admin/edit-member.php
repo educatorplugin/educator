@@ -40,7 +40,7 @@ if ( $user_membership ) {
 }
 
 $form_action = admin_url( 'admin.php?page=edr_admin_members&edr-action=edit-member' );
-$username = ( $user ) ? $user->display_name : '';
+$user_select_name = edr_get_user_name( $user, 'select' );
 ?>
 <div class="wrap">
 	<h2><?php
@@ -124,7 +124,7 @@ $username = ( $user ) ? $user->display_name : '';
 												class="regular-text"
 												autocomplete="off"
 												value="<?php if ( $user_membership['user_id'] ) echo intval( $user_membership['user_id'] ); ?>"
-												data-label="<?php echo esc_attr( $username ); ?>"<?php if ( $user_membership['user_id'] ) echo ' disabled="disabled"'; ?>>
+												data-label="<?php echo esc_attr( $user_select_name ); ?>"<?php if ( $user_membership['user_id'] ) echo ' disabled="disabled"'; ?>>
 										</div>
 
 										<?php if ( current_user_can( 'edit_user', $user_membership['user_id'] ) ) : ?>

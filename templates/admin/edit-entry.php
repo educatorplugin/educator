@@ -231,7 +231,7 @@ $form_action = admin_url( 'admin.php?page=edr_admin_entries&edr-action=edit-entr
 												class="regular-text"
 												autocomplete="off"
 												value="<?php if ( $student ) echo intval( $student->ID ); ?>"
-												data-label="<?php if ( $student ) echo esc_attr( $student->display_name ); ?>"<?php if ( 'admin' != $who ) echo ' disabled="disabled"'; ?>>
+												data-label="<?php echo esc_attr( edr_get_user_name( $student, 'select' ) ); ?>"<?php if ( 'admin' != $who ) echo ' disabled="disabled"'; ?>>
 										</div>
 									</div>
 								</div>

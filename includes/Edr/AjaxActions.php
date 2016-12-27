@@ -70,16 +70,9 @@ class Edr_AjaxActions {
 
 		if ( ! empty( $user_query->results ) ) {
 			foreach ( $user_query->results as $user ) {
-				$full_name = $user->first_name;
-				$full_name .= ! empty( $user->last_name ) ? ' ' . $user->last_name : '';
-
-				if ( empty( $full_name ) ) {
-					$full_name = $user->display_name;
-				}
-
 				$users[] = array(
 					'id'   => intval( $user->ID ),
-					'name' => esc_html( $full_name ),
+					'name' => esc_html( edr_get_user_name( $user, 'select' ) ),
 				);
 			}
 		}
@@ -106,7 +99,7 @@ class Edr_AjaxActions {
 
 		$allowed_roles = array( 'student' );
 
-		if ( isset ( $_GET['role'] ) && in_array( $_GET['role'], $allowed_roles ) ) {
+		if ( isset( $_GET['role'] ) && in_array( $_GET['role'], $allowed_roles ) ) {
 			$args['role'] = $_GET['role'];
 		}
 

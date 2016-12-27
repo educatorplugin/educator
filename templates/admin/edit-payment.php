@@ -154,15 +154,6 @@ $form_action = admin_url( $form_action );
 								</div>
 
 								<!-- Student -->
-								<?php
-									$student_id = null;
-									$username = '';
-
-									if ( $student ) {
-										$student_id = $student->ID;
-										$username = $student->display_name;
-									}
-								?>
 								<div class="edr-field edr-field_block">
 									<div class="edr-field__label">
 										<label><?php _e( 'Student', 'educator' ); ?><span class="required">*</span></label>
@@ -175,8 +166,8 @@ $form_action = admin_url( $form_action );
 												id="payment-student-id"
 												class="regular-text"
 												autocomplete="off"
-												value="<?php echo ( $student_id ) ? intval( $student_id ) : ''; ?>"
-												data-label="<?php echo esc_attr( $username ); ?>"<?php if ( $payment->ID ) echo ' disabled="disabled"'; ?>>
+												value="<?php echo ( $student ) ? intval( $student->ID ) : ''; ?>"
+												data-label="<?php echo esc_attr( edr_get_user_name( $student, 'select' ) ); ?>"<?php if ( $payment->ID ) echo ' disabled="disabled"'; ?>>
 										</div>
 									</div>
 								</div>

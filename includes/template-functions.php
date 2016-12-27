@@ -523,3 +523,30 @@ function edr_question_file_upload( $question, $answer, $edit, $grade ) {
 
 	echo '</div>';
 }
+
+/**
+ * Get the name of a user.
+ *
+ * @param WP_User $user
+ * @param string $context
+ * @return string
+ */
+function edr_get_user_name( $user, $context ) {
+	$name = '';
+
+	if ( $user ) {
+		if ( 'select' == $context ) {
+			$name = $user->user_login;
+
+			if ( $user->first_name ) {
+				$name .= ' ' . $user->first_name;
+			}
+
+			if ( $user->last_name ) {
+				$name .= ' ' . $user->last_name;
+			}
+		}
+	}
+
+	return $name;
+}
