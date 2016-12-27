@@ -34,6 +34,7 @@ class Edr_Admin {
 		Edr_Admin_Quiz::init();
 		new Edr_Admin_Syllabus();
 		new Edr_AdminNotices();
+		new Edr_Admin_Ajax();
 	}
 
 	/**
@@ -152,34 +153,17 @@ class Edr_Admin {
 		if ( isset( $_GET['edr-action'] ) ) {
 			$action = sanitize_key( $_GET['edr-action'] );
 
-			/**
-			 * Allow to hook into various admin actions.
-			 */
 			do_action( 'edr_action_' . $action );
 
 			switch ( $action ) {
 				case 'edit-entry':
-					Edr_Admin_Actions::edit_entry();
-					break;
-
 				case 'edit-payment':
-					Edr_Admin_Actions::edit_payment();
-					break;
-
 				case 'edit-member':
-					Edr_Admin_Actions::edit_member();
-					break;
-
 				case 'edit-payment-gateway':
-					Edr_Admin_Actions::edit_payment_gateway();
-					break;
-
 				case 'delete-entry':
-					Edr_Admin_Actions::delete_entry();
-					break;
-
 				case 'delete-payment':
-					Edr_Admin_Actions::delete_payment();
+					$method = str_replace( '-', '_', $action );
+					Edr_Admin_Actions::$method();
 					break;
 			}
 		}
@@ -351,7 +335,8 @@ class Edr_Admin {
 			if ( 'educator_page_edr_admin_payments' == $screen->id ) {
 				// Payments.
 				wp_enqueue_script( 'postbox' );
-				wp_enqueue_script( 'edr-edit-payment', EDR_PLUGIN_URL . 'assets/js/edit-payment.js', array( 'jquery' ), '1.0.0', true );
+				wp_enqueue_script( 'edr-edit-payment', EDR_PLUGIN_URL . 'assets/js/edit-payment.js',
+					array( 'jquery' ), '1.0.0', true );
 			} elseif ( 'educator_page_edr_admin_entries' == $screen->id ) {
 				// Entries.
 				wp_enqueue_script( 'postbox' );
@@ -369,6 +354,10 @@ class Edr_Admin {
 			} elseif ( 'educator_page_edr_admin_members' == $screen->id ) {
 				// Members.
 				wp_enqueue_script( 'postbox' );
+			} elseif ( 'toplevel_page_edr_admin_settings' == $screen->id && isset( $_GET['tab'] ) && 'taxes' == $_GET['tab'] ) {
+				// Taxes.
+				wp_enqueue_script( 'edr-admin-tax-rates', EDR_PLUGIN_URL . 'assets/js/tax-rates.js',
+					array( 'backbone', 'jquery-ui-sortable' ), '1.0.0', true );
 			}
 		}
 	}
