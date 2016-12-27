@@ -21,7 +21,7 @@ if ( isset( $_GET['id'] ) ) {
 
 $user = null;
 $payments = null;
-$user_membership = ( $member_id ) ? $edr_memberships->get_user_membership_by( 'id', $member_id ) : null;
+$user_membership = ( $member_id ) ? $edr_memberships->get_user_membership_by( 'user_id', $member_id ) : null;
 
 if ( $user_membership ) {
 	$user = get_user_by( 'id', $user_membership['user_id'] );
