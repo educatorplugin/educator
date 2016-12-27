@@ -126,8 +126,10 @@ class Edr_TaxManager {
 			'tax'   => 0.0,
 		);
 
+		$tax_round_mode = 'y' == $inclusive ? PHP_ROUND_HALF_DOWN : PHP_ROUND_HALF_UP;
+
 		if ( 'y' == $inclusive ) {
-			$tax_data['subtotal'] = round( $price / ( 1 + $rates_data['inclusive'] / 100 ), 2 );
+			$tax_data['subtotal'] = round( $price / ( 1 + $rates_data['inclusive'] / 100 ), 4 );
 			$tax_data['total'] = $tax_data['subtotal'];
 		} else {
 			$tax_data['subtotal'] = $price;
@@ -136,7 +138,7 @@ class Edr_TaxManager {
 
 		foreach ( $rates_data['rates'] as $rate ) {
 			// Calculate tax amount.
-			$tax = round( $tax_data['subtotal'] * $rate->rate / 100, 2 );
+			$tax = round( $tax_data['subtotal'] * $rate->rate / 100, 4, $tax_round_mode );
 			
 			// Setup tax object.
 			$tmp = new stdClass;
@@ -204,7 +206,7 @@ class Edr_TaxManager {
 					$clean->$key = (int) $value;
 					break;
 				case 'rate':
-					$clean->$key = (float) $value;
+					$clean->$key = number_format( (float) $value, 4, '.', '' );
 					break;
 				case 'tax_class':
 				case 'country':
