@@ -22,8 +22,8 @@ class Edr_Admin_Syllabus {
 		$screen = get_current_screen();
 
 		if ( $screen && 'post' == $screen->base && EDR_PT_COURSE == $screen->id ) {
-			wp_enqueue_style( 'edr-syllabus', EDR_PLUGIN_URL . 'assets/css/syllabus.css', array(), '1.0' );
-			wp_enqueue_script( 'edr-syllabus', EDR_PLUGIN_URL . 'assets/js/syllabus.js', array( 'jquery', 'underscore', 'backbone', 'jquery-ui-sortable', 'edr-select' ), '1.0', true );
+			wp_enqueue_style( 'edr-syllabus', EDR_PLUGIN_URL . 'assets/admin/css/syllabus.css', array(), '1.0' );
+			wp_enqueue_script( 'edr-syllabus', EDR_PLUGIN_URL . 'assets/admin/js/syllabus.js', array( 'jquery', 'underscore', 'backbone', 'jquery-ui-sortable', 'edr-select' ), '1.0', true );
 			wp_localize_script( 'edr-syllabus', 'edrSyllabusText', array(
 				'selectLessonsNonce' => wp_create_nonce( 'edr_syllabus_select_lessons' ),
 				'addLessonNonce'     => wp_create_nonce( 'edr_syllabus_add_lesson' ),

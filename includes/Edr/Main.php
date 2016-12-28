@@ -212,12 +212,12 @@ class Edr_Main {
 	 */
 	public function enqueue_scripts_styles() {
 		if ( apply_filters( 'edr_stylesheet', true ) ) {
-			wp_enqueue_style( 'edr-base', EDR_PLUGIN_URL . 'assets/css/base.css', array(), '1.0.0' );
+			wp_enqueue_style( 'edr-base', EDR_PLUGIN_URL . 'assets/public/css/base.css', array(), '1.0' );
 		}
 
 		if ( edr_is_page( 'payment' ) ) {
 			// Scripts for the payment page.
-			wp_enqueue_script( 'edr-payment', EDR_PLUGIN_URL . 'assets/js/payment.js', array( 'jquery' ), '1.0.0', true );
+			wp_enqueue_script( 'edr-payment', EDR_PLUGIN_URL . 'assets/public/js/payment.js', array( 'jquery' ), '1.0', true );
 			wp_localize_script( 'edr-payment', 'edrPaymentVars', array(
 				'ajaxurl'          => admin_url( 'admin-ajax.php' ),
 				'nonce'            => wp_create_nonce( 'edr_ajax' ),

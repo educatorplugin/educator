@@ -60,7 +60,7 @@ class Edr_Admin {
 			'manage_educator',
 			'edr_admin_settings',
 			array( __CLASS__, 'settings_page' ),
-			EDR_PLUGIN_URL . '/assets/images/educator-icon.png'
+			EDR_PLUGIN_URL . '/assets/admin/images/educator-icon.png'
 		);
 
 		add_submenu_page(
@@ -318,25 +318,25 @@ class Edr_Admin {
 	 * Enqueue scripts and styles.
 	 */
 	public static function enqueue_scripts_styles() {
-		wp_enqueue_style( 'edr-select', EDR_PLUGIN_URL . 'assets/css/select.css', array(), '1.0.0' );
-		wp_enqueue_style( 'edr-admin', EDR_PLUGIN_URL . 'assets/css/admin.css', array(), '1.0.0' );
+		wp_enqueue_style( 'edr-select', EDR_PLUGIN_URL . 'assets/shared/css/select.css', array(), '1.0' );
+		wp_enqueue_style( 'edr-admin', EDR_PLUGIN_URL . 'assets/admin/css/admin.css', array(), '1.0' );
 
-		wp_enqueue_script( 'edr-lib', EDR_PLUGIN_URL . 'assets/js/lib.js', array( 'jquery' ), '1.0.0', true );
-		wp_enqueue_script( 'edr-select', EDR_PLUGIN_URL . 'assets/js/select.js', array( 'jquery' ), '1.0.0' );
+		wp_enqueue_script( 'edr-lib', EDR_PLUGIN_URL . 'assets/admin/js/lib.js', array( 'jquery' ), '1.0', true );
+		wp_enqueue_script( 'edr-select', EDR_PLUGIN_URL . 'assets/shared/js/select.js', array( 'jquery' ), '1.0' );
 
 		$screen = get_current_screen();
 
 		if ( $screen ) {
 			$action = ! empty( $_GET['edr-action'] ) ? $_GET['edr-action'] : '';
 
-			wp_register_script( 'edr-edit-quiz-grade-form', EDR_PLUGIN_URL . 'assets/js/edit-quiz-grade-form.js',
+			wp_register_script( 'edr-edit-quiz-grade-form', EDR_PLUGIN_URL . 'assets/admin/js/edit-quiz-grade-form.js',
 				array( 'jquery', 'edr-lib' ), '1.0.0', true );
 
 			if ( 'educator_page_edr_admin_payments' == $screen->id ) {
 				// Payments.
 				wp_enqueue_script( 'postbox' );
-				wp_enqueue_script( 'edr-edit-payment', EDR_PLUGIN_URL . 'assets/js/edit-payment.js',
-					array( 'jquery' ), '1.0.0', true );
+				wp_enqueue_script( 'edr-edit-payment', EDR_PLUGIN_URL . 'assets/admin/js/edit-payment.js',
+					array( 'jquery' ), '1.0', true );
 			} elseif ( 'educator_page_edr_admin_entries' == $screen->id ) {
 				// Entries.
 				wp_enqueue_script( 'postbox' );
@@ -356,7 +356,7 @@ class Edr_Admin {
 				wp_enqueue_script( 'postbox' );
 			} elseif ( 'toplevel_page_edr_admin_settings' == $screen->id && isset( $_GET['tab'] ) && 'taxes' == $_GET['tab'] ) {
 				// Taxes.
-				wp_enqueue_script( 'edr-admin-tax-rates', EDR_PLUGIN_URL . 'assets/js/tax-rates.js',
+				wp_enqueue_script( 'edr-admin-tax-rates', EDR_PLUGIN_URL . 'assets/admin/js/tax-rates.js',
 					array( 'backbone', 'jquery-ui-sortable' ), '1.0.0', true );
 			}
 		}
