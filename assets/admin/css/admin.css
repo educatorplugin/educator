@@ -46,10 +46,10 @@
 	border-top: 4px solid #999;
 	border-radius: 50%;
 	display: none;
-	height: 16px;
+	height: 12px;
 	transform: translateZ(0);
 	will-change: transform;
-	width: 16px;
+	width: 12px;
 }
 
 .edr-spinner_visible {

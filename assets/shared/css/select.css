@@ -107,7 +107,7 @@
 	border-left: 0;
 	border-right: 0;
 	margin: 0;
-	padding: 4px 10px;
+	padding: 4px 24px 4px 10px;
 	width: 100%;
 }
 
@@ -121,7 +121,7 @@
 
 .edr-select-choices .choices-filter .edr-spinner {
 	background: #fff;
-	margin: -12px 0 0;
+	margin: -10px 0 0;
 	position: absolute;
 	right: 2px;
 	top: 50%;
