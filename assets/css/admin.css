@@ -331,8 +331,6 @@
 .edr-quiz-grade__title {
 	color: #0073aa;
 	cursor: pointer;
-	font-size: 1.1em;
-	font-weight: bold;
 }
 
 .edr-quiz-grade__title span {
@@ -398,10 +396,6 @@
 .edr-quiz-grade-form label,
 .edr-quiz-grade-form .percentage {
 	vertical-align: middle;
-}
-
-.edr-quiz-grade-form label {
-	font-weight: bold;
 }
 
 .edr-quiz-grade-form .edr-info {

@@ -142,6 +142,26 @@ function edr_get_buy_widget( $atts ) {
 }
 
 /**
+ * Get membership buy link.
+ *
+ * @param int $membership_id
+ * @return string
+ */
+function edr_get_membership_buy_link( $membership_id ) {
+	$html = apply_filters( 'edr_get_membership_buy_link_pre', null, $membership_id );
+
+	if ( ! is_null( $html ) ) {
+		return $html;
+	}
+
+	$obj_memberships = Edr_Memberships::get_instance();
+	$payment_url = $obj_memberships->get_payment_url( $membership_id );
+	$html = '<a class="edr-membership-buy-link" href="' . esc_url( $payment_url ) . '">' . __( 'Purchase', 'educator' ) . '</a>';
+
+	return $html;
+}
+
+/**
  * Display course registration errors.
  *
  * @param int $course_id

@@ -187,6 +187,10 @@
 	display: table;
 }
 
+.edr-question .answers label {
+    font-weight: normal;
+}
+
 .edr-question {
 	margin: 0 0 20px;
 }

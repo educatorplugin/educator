@@ -19,6 +19,6 @@ $classes = apply_filters( 'edr_membership_classes', array( 'edr-membership' ) );
 	</div>
 	<div class="edr-membership__footer">
 		<a class="edr-membership__more" href="<?php the_permalink(); ?>"><?php _e( 'Read more', 'educator' ); ?></a>
-		<a class="edr-membership__buy" href="<?php echo esc_url( $obj_memberships->get_payment_url( $membership_id ) ); ?>"><?php _e( 'Purchase', 'educator' ); ?></a>
+		<?php echo edr_get_membership_buy_link( $membership_id ); ?>
 	</div>
 </article>
