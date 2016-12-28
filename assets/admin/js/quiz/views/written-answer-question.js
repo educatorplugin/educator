@@ -23,6 +23,8 @@
 		 */
 		render: function() {
 			EdrQuiz.QuestionView.prototype.render.apply(this);
+
+			return this;
 		},
 
 		/**
@@ -34,7 +36,7 @@
 			var that = this;
 			var newData = {};
 
-			EdrQuiz.QuestionView.prototype.saveQuestion.apply(this);
+			this.lockQuestion();
 
 			// Setup question data.
 			newData.question = this.$el.find('.question-text').val();
@@ -47,14 +49,15 @@
 				wait: true,
 				success: function(model, response, options) {
 					if (response.status === 'success') {
-						// If question was new, get id from the server
-						if (model.isNew()) {
-							model.set('id', parseInt(response.id, 10));
-						}
+						that.render();
+						that.showMessage('saved', 800);
 					}
 				},
 				error: function(model, xhr, options) {
 					that.showMessage('error', 800);
+				},
+				complete: function() {
+					that.unlockQuestion();
 				}
 			});
 

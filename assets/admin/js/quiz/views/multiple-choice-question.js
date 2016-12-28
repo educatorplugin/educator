@@ -31,34 +31,45 @@
 			// Create collection.
 			this.collection = new EdrQuiz.MultipleChoiceAnswersCollection();
 
-			// Render a choice when its added to the collection.
-			this.listenTo(this.collection, 'add', this.renderChoice);
-
 			// Remove a choice from the view when its removed from the collection.
 			this.listenTo(this.collection, 'remove', this.onChoiceRemove);
+
+			// Set initial choices.
+			var id = this.model.get('id');
+
+			if (educatorQuizChoices['question_' + id]) {
+				var choices = educatorQuizChoices['question_' + id],
+				    i;
+
+				for (i = 0; i < choices.length; i++) {
+					this.collection.add(choices[i]);
+				}
+			}
 		},
 
 		/**
 		 * Render view.
 		 */
 		render: function() {
-			var choice;
-			var i;
-			var question_id = this.model.get('id');
+			this.$el.find('.js-edr-answers').sortable('destroy');
 
 			EdrQuiz.QuestionView.prototype.render.apply(this);
 
-			// Populate question with existing choices.
-			if (educatorQuizChoices['question_' + question_id]) {
-				for (i = 0; i < educatorQuizChoices['question_' + question_id].length; ++i) {
-					choice = educatorQuizChoices['question_' + question_id][i];
+			var answersEl = this.$el.find('.js-edr-answers');
 
-					this.collection.add(choice);
-				}
+			if (this.collection.length > 0) {
+				this.$el.find('.no-answers').hide();
+				this.$el.find('.edr-question__answers > table > thead').show();
+
+				var choicesFragment = document.createDocumentFragment();
+				this.collection.each(function(choice) {
+					var view = new EdrQuiz.MultipleChoiceAnswerView({model: choice});
+					choicesFragment.appendChild(view.render().el);
+				});
+				answersEl.append(choicesFragment);
 			}
 
-			// Order question choices.
-			this.$el.find('.edr-question__answers > table > tbody').sortable({
+			answersEl.sortable({
 				axis: 'y',
 				items: 'tr',
 				handle: 'div.handle',
@@ -81,28 +92,6 @@
 					ui.item.children().removeAttr('style');
 				}
 			});
-		},
-
-		/**
-		 * Render a choice.
-		 *
-		 * @param {MultipleChoiceAnswerModel} choice
-		 */
-		renderChoice: function(choice) {
-			var view = new EdrQuiz.MultipleChoiceAnswerView({
-				model:         choice,
-				questionModel: this.model
-			});
-
-			// Hide "no answers" message if needed.
-			if (this.collection.length > 0) {
-				this.$el.find('.no-answers').hide();
-				this.$el.find('.edr-question__answers > table > thead').show();
-			}
-
-			view.render();
-
-			this.$el.find('.edr-question__answers > table > tbody').append(view.el);
 		},
 
 		/**
@@ -132,8 +121,10 @@
 
 			choice.set('menu_order', maxMenuOrder + 1);
 
-			// Add choice to the choices collection.
 			this.collection.add(choice);
+
+			var view = new EdrQuiz.MultipleChoiceAnswerView({model: choice});
+			this.$el.find('.js-edr-answers').append(view.render().$el)
 
 			// Hide "no answers" message.
 			this.$el.find('.no-answers').hide();
@@ -159,7 +150,7 @@
 			var that = this;
 			var newData = {};
 
-			EdrQuiz.QuestionView.prototype.saveQuestion.apply(this);
+			this.lockQuestion();
 
 			// Setup question data.
 			newData.question = this.$el.find('.question-text').val();
@@ -185,28 +176,21 @@
 				wait: true,
 				success: function(model, response, options) {
 					if (response.status === 'success') {
-						// If question was new, get id from the server.
-						if (model.isNew()) {
-							model.set('id', parseInt(response.id, 10));
-						}
-
-						// Remove previous models.
 						that.collection.remove(that.collection.models);
 
-						// Update choices.
 						if (response.choices) {
-							// Reset the collection such that the menu_order of the choices is preserved.
 							that.collection.reset(response.choices);
-
-							// Render new/updated choices.
-							_.each(that.collection.models, function(choice) {
-								that.renderChoice(choice);
-							});
 						}
+
+						that.render();
+						that.showMessage('saved', 800);
 					}
 				},
 				error: function(model, xhr, options) {
 					that.showMessage('error', 800);
+				},
+				complete: function() {
+					that.unlockQuestion();
 				}
 			});
 

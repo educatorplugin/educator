@@ -96,7 +96,7 @@ class Edr_Admin_Quiz {
 			$choice = isset( $current_choices[ $choice_id ] )
 				? $current_choices[ $choice_id ] : edr_get_quiz_choice();
 
-			$choice->choice_text = apply_filters( 'edr_edit_choice_pre_text', $choice_text );
+			$choice->choice_text = apply_filters( 'edr_choice_pre_text', $choice_text );
 			$choice->correct     = isset( $choice_input->correct ) ? intval( $choice_input->correct ) : 0;
 			$choice->menu_order  = isset( $choice_input->menu_order ) ? intval( $choice_input->menu_order ) : 0;
 
@@ -152,7 +152,7 @@ class Edr_Admin_Quiz {
 				$question->lesson_id = $input->lesson_id;
 
 				if ( isset( $input->question ) && ! empty( $input->question ) ) {
-					$question->question = apply_filters( 'edr_add_question_pre_question', $input->question );
+					$question->question = apply_filters( 'edr_question_pre_title', $input->question );
 				} else {
 					$response['errors'][] = 'question';
 				}
@@ -164,7 +164,7 @@ class Edr_Admin_Quiz {
 				}
 
 				if ( isset( $input->question_content ) ) {
-					$question->question_content = apply_filters( 'edr_add_question_pre_content', $input->question_content );
+					$question->question_content = apply_filters( 'edr_question_pre_content', $input->question_content );
 				} else {
 					$response['errors'][] = 'question_content';
 				}
@@ -192,6 +192,8 @@ class Edr_Admin_Quiz {
 						update_post_meta( $question->lesson_id, '_edr_attempts', 1 );
 					}
 
+					$response['question'] = $question->question;
+					$response['question_content'] = $question->question_content;
 					$response['status'] = 'success';
 					$response['id'] = $question->ID;
 				} else {
@@ -242,13 +244,13 @@ class Edr_Admin_Quiz {
 				}
 
 				if ( isset( $input->question ) && ! empty( $input->question ) ) {
-					$question->question = apply_filters( 'edr_edit_question_pre_question', $input->question );
+					$question->question = apply_filters( 'edr_question_pre_title', $input->question );
 				} else {
 					$response['errors'][] = 'question';
 				}
 
 				if ( isset( $input->question_content ) ) {
-					$question->question_content = apply_filters( 'edr_edit_question_pre_content', $input->question_content );
+					$question->question_content = apply_filters( 'edr_question_pre_content', $input->question_content );
 				} else {
 					$response['errors'][] = 'question_content';
 				}
@@ -264,6 +266,8 @@ class Edr_Admin_Quiz {
 						$response['choices'] = self::save_question_choices( $question->ID, $input->choices );
 					}
 
+					$response['question'] = $question->question;
+					$response['question_content'] = $question->question_content;
 					$response['status'] = 'success';
 				} else {
 					$response['status'] = 'error';

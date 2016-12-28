@@ -74,7 +74,7 @@ function edr_get_currencies() {
 		'CNY' => __( 'Chinese Yuan', 'educator' ),
 		'CZK' => __( 'Czech Koruna', 'educator' ),
 		'DKK' => __( 'Danish Krone', 'educator' ),
-		'EUR' => __( 'Euros', 'educator' ),
+		'EUR' => __( 'Euro', 'educator' ),
 		'HKD' => __( 'Hong Kong Dollar', 'educator' ),
 		'HUF' => __( 'Hungarian Forint', 'educator' ),
 		'INR' => __( 'Indian Rupee', 'educator' ),

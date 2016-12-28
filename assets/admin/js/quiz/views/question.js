@@ -20,11 +20,8 @@
 		 * Initilize view.
 		 */
 		initialize: function() {
-			// Setup model listeners.
-			this.model.on('change:question', this.updateQuestionLabel, this);
-			this.model.on('remove', this.remove, this);
-			this.model.on('updateOrderFromView', this.updateOrderFromView, this);
-			this.model.on('sync', this.afterSave, this);
+			this.listenTo(this.model, 'remove', this.remove);
+			this.listenTo(this.model, 'updateOrderFromView', this.updateOrderFromView);
 		},
 
 		/**
@@ -32,13 +29,6 @@
 		 */
 		render: function() {
 			this.$el.html(this.template(this.model.toJSON()));
-		},
-
-		/**
-		 * Update question label.
-		 */
-		updateQuestionLabel: function() {
-			this.$el.find('.edr-question__label').text(this.model.get('question'));
 		},
 
 		/**
@@ -98,23 +88,26 @@
 		},
 
 		/**
-		 * Show the "success" message when the question is saved.
-		 *
-		 * @param {QuestionModel} model
-		 * @param {Object} response
-		 * @param {Object} options
+		 * Lock.
 		 */
-		afterSave: function(model, response, options) {
-			this.showMessage('saved', 800);
+		lockQuestion: function() {
+			this.$el.find('.save-question').attr('disabled', 'disabled');
+		},
 
+		/**
+		 * Unlock.
+		 */
+		unlockQuestion: function() {
 			this.$el.find('.save-question').removeAttr('disabled');
 		},
 
 		/**
-		 * Disable the "Save Question" button when saving the question.
+		 * Is the question locked?
+		 *
+		 * @return {Boolean}
 		 */
-		saveQuestion: function() {
-			this.$el.find('.save-question').attr('disabled', 'disabled');
+		isQuestionLocked: function() {
+			return this.$el.find('.save-question').is(':disabled');
 		},
 
 		/**
@@ -124,11 +117,11 @@
 		 */
 		onKeyPress: function(e) {
 			if (e.which === 13 && e.target.nodeName !== 'TEXTAREA') {
-				e.stopPropagation();
-
-				if (!this.$el.find('.save-question').attr('disabled')) {
+				if (!this.isQuestionLocked()) {
 					this.saveQuestion(e);
 				}
+
+				return false;
 			}
 		},
 
@@ -157,9 +150,7 @@
 				var message = $('<div class="' + classes + '"></div>');
 
 				message.hide();
-
 				that.$el.find('.edr-question__body').append(message);
-				
 				message.fadeIn(200);
 
 				if (timeout) {

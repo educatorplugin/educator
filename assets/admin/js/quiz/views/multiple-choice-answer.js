@@ -14,9 +14,6 @@
 		/** @member {Function} */
 		template: _.template($('#edr-tpl-multiplechoiceanswer').html()),
 
-		/** @member {QuestionModel|null} */
-		questionModel: null,
-
 		/** @member {Object} */
 		events: {
 			'click .delete-answer': 'deleteAnswer'
@@ -31,25 +28,21 @@
 			this.listenTo(this.model, 'remove', this.remove);
 			this.listenTo(this.model, 'updateAnswerValues', this.updateAnswerValues);
 			this.listenTo(this.model, 'updateOrderFromView', this.updateOrderFromView);
-
-			if (typeof options.questionModel !== 'undefined') {
-				this.questionModel = options.questionModel;
-			}
 		},
 
 		/**
 		 * Render view.
+		 *
+		 * @return MultipleChoiceAnswerView
 		 */
 		render: function() {
 			this.$el.html(this.template(this.model.toJSON()));
 
-			if (this.questionModel) {
-				this.$el.find('.answer-correct').attr('name', 'answer_' + this.questionModel.get('id'));
-			}
-
 			if (this.model.get('correct') === 1) {
 				this.$el.find('.answer-correct').attr('checked', 'checked');
 			}
+
+			return this;
 		},
 
 		/**

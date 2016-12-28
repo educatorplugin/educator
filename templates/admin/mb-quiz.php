@@ -42,7 +42,7 @@ if ( ! $attempts_number ) {
 <td class="column1"><div class="handle dashicons dashicons-sort"></div></td>
 <td class="column2"><input class="answer-correct" type="radio"></td>
 <td class="column3"><input class="answer-text" type="text" class="regular-text" value="<%- choice_text %>"></td>
-<td class="column4"><button class="delete-answer button button-secondary">&times;</button></td>
+<td class="column4"><button class="edr-action-btn delete-answer"><span class="dashicons dashicons-trash"></span></button></td>
 </script>
 
 <!-- Template: Multiple Choice Question -->
@@ -72,7 +72,7 @@ if ( ! $attempts_number ) {
 					<th></th>
 				</tr>
 			</thead>
-			<tbody></tbody>
+			<tbody class="js-edr-answers"></tbody>
 		</table>
 	</div>
 	<div class="edr-question__optional">
@@ -142,12 +142,12 @@ $questions_js = '[';
 $questions = $obj_quizzes->get_questions( array( 'lesson_id' => $lesson_id ) );
 
 foreach ( $questions as $question ) {
-	$questions_js .= "{id: " . intval( $question->ID ) . ','
-		. "question: '" . esc_js( $question->question ) . "',"
-		. "question_type: '" . esc_js( $question->question_type ) . "',"
-		. "question_content: " . wp_json_encode( apply_filters( 'edr_edit_question_form_content', $question->question_content ) ) . ","
-		. "optional: " . intval( $question->optional ) . ','
-		. "menu_order: " . intval( $question->menu_order ) . '},';
+	$questions_js .= '{id: ' . intval( $question->ID ) . ',' .
+		'question: ' . json_encode( $question->question ) . ',' .
+		'question_type: ' . json_encode( $question->question_type ) . ',' .
+		'question_content: ' . json_encode( $question->question_content ) . ',' .
+		'optional: ' . intval( $question->optional ) . ',' .
+		'menu_order: ' . intval( $question->menu_order ) . '},';
 }
 
 $questions_js .= ']';
@@ -160,11 +160,11 @@ foreach ( $choices as $question_id => $question ) {
 	$choices_json .= 'question_' . intval( $question_id ) . ':[';
 
 	foreach ( $question as $choice ) {
-		$choices_json .= "{choice_id: " . intval( $choice->ID ) . ", "
-			. "question_id: " . intval( $choice->question_id ) . ", "
-			. "choice_text: '" . esc_js( $choice->choice_text ) . "', "
-			. "correct: " . intval( $choice->correct ) . ", "
-			. "menu_order: " . intval( $choice->menu_order ) . "},";
+		$choices_json .= '{choice_id: ' . intval( $choice->ID ) . ', ' .
+			'question_id: ' . intval( $choice->question_id ) . ', ' .
+			'choice_text: ' . json_encode( $choice->choice_text ) . ', ' .
+			'correct: ' . intval( $choice->correct ) . ', ' .
+			'menu_order: ' . intval( $choice->menu_order ) . '},';
 	}
 
 	$choices_json .= '],';
