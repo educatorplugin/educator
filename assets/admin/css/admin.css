@@ -155,6 +155,7 @@
 
 /* Edit payment page ---------------*/
 .edr-payment-lines {
+    margin: 1em 0;
 	width: 100%;
 }
 
@@ -184,7 +185,7 @@
 
 /* Form ---------------*/
 .edr-field {
-	margin: 1em 0 1em;
+	margin: 1em 0;
 }
 
 .edr-field input[type="text"] {
@@ -194,11 +195,11 @@
 .edr-field__label {
 	float: left;
 	font-weight: 600;
-	max-width: 200px;
+	max-width: 140px;
 }
 
 .edr-field__control {
-	margin-left: 220px;
+	margin-left: 160px;
 }
 
 .edr-field__control .wp-editor-wrap {
@@ -323,6 +324,10 @@
 }
 
 /* Edit quiz grade ---------------*/
+.edr-quiz-grades {
+    margin: 1em 0;
+}
+
 .edr-quiz-grade_closed .edr-field_quiz-answers,
 .edr-quiz-grade_closed .edr-quiz-grade-form {
 	display: none;
@@ -462,69 +467,46 @@
     color: green;
 }
 
-/* Toggle */
-.edr-toggle .header {
-	background-color: #f9f9f9;
-	border: 1px solid #ddd;
-	color: #222;
-	min-height: 34px;
-	position: relative;
+/* Box */
+.edr-box {
+    margin: 0 0 15px;
 }
 
-.edr-toggle .header .text {
-	display: block;
-	font-weight: bold;
-	padding: 8px 10px;
+.edr-box__header {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    line-height: 1.4;
+    padding: 8px 15px;
 }
 
-.edr-toggle .trigger {
-	color: #aaa;
-	cursor: pointer;
-	display: block;
-	height: 34px;
-	line-height: 34px;
-	position: absolute;
-	right: 0;
-	text-align: center;
-	top: 0;
-	width: 34px;
+.edr-box__title {
+    font-size: 14px;
+    font-weight: 600;
 }
 
-.edr-toggle .header .trigger:before {
-	content: '\f140';
-	display: inline;
-	font: 400 20px/1 dashicons;
-	position: relative;
-	top: 5px;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+.edr-box__body {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    padding: 2px 15px;
 }
 
-.edr-toggle .header .trigger:hover {
-	color: #777;
+.edr-box__header + .edr-box__body {
+    border-top: 0;
 }
 
-.edr-toggle.open .trigger:before {
-	content: '\f142';
+/* Page: edit payment */
+#edr-edit-payment-form {
+    margin-top: 10px;
 }
 
-.edr-toggle .body {
-	background: #fff;
-	border: 1px solid #ddd;
-	border-top: 0;
-	display: none;
-	padding: 15px;
-	position: relative;
+/* Page: edit entry */
+#edr-edit-entry-form {
+    margin-top: 10px;
 }
 
-.edr-toggle .body label {
-	display: block;
-	font-weight: bold;
-	margin: 0 0 5px;
-}
-
-.edr-toggle.open .body {
-	display: block;
+/* Page: edit member */
+#edr-edit-member-form {
+    margin-top: 10px;
 }
 
 @media screen and (max-width: 782px) {
