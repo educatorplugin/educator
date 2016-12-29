@@ -432,7 +432,9 @@ class Edr_Admin_Quiz {
 			exit();
 		}
 
-		if ( ! current_user_can( 'edit_' . EDR_PT_LESSON, $grade->lesson_id ) ) {
+		$post = get_post( $grade->lesson_id );
+
+		if ( ! $post || ! current_user_can( 'edit_' . $post->post_type, $post->ID ) ) {
 			exit();
 		}
 
