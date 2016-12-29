@@ -447,26 +447,6 @@
 	width: 70px;
 }
 
-.edr-tax-rates-table .options a {
-    text-decoration: none;
-}
-
-.edr-tax-rates-table .delete-rate {
-    color: #a00;
-}
-
-.edr-tax-rates-table .delete-rate:hover {
-    color: red;
-}
-
-.edr-tax-rates-table .save-rate {
-    color: #006505;
-}
-
-.edr-tax-rates-table .save-rate:hover {
-    color: green;
-}
-
 /* Box */
 .edr-box {
     margin: 0 0 15px;

@@ -68,6 +68,24 @@ function edr_format_membership_price( $price, $duration, $period, $symbol = true
 }
 
 /**
+ * Round tax amount for display.
+ *
+ * @param float $amount
+ * @return float
+ */
+function edr_round_tax_amount( $amount ) {
+	$inclusive = edr_get_option( 'taxes', 'tax_inclusive' );
+
+	if ( ! $inclusive ) {
+		$inclusive = 'y';
+	}
+
+	$tax_round_mode = 'y' == $inclusive ? PHP_ROUND_HALF_DOWN : PHP_ROUND_HALF_UP;
+
+	return round( $amount, 2, $tax_round_mode );
+}
+
+/**
  * Format grade.
  *
  * @param int|float $grade

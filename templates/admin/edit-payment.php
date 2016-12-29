@@ -270,7 +270,7 @@ $form_action = admin_url( $form_action );
 				<div class="edr-field">
 					<div class="edr-field__label"><label for="payment-tax"><?php _e( 'Tax', 'educator' ); ?></label></div>
 					<div class="edr-field__control">
-						<input type="text" id="payment-tax" class="regular-text" name="tax" value="<?php echo ( $payment->tax ) ? (float) $payment->tax : 0.00; ?>">
+						<input type="text" id="payment-tax" class="regular-text" name="tax" value="<?php echo ( $payment->tax ) ? edr_round_tax_amount( $payment->tax ) : 0.00; ?>">
 					</div>
 				</div>
 

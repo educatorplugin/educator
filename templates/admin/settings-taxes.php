@@ -68,8 +68,8 @@
 		<td class="rate"><%- rate %></td>
 		<td class="priority"><%- priority %></td>
 		<td class="options">
-			<a class="edit-rate" href="#"><span class="dashicons dashicons-edit"></span></a>
-			<a class="delete-rate" href="#"><span class="dashicons dashicons-trash"></span></a>
+			<a class="edit-rate edr-action-btn" href="#"><span class="dashicons dashicons-edit"></span></a>
+			<a class="delete-rate edr-action-btn" href="#"><span class="dashicons dashicons-trash"></span></a>
 		</td>
 		</script>
 
@@ -91,8 +91,8 @@
 		<td class="rate"><input type="number" value="<%- rate %>"></td>
 		<td class="priority"><input type="number" value="<%- priority %>"></td>
 		<td class="options">
-			<a class="save-rate" href="#"><span class="dashicons dashicons-yes"></span></a>
-			<a class="delete-rate" href="#"><span class="dashicons dashicons-trash"></span></a>
+			<a class="save-rate edr-action-btn" href="#"><span class="dashicons dashicons-yes"></span></a>
+			<a class="delete-rate edr-action-btn" href="#"><span class="dashicons dashicons-trash"></span></a>
 		</td>
 		</script>
 
