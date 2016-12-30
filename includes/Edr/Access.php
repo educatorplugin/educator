@@ -133,11 +133,11 @@ class Edr_Access {
 		}
 
 		$can_edit = false;
-		$course_id = Edr_Courses::get_instance()->get_course_id( $lesson_id );
+		$edr_courses = Edr_Courses::get_instance();
+		$course_id = $edr_courses->get_course_id( $lesson_id );
 
 		if ( $course_id ) {
 			$user_id = get_current_user_id();
-			$edr_courses = Edr_Courses::get_instance();
 			$lecturer_courses = $edr_courses->get_lecturer_courses( $user_id );
 			$can_edit = in_array( $course_id, $lecturer_courses );
 		}
