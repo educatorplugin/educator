@@ -391,14 +391,23 @@ class Edr_Memberships {
 		if ( isset( $input['ID'] ) && is_numeric( $input['ID'] ) && $input['ID'] > 0 ) {
 			$where = array( 'ID' => $input['ID'] );
 			$where_format = array( '%d' );
-			$wpdb->update( $this->tbl_members, $data, $where, $format, $where_format );
-			$data['ID'] = $input['ID'];
+			$affected_rows = $wpdb->update( $this->tbl_members, $data, $where, $format, $where_format );
+
+			if ( false !== $affected_rows ) {
+				$data['ID'] = $input['ID'];
+			}
 		} else {
-			$wpdb->insert( $this->tbl_members, $data, $format );
-			$data['ID'] = $wpdb->insert_id;
+			$affected_rows = $wpdb->insert( $this->tbl_members, $data, $format );
+
+			if ( false !== $affected_rows ) {
+				$data['ID'] = $wpdb->insert_id;
+			}
 		}
 
-		wp_cache_delete( $data['ID'], 'edr_members' );
+		if ( ! empty( $data['ID'] ) ) {
+			wp_cache_delete( $data['ID'], 'edr_members' );
+		}
+
 		wp_cache_delete( 0, 'edr_members' );
 
 		return $data['ID'];

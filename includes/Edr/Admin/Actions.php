@@ -367,7 +367,7 @@ class Edr_Admin_Actions {
 			$date_regex = '/^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$/';
 			$errors = new WP_Error();
 			$member_id = isset( $_POST['id'] ) ? intval( $_POST['id'] ) : null;
-			$user_membership = ( $member_id ) ? $edr_memberships->get_user_membership_by( 'id', $member_id ) : null;
+			$user_membership = ( $member_id ) ? $edr_memberships->get_user_membership_by( 'user_id', $member_id ) : null;
 			$data = array();
 
 			// User id.
@@ -422,7 +422,7 @@ class Edr_Admin_Actions {
 				$data['ID'] = $edr_memberships->update_user_membership( $data );
 
 				if ( $data['ID'] ) {
-					wp_redirect( admin_url( 'admin.php?page=edr_admin_members&edr-action=edit-member&id=' . intval( $data['ID'] ) . '&edr-message=saved' ) );
+					wp_redirect( admin_url( 'admin.php?page=edr_admin_members&edr-action=edit-member&id=' . intval( $member_id ) . '&edr-message=saved' ) );
 					exit();
 				}
 			}
