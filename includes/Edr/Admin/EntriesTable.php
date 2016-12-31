@@ -116,7 +116,7 @@ class Edr_Admin_EntriesTable extends WP_List_Table {
 							id="search-student"
 							autocomplete="off"
 							value="<?php if ( $student ) echo intval( $student->ID ); ?>"
-							data-label="<?php if ( $student ) echo esc_attr( $student->display_name . ' (' . $student->user_login . ')' ); ?>">
+							data-label="<?php if ( $student ) echo esc_attr( edr_get_user_name( $student, 'select' ) ); ?>">
 					</div>
 				</div>
 				<?php if ( ! empty( $courses ) ) : ?>

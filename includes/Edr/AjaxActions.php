@@ -122,18 +122,25 @@ class Edr_AjaxActions {
 			if ( current_user_can( 'educator_edit_entries' ) ) {
 				$cur_user_id = get_current_user_id();
 				$edr_courses = Edr_Courses::get_instance();
-				$course_ids = implode( ',', $edr_courses->get_lecturer_courses( $cur_user_id ) );
-				$tables = edr_db_tables();
-				$student_ids = $wpdb->get_col(
-					"
-					SELECT DISTINCT user_id
-					FROM   {$tables['entries']}
-					WHERE  course_id IN ($course_ids)
-					"
-				);
+				$course_ids = $edr_courses->get_lecturer_courses( $cur_user_id );
 
-				if ( ! empty( $student_ids ) ) {
-					$args['include'] = $student_ids;
+				if ( ! empty( $course_ids ) ) {
+					global $wpdb;
+					$tables = edr_db_tables();
+					$course_ids_sql = implode( ',', $course_ids );
+					$student_ids = $wpdb->get_col(
+						"
+						SELECT DISTINCT user_id
+						FROM   {$tables['entries']}
+						WHERE  course_id IN ($course_ids_sql)
+						"
+					);
+
+					if ( ! empty( $student_ids ) ) {
+						$args['include'] = $student_ids;
+					} else {
+						exit;
+					}
 				} else {
 					exit;
 				}

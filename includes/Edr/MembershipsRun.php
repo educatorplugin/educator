@@ -51,37 +51,37 @@ class Edr_MembershipsRun {
 	 */
 	public static function process_expired_memberships() {
 		global $wpdb;
-		$ms = Edr_Memberships::get_instance();
 		$tables = edr_db_tables();
-		$tbl_members = $tables['members'];
-		$tbl_entries = $tables['entries'];
 		$user_ids = $wpdb->get_col( $wpdb->prepare(
 			"
 			SELECT user_id
-			FROM   $tbl_members
+			FROM   {$tables['members']}
 			WHERE  `expiration` <> '0000-00-00 00:00:00'
 			       AND `expiration` < %s
-				   AND `status` = 'active'
+			       AND `status` = 'active'
 			",
 			date( 'Y-m-d H:i:s' )
 		) );
-		$user_ids_sql = implode( ',', $user_ids );
-		$wpdb->query(
-			"
-			UPDATE $tbl_members
-			SET    `status` = 'expired'
-			WHERE  user_id IN ($user_ids_sql)
-			"
-		);
-		$wpdb->query(
-			"
-			UPDATE $tbl_entries
-			SET    `entry_status` = 'paused'
-			WHERE  user_id IN ($user_ids_sql)
-			       AND `entry_origin` = 'membership'
-			       AND `entry_status` = 'inprogress'
-			"
-		);
+
+		if ( ! empty( $user_ids ) ) {
+			$user_ids_sql = implode( ',', $user_ids );
+			$wpdb->query(
+				"
+				UPDATE {$tables['members']}
+				SET    `status` = 'expired'
+				WHERE  user_id IN ($user_ids_sql)
+				"
+			);
+			$wpdb->query(
+				"
+				UPDATE {$tables['entries']}
+				SET    `entry_status` = 'paused'
+				WHERE  user_id IN ($user_ids_sql)
+				       AND `entry_origin` = 'membership'
+				       AND `entry_status` = 'inprogress'
+				"
+			);
+		}
 	}
 
 	/**

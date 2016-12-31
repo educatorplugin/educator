@@ -355,7 +355,7 @@ function edr_get_payment( $data = null ) {
 function edr_get_payment_statuses() {
 	return array(
 		'pending'   => __( 'Pending', 'educator' ),
-		'complete'  => __( 'Complete', 'educator' ),
+		'complete'  => __( 'Completed', 'educator' ),
 		'failed'    => __( 'Failed', 'educator' ),
 		'cancelled' => __( 'Cancelled', 'educator' ),
 	);
@@ -392,7 +392,7 @@ function edr_get_entry_statuses() {
 	return array(
 		'pending'    => __( 'Pending', 'educator' ),
 		'inprogress' => __( 'In progress', 'educator' ),
-		'complete'   => __( 'Complete', 'educator' ),
+		'complete'   => __( 'Completed', 'educator' ),
 		'cancelled'  => __( 'Cancelled', 'educator' ),
 		'paused'     => __( 'Paused', 'educator' ),
 	);

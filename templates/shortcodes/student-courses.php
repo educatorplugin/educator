@@ -119,7 +119,7 @@ if ( $courses || $pending_courses ) {
 				'grade'  => '<th>' . __( 'Grade', 'educator' ) . '</th>',
 			), 'complete' );
 
-			echo '<h3>' . __( 'Complete', 'educator' ) . '</h3>';
+			echo '<h3>' . __( 'Completed', 'educator' ) . '</h3>';
 			echo '<table class="edr-student-courses edr-student-courses_complete">';
 			echo '<thead><tr>';
 

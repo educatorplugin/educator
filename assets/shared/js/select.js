@@ -265,7 +265,7 @@ EdrLib.select = (function($) {
 		var html;
 
 		html = '<div class="selected-value" data-key="' + key + '"><span>' + label + '</span>';
-		html += '<button class="remove-value">&times;</button>';
+		html += '<button type="button" class="remove-value">&times;</button>';
 		html += '</div>';
 
 		return html;
