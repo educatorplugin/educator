@@ -260,7 +260,7 @@ class Edr_Gateway_Paypal extends Edr_Gateway_Base {
 					return;
 				}
 
-				if ( $payment_amount != $payment->amount ) {
+				if ( $payment_amount != edr_round_price( $payment->amount ) ) {
 					return;
 				}
 
