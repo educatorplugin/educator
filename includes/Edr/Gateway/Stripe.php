@@ -123,7 +123,7 @@ class Edr_Gateway_Stripe extends Edr_Gateway_Base {
 				name: '<?php echo esc_js( $post->post_title ); ?>',
 				description: '<?php echo esc_js( edr_format_price( $payment->amount, false, false ) ); ?>',
 				currency: '<?php echo esc_js( edr_get_currency() ); ?>',
-				amount: <?php echo intval( $payment->amount * 100 ); ?>
+				amount: <?php echo edr_round_price( $payment->amount ) * 100; ?>
 			});
 
 			$(window).on('popstate', function() {
