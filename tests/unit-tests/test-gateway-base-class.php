@@ -109,8 +109,8 @@ class GatewayBaseClassTest extends WP_UnitTestCase {
 		$expected_payment->payment_type = 'course';
 		$expected_payment->payment_gateway = 'test-gateway';
 		$expected_payment->payment_status = 'pending';
-		$expected_payment->amount = 12.04;
-		$expected_payment->tax = 1.05;
+		$expected_payment->tax = round( 10.99 * 9.54 / 100, 4 );
+		$expected_payment->amount = 10.99 + $expected_payment->tax;
 		$expected_payment->currency = '';
 		$expected_payment->payment_date = date( 'Y-m-d H:i:s' );
 		$expected_payment->first_name = 'John';
@@ -138,7 +138,7 @@ class GatewayBaseClassTest extends WP_UnitTestCase {
 		$expected_payment_lines[0]->payment_id = $actual_payment->ID;
 		$expected_payment_lines[0]->object_id = $rate1->ID;
 		$expected_payment_lines[0]->line_type = 'tax';
-		$expected_payment_lines[0]->amount = 1.05;
+		$expected_payment_lines[0]->amount = $expected_payment->tax;
 		$expected_payment_lines[0]->tax = 0.0;
 		$expected_payment_lines[0]->name = $rate1->name;
 

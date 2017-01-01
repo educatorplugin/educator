@@ -295,6 +295,8 @@ class Edr_Admin_QuizGradesTable extends WP_List_Table {
 		$posts = get_posts( array(
 			'post_type'   => 'any',
 			'post_status' => 'publish',
+			'orderby'     => 'ID',
+			'order'       => 'DESC',
 			'author'      => $user_id,
 			'meta_query'  => array(
 				array(

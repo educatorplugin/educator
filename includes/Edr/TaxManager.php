@@ -139,7 +139,7 @@ class Edr_TaxManager {
 		foreach ( $rates_data['rates'] as $rate ) {
 			// Calculate tax amount.
 			$tax = round( $tax_data['subtotal'] * $rate->rate / 100, 4, $tax_round_mode );
-			
+
 			// Setup tax object.
 			$tmp = new stdClass;
 			$tmp->ID = $rate->ID;

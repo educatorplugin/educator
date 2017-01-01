@@ -56,7 +56,7 @@ class QuizGradesTableClassTest extends WP_UnitTestCase {
 		$gradesTable = new Edr_Admin_QuizGradesTable();
 		$actual_posts = $gradesTable->get_quiz_posts( $user_id );
 		$actual_posts = array_map( function( $post ) { return $post->ID; }, $actual_posts );
-		$expected_posts = array( $post_id_1, $post_id_2 );
+		$expected_posts = array( $post_id_2, $post_id_1 );
 		$this->assertEquals( $expected_posts, $actual_posts );
 	}
 
@@ -128,7 +128,7 @@ class QuizGradesTableClassTest extends WP_UnitTestCase {
 		$gradesTable->set_filters_input( array( 'post' => $post_id_3 ) );
 		$permission = $get_permission_to_edit->invoke( $gradesTable );
 		$actual_lesson_id = $get_filter_lesson_id->invoke( $gradesTable, $permission );
-		$this->assertSame( array( $post_id_1, $post_id_2 ), $actual_lesson_id );
+		$this->assertSame( array( $post_id_2, $post_id_1 ), $actual_lesson_id );
 
 		$gradesTable->set_filters_input( array( 'post' => $post_id_1 ) );
 		$actual_lesson_id = $get_filter_lesson_id->invoke( $gradesTable, $permission );

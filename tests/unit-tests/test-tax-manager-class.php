@@ -22,7 +22,7 @@ class TaxManagerClassTest extends WP_UnitTestCase {
 		$rate1->state      = '';
 		$rate1->tax_class  = $tax_class['name'];
 		$rate1->priority   = 0;
-		$rate1->rate       = 2.11;
+		$rate1->rate       = 2.1100;
 		$rate1->rate_order = 0;
 		$rate1->ID         = $this->tm->update_tax_rate( $rate1 );
 
@@ -139,17 +139,19 @@ class TaxManagerClassTest extends WP_UnitTestCase {
 		$settings['location'] = 'CA';
 		update_option( 'edr_settings', $settings );
 
+		$expected_tax_amount = round( 8.79 * 2.1100 / 100, 4 );
+
 		// Country level.
 		$tax1 = new stdClass();
 		$tax1->ID     = $rate1->ID;
 		$tax1->name   = $rate1->name;
 		$tax1->rate   = 2.1100;
-		$tax1->amount = 0.19;
+		$tax1->amount = $expected_tax_amount;
 
 		$expected_tax = array(
 			'subtotal' => 8.79,
-			'total'    => 8.98,
-			'tax'      => 0.19,
+			'total'    => $expected_tax_amount + 8.79,
+			'tax'      => $expected_tax_amount,
 			'taxes'    => array( $tax1 ),
 		);
 		$actual_tax = $this->tm->calculate_tax( $tax_class['name'], 8.79, 'CA', '' );
@@ -163,22 +165,22 @@ class TaxManagerClassTest extends WP_UnitTestCase {
 		$tax4 = new stdClass();
 		$tax4->ID     = $rate4->ID;
 		$tax4->name   = $rate4->name;
-		$tax4->rate   = 1.56;
-		$tax4->amount = 0.14;
+		$tax4->rate   = 1.5600;
+		$tax4->amount = round( 8.79 * $tax4->rate / 100, 4 );
 
 		$tax2 = new stdClass();
 		$tax2->ID     = $rate2->ID;
 		$tax2->name   = $rate2->name;
-		$tax2->rate   = 2.89;
-		$tax2->amount = 0.25;
+		$tax2->rate   = 2.8900;
+		$tax2->amount = round( 8.79 * $tax2->rate / 100, 4 );
+
+		$expected_tax = array();
+		$expected_tax['tax']      = $tax1->amount + $tax4->amount + $tax2->amount;
+		$expected_tax['subtotal'] = 8.79;
+		$expected_tax['total']    = $expected_tax['tax'] + $expected_tax['subtotal'];
+		$expected_tax['taxes']    = array( $tax1, $tax4, $tax2 );
 
 		$actual_tax = $this->tm->calculate_tax( $tax_class['name'], 8.79, 'CA', 'AB' );
-		$expected_tax = array(
-			'subtotal' => 8.79,
-			'total'    => 9.37,
-			'tax'      => 0.58,
-			'taxes'    => array( $tax1, $tax4, $tax2 ),
-		);
 		$this->assertEquals( $expected_tax, $actual_tax );
 
 		// Inclusive - y.
@@ -192,16 +194,19 @@ class TaxManagerClassTest extends WP_UnitTestCase {
 		update_option( 'edr_settings', $settings );
 
 		// Inclusive, country level.
+		$inclusive_tax_rate = 2.11 + 1.56 + 2.89;
+		$subtotal = round( 6.23 / ( 1 + $inclusive_tax_rate / 100 ), 4 );
+
 		$tax1 = new stdClass();
 		$tax1->ID     = $rate1->ID;
 		$tax1->name   = $rate1->name;
-		$tax1->rate   = 2.11;
-		$tax1->amount = 0.12;
+		$tax1->rate   = 2.1100;
+		$tax1->amount = round( $subtotal * 2.1100 / 100, 4, PHP_ROUND_HALF_DOWN );
 
 		$expected_tax = array(
-			'subtotal' => 5.85,
-			'total'    => 5.97,
-			'tax'      => 0.12,
+			'subtotal' => $subtotal,
+			'total'    => $subtotal + $tax1->amount,
+			'tax'      => $tax1->amount,
 			'taxes'    => array( $tax1 ),
 		);
 		$actual_tax = $this->tm->calculate_tax( $tax_class['name'], 6.23, 'CA', '' );
@@ -212,27 +217,28 @@ class TaxManagerClassTest extends WP_UnitTestCase {
 		$this->assertEquals( $expected_tax, $actual_tax );
 
 		// Country + state for which rates exist.
-		$tax1->amount = 0.15;
+		$subtotal = round( 7.34 / ( 1 + $inclusive_tax_rate / 100 ), 4 );
+		$tax1->amount = round( $subtotal * $tax1->rate / 100, 4, PHP_ROUND_HALF_DOWN );
 
 		$tax4 = new stdClass();
 		$tax4->ID     = $rate4->ID;
 		$tax4->name   = $rate4->name;
-		$tax4->rate   = 1.56;
-		$tax4->amount = 0.11;
+		$tax4->rate   = 1.5600;
+		$tax4->amount = round( $subtotal * $tax4->rate / 100, 4, PHP_ROUND_HALF_DOWN );
 
 		$tax2 = new stdClass();
 		$tax2->ID     = $rate2->ID;
 		$tax2->name   = $rate2->name;
-		$tax2->rate   = 2.89;
-		$tax2->amount = 0.2;
+		$tax2->rate   = 2.8900;
+		$tax2->amount = round( $subtotal * $tax2->rate / 100, 4, PHP_ROUND_HALF_DOWN );
 
 		$actual_tax = $this->tm->calculate_tax( $tax_class['name'], 7.34, 'CA', 'AB' );
-		$expected_tax = array(
-			'subtotal' => 6.89,
-			'total'    => 7.35,
-			'tax'      => 0.46,
-			'taxes'    => array( $tax1, $tax4, $tax2 ),
-		);
+		$expected_tax = array();
+		$expected_tax['tax']      = $tax1->amount + $tax4->amount + $tax2->amount;
+		$expected_tax['subtotal'] = $subtotal;
+		$expected_tax['total']    = $subtotal + $expected_tax['tax'];
+		$expected_tax['taxes']    = array( $tax1, $tax4, $tax2 );
+
 		$this->assertEquals( $expected_tax, $actual_tax );
 	}
 
