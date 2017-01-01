@@ -87,31 +87,31 @@ class Edr_Gateway_Stripe extends Edr_Gateway_Base {
 		if ( ! $post ) {
 			return;
 		}
+
+		$payment_summary_url = edr_get_endpoint_url( 'edr-payment', $payment->ID, get_permalink( edr_get_page_id( 'payment' ) ) );
 		?>
-		<p id="edr-payment-processing-msg">
-			<?php _e( 'The payment is getting processed...', 'educator' ); ?>
-		</p>
+		<p id="edr-payment-processing-msg"><?php _e( 'The payment is being processed...', 'educator' ); ?></p>
 		<script src="https://checkout.stripe.com/checkout.js"></script>
 		<script>
 		(function($) {
 			var handler = StripeCheckout.configure({
-				key: '<?php echo esc_js( $this->get_option( 'publishable_key' ) ); ?>',
+				key: <?php echo json_encode( $this->get_option( 'publishable_key' ) ); ?>,
 				image: '',
-				email: '<?php echo esc_js( $user->user_email ); ?>',
+				email: <?php echo json_encode( sanitize_email( $user->user_email ) ); ?>,
 				token: function(token) {
 					$.ajax({
 						type: 'POST',
 						cache: false,
-						url: '<?php echo esc_js( Edr_RequestDispatcher::get_url( 'stripe_token' ) ); ?>',
+						url: <?php echo json_encode( Edr_RequestDispatcher::get_url( 'stripe_token' ) ); ?>,
 						data: {
 							payment_id: <?php echo intval( $payment->ID ); ?>,
 							token: token.id,
-							_wpnonce: '<?php echo esc_js( wp_create_nonce( 'edr_stripe_token' ) ); ?>'
+							_wpnonce: <?php echo json_encode( wp_create_nonce( 'edr_stripe_token' ) ); ?>
 						},
 						success: function(response) {
 							if (response === '1') {
-								$('#edr-payment-processing-msg').text('<?php echo esc_js( __( 'Redirecting to the payment summary page...', 'educator' ) ); ?>');
-								var redirectTo = '<?php echo esc_js( edr_get_endpoint_url( 'edr-payment', $payment->ID, get_permalink( edr_get_page_id( 'payment' ) ) ) ); ?>';
+								$('#edr-payment-processing-msg').text(<?php echo json_encode( __( 'Redirecting to the payment summary page...', 'educator' ) ); ?>);
+								var redirectTo = <?php echo json_encode( $payment_summary_url ); ?>;
 								document.location = redirectTo;
 							}
 						}
@@ -198,7 +198,7 @@ class Edr_Gateway_Stripe extends Edr_Gateway_Base {
 		require_once EDR_PLUGIN_DIR . 'lib/Stripe/Stripe.php';
 
 		$token = $_POST['token'];
-		$amount = round( (float) $payment->amount, 2 );
+		$amount = edr_round_price( $payment->amount );
 		$description = sprintf( __( 'Payment #%d', 'educator' ), $payment->ID );
 		$description .= ' , ' . get_the_title( $payment->object_id );
 

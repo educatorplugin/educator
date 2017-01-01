@@ -118,10 +118,10 @@ class Edr_Gateway_Paypal extends Edr_Gateway_Base {
 		echo '<input type="hidden" name="item_number" value="' . intval( $payment->ID ) . '">';
 
 		if ( $payment->tax ) {
-			echo '<input type="hidden" name="tax" value="' . (float) $payment->tax . '">';
+			echo '<input type="hidden" name="tax" value="' . edr_round_tax_amount( $payment->tax ) . '">';
 		}
 
-		echo '<input type="hidden" name="amount" value="' . (float) $amount . '">';
+		echo '<input type="hidden" name="amount" value="' . edr_round_price( $amount ) . '">';
 		echo '<div id="paypal-form-buttons"><button type="submit">' . __( 'Continue', 'educator' ) . '</button></div>';
 		echo '</form>';
 		echo '<div id="paypal-redirect-notice" style="display: none;">' . __( 'Redirecting to PayPal...', 'educator' ) . '</div>';

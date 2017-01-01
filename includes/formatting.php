@@ -68,6 +68,16 @@ function edr_format_membership_price( $price, $duration, $period, $symbol = true
 }
 
 /**
+ * Round price.
+ *
+ * @param float $price
+ * @return float
+ */
+function edr_round_price( $price ) {
+	return round( $price, 2 );
+}
+
+/**
  * Round tax amount for display.
  *
  * @param float $amount
