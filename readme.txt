@@ -25,8 +25,8 @@ Create online courses and sell them online.
 
 = Links =
 
+* How to use Educator: https://educatorplugin.com/documentation/how-to-use-educator/
 * Documentation: https://educatorplugin.com/documentation/
-* Learn how this plugin works: https://educatorplugin.com/how-educator-works/
 * GitHub repository: https://github.com/educatorplugin/educator
 
 == Installation ==
