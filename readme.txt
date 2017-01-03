@@ -32,3 +32,10 @@ Create courses, add lessons and quizzes, organize syllabus, add grades, and much
 
 1. Upload the "educator" plugin folder to the "/wp-content/plugins/" directory
 2. Activate the plugin through the "Plugins" menu in WordPress admin panel
+
+== Changelog ==
+
+= 2.0.1 =
+
+* Adjusted the default public CSS
+* Hide the lessons widget from pages other than the single lesson page
