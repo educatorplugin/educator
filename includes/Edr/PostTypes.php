@@ -12,6 +12,18 @@ class Edr_PostTypes {
 		add_filter( 'comment_feed_where', array( __CLASS__, 'hide_comments_in_feed' ), 10, 2 );
 		add_filter( 'comments_clauses', array( __CLASS__, 'protect_comments' ), 10, 2 );
 		add_filter( 'comments_template', array( __CLASS__, 'protect_comments_template' ) );
+
+		/*
+		Modify the adjacent post's where clause to account for the behavior of lesson post type.
+		Lessons are assigned to a particular course, so we don't want to display the prev/next
+		links to lessons from other courses on the single lesson page.
+		*/
+		add_filter( 'get_previous_post_join', array( __CLASS__, 'get_adjacent_lesson_join' ), 10, 5 );
+		add_filter( 'get_previous_post_where', array( __CLASS__, 'get_previous_lesson_where' ), 10, 5 );
+		add_filter( 'get_previous_post_sort', array( __CLASS__, 'get_previous_lesson_sort' ), 10, 2 );
+		add_filter( 'get_next_post_join', array( __CLASS__, 'get_adjacent_lesson_join' ), 10, 5 );
+		add_filter( 'get_next_post_where', array( __CLASS__, 'get_next_lesson_where' ), 10, 5 );
+		add_filter( 'get_next_post_sort', array( __CLASS__, 'get_next_lesson_sort' ), 10, 2 );
 	}
 
 	/**
@@ -258,5 +270,106 @@ class Edr_PostTypes {
 		}
 
 		return EDR_PLUGIN_DIR . 'templates/comments-no-access.php';
+	}
+
+	/**
+	 * Filter the adjacent lesson join clause.
+	 *
+	 * @param string $join
+	 * @param boolean $in_same_term
+	 * @param array|string $excluded_terms
+	 * @param string $taxonomy
+	 * @param WP_Post $post
+	 * @return string
+	 */
+	public static function get_adjacent_lesson_join( $join, $in_same_term, $excluded_terms, $taxonomy, $post ) {
+		if ( EDR_PT_LESSON == $post->post_type ) {
+			global $wpdb;
+			$join .= " INNER JOIN $wpdb->postmeta pm ON p.ID = pm.post_id";
+		}
+
+		return $join;
+	}
+
+	/**
+	 * Get the adjacent lesson's where clause.
+	 *
+	 * @param WP_Post $post
+	 * @param boolean $previous
+	 * @return string
+	 */
+	protected static function get_adjacent_lesson_where( $post, $previous = true ) {
+		global $wpdb;
+		$cmp = $previous ? '<' : '>';
+		$course_id = Edr_Courses::get_instance()->get_course_id( $post->ID );
+		$where = $wpdb->prepare( " WHERE p.post_type = %s AND p.post_status = 'publish'
+			AND p.menu_order $cmp %d AND pm.meta_key = '_edr_course_id' AND pm.meta_value = %d",
+			EDR_PT_LESSON, $post->menu_order, $course_id );
+
+		return $where;
+	}
+
+	/**
+	 * Get the adjacent lesson's order and limit clauses.
+	 *
+	 * @param WP_Post $post
+	 * @param boolean $previous
+	 * @return string
+	 */
+	protected static function get_adjacent_lesson_sort( $post, $previous = true ) {
+		$order = $previous ? 'DESC' : 'ASC';
+		$sql = "ORDER BY p.menu_order $order LIMIT 1";
+
+		return $sql;
+	}
+
+	/**
+	 * Filter the previous lesson where clause.
+	 *
+	 * @param string $where
+	 * @param boolean $in_same_term
+	 * @param array|string $excluded_terms
+	 * @param string $taxonomy
+	 * @param WP_Post $post
+	 * @return string
+	 */
+	public static function get_previous_lesson_where( $where, $in_same_term, $excluded_terms, $taxonomy, $post ) {
+		return EDR_PT_LESSON == $post->post_type ? self::get_adjacent_lesson_where( $post, true ) : $where;
+	}
+
+	/**
+	 * Filter the previous lesson order and limit clauses.
+	 *
+	 * @param string $sql
+	 * @param WP_Post $post
+	 * @return string
+	 */
+	public static function get_previous_lesson_sort( $sql, $post ) {
+		return EDR_PT_LESSON == $post->post_type ? self::get_adjacent_lesson_sort( $post, true ) : $sql;
+	}
+
+	/**
+	 * Filter the next lesson where clause.
+	 *
+	 * @param string $where
+	 * @param boolean $in_same_term
+	 * @param array|string $excluded_terms
+	 * @param string $taxonomy
+	 * @param WP_Post $post
+	 * @return string
+	 */
+	public static function get_next_lesson_where( $where, $in_same_term, $excluded_terms, $taxonomy, $post ) {
+		return EDR_PT_LESSON == $post->post_type ? self::get_adjacent_lesson_where( $post, false ) : $where;
+	}
+
+	/**
+	 * Filter the next lesson order and limit clauses.
+	 *
+	 * @param string $sql
+	 * @param WP_Post $post
+	 * @return string
+	 */
+	public static function get_next_lesson_sort( $sql, $post ) {
+		return EDR_PT_LESSON == $post->post_type ? self::get_adjacent_lesson_sort( $post, false ) : $sql;
 	}
 }
