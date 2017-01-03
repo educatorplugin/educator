@@ -8,26 +8,25 @@ Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Educator is a simple learning management system plugin for WordPress.
+Educator is a simple learning management system plugin for WordPress. It lets you sell and teach online courses.
 
 == Description ==
 
-Create online courses and sell them online.
+Create courses, add lessons and quizzes, organize syllabus, add grades, and much more.
 
 = Features =
 
-* Create courses, lessons, and quizzes.
 * Sell courses using PayPal, bank transfer, cash, and check payment methods.
 * Set grades for courses and quizzes.
 * Create and sell memberships for courses.
-* Edit slugs for the courses, course categories, and lessons archives.
-* Set a prerequisite for a course.
+* Edit slugs for courses, course categories, and lessons archives.
+* Set a prerequisite for courses.
 
 = Links =
 
-* How to use Educator: https://educatorplugin.com/documentation/how-to-use-educator/
-* Documentation: https://educatorplugin.com/documentation/
-* GitHub repository: https://github.com/educatorplugin/educator
+* <a href="https://educatorplugin.com/documentation/how-to-use-educator/">How to use Educator</a>
+* <a href="https://educatorplugin.com/documentation/">Documentation</a>
+* <a href="https://github.com/educatorplugin/educator">GitHub repository</a>
 
 == Installation ==
 
