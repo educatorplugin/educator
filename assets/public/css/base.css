@@ -85,11 +85,23 @@
 
 /* Courses shortcode */
 .edr-course {
-	margin: 0 0 2em;
+	margin: 0 0 40px;
 }
 
 .edr-course__image {
 	margin: 0 0 10px;
+}
+
+.edr-course__header {
+    margin: 0 0 20px;
+}
+
+.edr-course__title {
+    margin: 0;
+}
+
+.edr-course__price {
+    margin: 10px 0 0;
 }
 
 /* Membership shortcode */
