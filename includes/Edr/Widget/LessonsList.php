@@ -12,6 +12,12 @@ class Edr_Widget_LessonsList extends WP_Widget {
 	}
 
 	public function widget( $args, $instance ) {
+		$lesson_id = get_the_ID();
+
+		if ( ! $lesson_id || EDR_PT_LESSON != get_post_type( $lesson_id ) ) {
+			return;
+		}
+
 		echo $args['before_widget'];
 
 		if ( ! empty( $instance['title'] ) ) {
@@ -19,23 +25,19 @@ class Edr_Widget_LessonsList extends WP_Widget {
 				$args['after_title'];
 		}
 
-		$lesson_id = get_the_ID();
+		$obj_courses = Edr_Courses::get_instance();
+		$course_id = $obj_courses->get_course_id( $lesson_id );
+		$syllabus = $obj_courses->get_syllabus( $course_id );
 
-		if ( $lesson_id && EDR_PT_LESSON == get_post_type() ) {
-			$obj_courses = Edr_Courses::get_instance();
-			$course_id = $obj_courses->get_course_id( $lesson_id );
-			$syllabus = $obj_courses->get_syllabus( $course_id );
-
-			if ( ! empty( $syllabus ) ) {
-				Edr_View::the_template( 'widgets/lessons-list-syllabus', array(
-					'syllabus' => $syllabus,
-					'lessons'  => $obj_courses->get_syllabus_lessons( $syllabus ),
-				) );
-			} else {
-				Edr_View::the_template( 'widgets/lessons-list-all', array(
-					'lessons' => $obj_courses->get_course_lessons( $course_id ),
-				) );
-			}
+		if ( ! empty( $syllabus ) ) {
+			Edr_View::the_template( 'widgets/lessons-list-syllabus', array(
+				'syllabus' => $syllabus,
+				'lessons'  => $obj_courses->get_syllabus_lessons( $syllabus ),
+			) );
+		} else {
+			Edr_View::the_template( 'widgets/lessons-list-all', array(
+				'lessons' => $obj_courses->get_course_lessons( $course_id ),
+			) );
 		}
 
 		echo $args['after_widget'];

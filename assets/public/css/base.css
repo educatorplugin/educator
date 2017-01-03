@@ -2,7 +2,7 @@
 
 /* Buy Widget */
 .edr-buy-widget {
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 .edr-buy-widget__price {
@@ -83,14 +83,38 @@
 	margin-right: 5px;
 }
 
-/* Courses and memberships shortcodes */
-.edr-course,
-.edr-membership {
+/* Courses shortcode */
+.edr-course {
 	margin: 0 0 2em;
 }
 
 .edr-course__image {
 	margin: 0 0 10px;
+}
+
+/* Membership shortcode */
+.edr-membership {
+    margin: 0 0 40px;
+}
+
+.edr-membership__header {
+    margin: 0 0 20px;
+}
+
+.edr-membership__title {
+    margin: 0;
+}
+
+.edr-membership__price {
+    margin: 10px 0 0;
+}
+
+.edr-membership__summary p {
+    margin: 0 0 20px;
+}
+
+.edr-membership__more {
+    margin-right: 10px;
 }
 
 /* Lists */
@@ -104,7 +128,7 @@
 
 /* No access notice */
 .edr-no-access-notice {
-	margin: 0 0 10px;
+	margin: 0 0 20px;
 }
 
 /* Payment Information */
@@ -219,4 +243,13 @@
 .choice-wrong.choice-selected:before {
 	content: '\00d7';
 	font-size: 18px;
+}
+
+/* Widgets */
+.syllabus-widget .group {
+    margin: 0 0 20px;
+}
+
+.syllabus-widget .group-header {
+    margin: 0 0 10px;
 }
