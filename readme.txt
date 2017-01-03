@@ -4,7 +4,7 @@ Donate link: https://educatorplugin.com
 Tags: learning management system, lms, learning, online courses
 Requires at least: 4.7
 Tested up to: 4.7
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,7 @@ Create courses, add lessons and quizzes, organize syllabus, add grades, and much
 
 = Links =
 
+* <a href="https://demo.educatorplugin.com/educator-2/">View demo</a>
 * <a href="https://educatorplugin.com/documentation/how-to-use-educator/">How to use Educator</a>
 * <a href="https://educatorplugin.com/documentation/">Documentation</a>
 * <a href="https://github.com/educatorplugin/educator">GitHub repository</a>
@@ -34,6 +35,11 @@ Create courses, add lessons and quizzes, organize syllabus, add grades, and much
 2. Activate the plugin through the "Plugins" menu in WordPress admin panel
 
 == Changelog ==
+
+= 2.0.2 =
+
+* Adjusted the default prev/next links for the edr_lesson post type
+* Removed custom prev/next links from the single lesson page
 
 = 2.0.1 =
 
