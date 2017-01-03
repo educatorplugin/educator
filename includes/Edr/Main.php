@@ -212,7 +212,7 @@ class Edr_Main {
 	 */
 	public function enqueue_scripts_styles() {
 		if ( apply_filters( 'edr_stylesheet', true ) ) {
-			wp_enqueue_style( 'edr-base', EDR_PLUGIN_URL . 'assets/public/css/base.css', array(), '2.0.1' );
+			wp_enqueue_style( 'edr-base', EDR_PLUGIN_URL . 'assets/public/css/base.css', array(), '2.0.3' );
 		}
 
 		if ( edr_is_page( 'payment' ) ) {

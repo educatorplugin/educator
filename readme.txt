@@ -4,7 +4,7 @@ Donate link: https://educatorplugin.com
 Tags: learning management system, lms, learning, online courses
 Requires at least: 4.7
 Tested up to: 4.7
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,10 @@ Create courses, add lessons and quizzes, organize syllabus, add grades, and much
 2. Activate the plugin through the "Plugins" menu in WordPress admin panel
 
 == Changelog ==
+
+= 2.0.3 =
+
+* Display price in the "courses" shortcode
 
 = 2.0.2 =
 

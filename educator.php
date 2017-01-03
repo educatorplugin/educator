@@ -5,7 +5,7 @@
  * Description: Sell and teach online courses
  * Author: educatorteam
  * Author URI: http://educatorplugin.com/
- * Version: 2.0.2
+ * Version: 2.0.3
  * License: GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: educator
@@ -31,7 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'EDR_VERSION', '2.0.2' );
+define( 'EDR_VERSION', '2.0.3' );
 define( 'EDR_DB_VERSION', '2.0' );
 define( 'EDR_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'EDR_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
