@@ -12,4 +12,3 @@ add_action( 'edr_before_single_course_content', 'edr_display_course_info' );
 add_action( 'edr_after_single_course_content', 'edr_display_lessons' );
 
 add_action( 'edr_before_single_lesson_content', 'edr_display_breadcrumbs' );
-add_action( 'edr_after_single_lesson_content', 'edr_lessons_nav_links' );
